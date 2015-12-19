@@ -15,6 +15,7 @@
         <script src="<?php bloginfo('template_url') ?>/js/jquery.form.js"></script>
         <script src="<?php bloginfo('template_url') ?>/js/jquery.validate.min.js"></script>
         <!-- <script src="<?php bloginfo('template_url') ?>/js/jquery.cookie.js"></script> -->
+        <!-- <script src="<?php bloginfo('template_url') ?>/js/animate.js"></script> -->
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <!-- 
