@@ -12,7 +12,7 @@
 <?php endif; ?>
 
 
-<!doctype html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
@@ -28,11 +28,10 @@
         <link rel="apple-touch-icon" href="<?php bloginfo('template_url') ?>/apple-touch-icon.png">
 
         <link rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/bootstrap.css">
+        <link rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/animate.css">
 
         <link rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="<?php bloginfo('template_url') ?>/style.css">
-
-        <script src="<?php bloginfo('template_url') ?>/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 
     </head>
 
