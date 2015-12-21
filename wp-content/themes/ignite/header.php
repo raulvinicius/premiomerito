@@ -13,10 +13,36 @@
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+
+<!--[if lt IE 7]>
+      <html 
+        xmlns='http://www.w3.org/1999/xhtml' 
+        xmlns:og='http://ogp.me/ns#' 
+        class="no-js lt-ie9 lt-ie8 lt-ie7" 
+        lang="pt-br">
+<![endif]-->
+<!--[if IE 7]>
+    <html 
+        xmlns='http://www.w3.org/1999/xhtml' 
+        xmlns:og='http://ogp.me/ns#' 
+        class="no-js lt-ie9 lt-ie8" 
+        lang="pt-br">
+<![endif]-->
+<!--[if IE 8]>
+    <html 
+        xmlns='http://www.w3.org/1999/xhtml' 
+        xmlns:og='http://ogp.me/ns#' 
+        class="no-js lt-ie9" 
+        lang="pt-br">
+<![endif]-->
+<!--[if gt IE 8]><!-->
+<html
+    xmlns='http://www.w3.org/1999/xhtml'
+    xmlns:og='http://ogp.me/ns#'
+    class="no-js"
+    lang="pt-br">
+<!--<![endif]-->
+
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -32,6 +58,14 @@
 
         <link rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="<?php bloginfo('template_url') ?>/style.css">
+
+        <!-- PUBLICAÇÃO EM REDES SOCIAIS -->
+        <meta property='og:title' content='' />
+        <meta property='og:description' content='' />
+        <meta property='og:url' content='<?php bloginfo('url') ?>' />
+        <meta property='og:image' content='<?php bloginfo('template_url') ?>/img/imagem.png'/>
+        <meta property='og:type' content='website' />
+        <meta property='og:site_name' content='' />
 
     </head>
 
