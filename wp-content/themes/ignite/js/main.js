@@ -52,9 +52,9 @@ $(document).ready(function() {
 	$( '.data' ).mask('00/00/0000', {placeholder: "__/__/____"});
 
 
-	$('.form').submit(function(){return false});
+	$('form.js').submit(function(e){return false;e.preventDefault();});
 
-	$('form input[type="submit"]').bind('click', 
+	$('form.js input[type="submit"]').bind('click', 
 		function()
 		{
 			$(this).closest('form').validate({

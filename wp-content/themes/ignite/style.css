@@ -37,33 +37,33 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 /*----------------------CLASSES----------------------*/
 
-.ani-02-in-out,
+.ani-02,
 .hided,
 .appeared
 {
-    -webkit-transition: 0.2s all ease-in-out;
-    -moz-transition: 0.2s all ease-in-out;
-    -o-transition: 0.2s all ease-in-out;
-    -ms-transition: 0.2s all ease-in-out;
-    transition: 0.2s all ease-in-out;
+    -webkit-transition: 0.2s all cubic-bezier(0.34, 0, 0, 1);
+    -moz-transition: 0.2s all cubic-bezier(0.34, 0, 0, 1);
+    -o-transition: 0.2s all cubic-bezier(0.34, 0, 0, 1);
+    -ms-transition: 0.2s all cubic-bezier(0.34, 0, 0, 1);
+    transition: 0.2s all cubic-bezier(0.34, 0, 0, 1);
 }
 
-.ani-04-in-out
+.ani-04
 {
-    -webkit-transition: 0.4s all ease-in-out;
-    -moz-transition: 0.4s all ease-in-out;
-    -o-transition: 0.4s all ease-in-out;
-    -ms-transition: 0.4s all ease-in-out;
-    transition: 0.4s all ease-in-out;
+    -webkit-transition: 0.4s all cubic-bezier(0.34, 0, 0, 1);
+    -moz-transition: 0.4s all cubic-bezier(0.34, 0, 0, 1);
+    -o-transition: 0.4s all cubic-bezier(0.34, 0, 0, 1);
+    -ms-transition: 0.4s all cubic-bezier(0.34, 0, 0, 1);
+    transition: 0.4s all cubic-bezier(0.34, 0, 0, 1);
 }
 
-.ani-06-in-out
+.ani-06
 {
-    -webkit-transition: 0.6s all ease-in-out;
-    -moz-transition: 0.6s all ease-in-out;
-    -o-transition: 0.6s all ease-in-out;
-    -ms-transition: 0.6s all ease-in-out;
-    transition: 0.6s all ease-in-out;
+    -webkit-transition: 0.6s all cubic-bezier(0.34, 0, 0, 1);
+    -moz-transition: 0.6s all cubic-bezier(0.34, 0, 0, 1);
+    -o-transition: 0.6s all cubic-bezier(0.34, 0, 0, 1);
+    -ms-transition: 0.6s all cubic-bezier(0.34, 0, 0, 1);
+    transition: 0.6s all cubic-bezier(0.34, 0, 0, 1);
 }
 
 
@@ -151,6 +151,12 @@ body
 	font-family: 'dinproregular', 'Arial Narrow', Arial, sans-serif;
 }
 
+*, *:before, *:after
+{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
 
 
 
