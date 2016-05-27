@@ -141,6 +141,15 @@ function slugify($text)
   return $text;
 }
 
+function pluralize ($num, $plural = 's', $single = '')
+{ 
+    if ($num == 1) :
+    	return $single; 
+ 	else :
+ 		return $plural; 
+ 	endif;
+}
+
 
 // ADICIONA URL ABSOLUTO NO AMBIENTE DE DESENVOLVIMENTO
 function completaUrl ($urlAdicional = "")
