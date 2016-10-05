@@ -62,12 +62,42 @@
         <link rel="stylesheet" href="<?php bloginfo('template_url') ?>/style.css">
 
         <!-- PUBLICAÇÃO EM REDES SOCIAIS -->
-        <meta property='og:title' content='' />
-        <meta property='og:description' content='' />
+
+        <!-- FACEBOOK -->
+        <meta property='fb:admins' content='fanpagedofacebook' /> <!-- essa configuração diz ao Facebook que você é o administrador da fanpage -->
+        <meta property='og:locale' content='pt_BR' />
+        <meta property='og:locale:alternate' content='en_US' /> <!-- idiomas alternativos em que o site também pode estar disponível -->
+        <meta property='og:title' content='' /> <!-- título interessante para a página (ex.: Conhecendo a equipe) -->
+        <meta property='og:site_name' content='' /> <!-- nome do site (ex.: Empresa X) -->
+        <meta property='og:description' content='' /> <!-- Descrição do conteúdo/site para intrigar os usuários (ex.: Fazendo o bem para o mundo), max: 200 caracteres -->
         <meta property='og:url' content='<?php bloginfo('url') ?>' />
         <meta property='og:image' content='<?php bloginfo('template_url') ?>/img/imagem.png'/>
+        <meta property='og:image:type' content="image/png">
+        <meta property="og:image:width" content="800">
+        <meta property="og:image:height" content="600">
         <meta property='og:type' content='website' />
-        <meta property='og:site_name' content='' />
+        <!-- caso o tipo seja um "ARTICLE" -->
+        <!-- 
+        <meta property="og:type" content="article">
+        <meta property="article:author" content="Autor">
+        <meta property="article:section" content="Tutoriais">
+        <meta property="article:tag" content="Facebook, tags, og, open graph">
+        <meta property="article:published_time" content="date_time">
+         -->
+
+        <!-- TWITTER -->
+        <meta name='twitter:card' content='summary'> <!-- photo (para imagens), player (para vídeos), Summary (para todo o resto) -->
+        <meta name='twitter:url' content='<?php bloginfo('url') ?>'>
+        <meta name='twitter:title' content='' /> <!-- título interessante para a página (ex.: Conhecendo a equipe) -->
+        <meta name='twitter:description' content='' /> <!-- Descrição do conteúdo/site para intrigar os usuários (ex.: Fazendo o bem para o mundo), max: 200 caracteres -->
+        <meta name='twitter:image' content='<?php bloginfo('template_url') ?>/img/imagem.png'/> <!-- entre 60x60px e 120x120px -->
+
+        <!-- GOOGLE+ -->
+        <!-- Atualize a tag html para incluir os atributos itemscope e itemtype. -->
+        <meta itemprop='name' content=''> <!-- nome ou título interessante para a página (ex.: Conhecendo a equipe) -->
+        <meta itemprop='description' content=''>  <!-- Descrição do conteúdo/site para intrigar os usuários (ex.: Fazendo o bem para o mundo), max: 200 caracteres -->
+        <meta itemprop='image' content='<?php bloginfo('template_url') ?>/img/imagem.png'/> <!-- entre 60x60px e 120x120px -->
+
 
     </head>
 
@@ -84,31 +114,6 @@
             </div>
 
         <![endif]-->
-
-        <?php //$fileN =  basename ( $_SERVER["SCRIPT_NAME"] ); ?>
-        <?php $fileN2 = $_SERVER[ "REQUEST_URI" ] ?>
-        <!-- ATENÇÃO! Alterar "ignite" pelo nome da pasta WordPress -->
-        <?php $fileN2 = str_replace("/ignite", '', $fileN2) ?>
-        <?php $fileN2 = str_replace("/frontend", '', $fileN2) ?>
-        <?php $fileN2 = explode('/', $fileN2) ?>
-        <?php $fileN2 = $fileN2[1]; ?>
-
-        <?php
-
-        if ( $fileN2 == "" ) : 
-        	$fileN2 = "index";
-        endif;
-
-        ?>
-
-        <?php if ( $frontendUrl != "" ) : ?>
-
-            <?php $tUrl = get_bloginfo("template_url"); ?>
-
-            <?php require( "frontend/" . $fileN2 . '.php' ) ?>
-            <?php die(); ?>
-
-        <?php endif; ?>
 
 
         
