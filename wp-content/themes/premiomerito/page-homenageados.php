@@ -19,32 +19,33 @@
 				$arEdicoes = array();
 
 				$homenageados = get_post_by_type('homenageados');
-				
+
 				while ( $homenageados->have_posts() ) :
 					$homenageados->the_post();
 					$edicao = get_field('edicao');
 					
-					$terms = $edicao;
-
-					foreach ($terms as $term) {
-						$arEdicoes[] = $term->name;
-					} 
+					$arEdicoes[] = array(
+					    'id' => $edicao[0],
+					    'name' => get_term_by('id', $edicao[0], 'tag-edicoes')->name
+					);
 
 				endwhile;
 
+
 				wp_reset_query();
 
-				$arEdicoes = array_unique( $arEdicoes );
-				rsort( $arEdicoes );
+				$arEdicoes = array_map('unserialize', array_unique(array_map('serialize', $arEdicoes)));
+
+				$arEdicoes = array_orderby($arEdicoes, 'name', SORT_DESC);
 
 			?>
 
-			<select class="ani-04 bg-cor-1 bg-cor-2-hover" name="ano" <?php echo ( isset($_GET['ano']) ) ? 'data-s="' . $_GET['ano'] . '"' : ''; ?> <?php echo ( count( $arEdicoes ) <= 1 ) ? 'disabled' : ''; ?>>
+			<select id="select-edicao" class="ani-04 bg-cor-1 bg-cor-2-hover" name="ano" <?php echo ( isset($_GET['ano']) ) ? 'data-s="' . $_GET['ano'] . '"' : ''; ?> <?php echo ( count( $arEdicoes ) <= 1 ) ? 'disabled' : ''; ?>>
 				<?php
 					for ($i=0; $i < count( $arEdicoes ); $i++) :
 						?>
 						
-						<option value="<?php echo $arEdicoes[$i] ?>" <?php echo ( ( isset( $_GET['ano'] ) && $_GET['ano'] == $arEdicoes[$i] ) || $i == 0 ) ? 'selected' : ''; ?>>em <?php echo $arEdicoes[$i] ?></option>
+						<option value="<?php echo $arEdicoes[$i]['name'] ?>" <?php echo ( ( isset( $_GET['ano'] ) && $_GET['ano'] == $arEdicoes[$i]['name'] ) || $i == 0 ) ? 'selected' : ''; ?>>em <?php echo $arEdicoes[$i]['name'] ?></option>
 
 						<?php 
 					endfor;
@@ -52,11 +53,12 @@
 
 					if ( isset( $_GET['ano'] ) ) 
 					{
-					    $ano = $_GET['ano'];
+					    $ano = get_term_by('slug', $_GET['ano'], 'tag-edicoes')->term_id;
+					    var_dump($ano);
 					}
 					else
 					{
-					    $ano = $arEdicoes[0];
+					    $ano = $arEdicoes[0]->id;
 					}
 
 				?>
@@ -67,9 +69,15 @@
 
 	<?php
 
-		$extraArgs = array('tax_query' => array(
-		    'name' => $ano
-		));
+		$extraArgs = array(
+			'meta_query'	=> array(
+				array(
+					'key'      => 'edicao',
+				    'value'    => $ano,
+				    'compare'   => 'LIKE'
+				)		  
+			)
+		);
 
 		$homenageados = get_post_by_type('homenageados', $extraArgs);
 		
@@ -123,11 +131,13 @@
 							C436.8,111.6,373.9,50.5,261.2,50.5z"/>
 						</svg>
 					</i>
-					<span id="pre">Homenageados </span>Atendimento<span id="pos"> <?php echo $ano ?></span>
+					<span id="pre">Homenageados </span>Atendimento<span id="pos"> <?php echo get_term_by('id', $ano, 'tag-edicoes')->name ?></span>
 				</h2>
 			</div>
 			<div class="row">
 				<ul class="col-xs-12">
+					<?php 
+					 ?>
 					<?php for ($i=0; $i < count( $arHomenageados['atendimento'] ); $i++) :
 
 						?>
@@ -175,7 +185,7 @@
 						</svg>
 
 					</i>
-					<span id="pre">Homenageados </span>Crescimento<span id="pos"> <?php echo $ano ?></span>
+					<span id="pre">Homenageados </span>Crescimento<span id="pos"> <?php echo get_term_by('id', $ano, 'tag-edicoes')->name ?></span>
 				</h2>
 			</div>
 			<div class="row">
@@ -229,7 +239,7 @@
 						</svg>
 
 					</i>
-					<span id="pre">Homenageados </span>Criatividade<span id="pos"> <?php echo $ano ?></span>
+					<span id="pre">Homenageados </span>Criatividade<span id="pos"> <?php echo get_term_by('id', $ano, 'tag-edicoes')->name ?></span>
 				</h2>
 			</div>
 			<div class="row">
@@ -286,7 +296,7 @@
 						</svg>
 
 					</i>
-					<span id="pre">Homenageados </span>Personalidade<span id="pos"> <?php echo $ano ?></span>
+					<span id="pre">Homenageados </span>Personalidade<span id="pos"> <?php echo get_term_by('id', $ano, 'tag-edicoes')->name ?></span>
 				</h2>
 			</div>
 			<div class="row">

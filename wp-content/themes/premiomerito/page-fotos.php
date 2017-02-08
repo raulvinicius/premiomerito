@@ -19,28 +19,32 @@
                     $fotos->the_post();
                     $edicao = get_field('edicao');
 
-                    $terms = $edicao;
-                    $arEdicoes[] = $edicao->name;
+                    $arEdicoes[] = array(
+                        'id' => $edicao,
+                        'name' => get_term_by('id', $edicao, 'tag-edicoes')->name
+                    );
                 endwhile;
 
-                $arEdicoes = array_unique( $arEdicoes );
-                rsort( $arEdicoes );
+                $arEdicoes = array_map('unserialize', array_unique(array_map('serialize', $arEdicoes)));
+
+                $arEdicoes = array_orderby($arEdicoes, 'name', SORT_DESC);
 
             ?>
 
-            <select class="ani-04 bg-cor-1 bg-cor-2-hover" name="ano" <?php echo ( isset($_GET['ano']) ) ? 'data-s="' . $_GET['ano'] . '"' : ''; ?> <?php echo ( count( $arEdicoes ) <= 1 ) ? 'disabled' : ''; ?>>
+            <select id="select-edicao" class="ani-04 bg-cor-1 bg-cor-2-hover" name="ano" <?php echo ( isset($_GET['ano']) ) ? 'data-s="' . $_GET['ano'] . '"' : ''; ?> <?php echo ( count( $arEdicoes ) <= 1 ) ? 'disabled' : ''; ?>>
                 <?php 
                     for ($i=0; $i < count( $arEdicoes ); $i++) : 
                         ?>
                         
-                        <option value="<?php echo $arEdicoes[$i] ?>" <?php echo ( ( isset( $_GET['ano'] ) && $_GET['ano'] == $arEdicoes[$i] ) || $i == 0 ) ? 'selected' : ''; ?>>em <?php echo $arEdicoes[$i] ?></option>
+                        <option value="<?php echo $arEdicoes[$i]['name'] ?>" <?php echo ( ( isset( $_GET['ano'] ) && $_GET['ano'] == $arEdicoes[$i]['name'] ) || $i == 0 ) ? 'selected' : ''; ?>>em <?php echo $arEdicoes[$i]['name'] ?></option>
 
                         <?php 
                     endfor;
 
                     if ( isset( $_GET['ano'] ) ) 
                     {
-                        $ano = $_GET['ano'];
+                        $ano = get_term_by('slug', $_GET['ano'], 'tag-edicoes')->term_id;
+                        var_dump($ano);
                     }
                     else
                     {
@@ -59,12 +63,15 @@
 
             <?php 
 
-            $extraArgs = array('tax_query' => array(
-                'name' => $ano
-            ));
+            var_dump($ano);
+
+            $extraArgs = array(
+                'meta_key'      => 'edicao',
+                'meta_value'    => $ano
+            );
 
             $fotos = get_post_by_type('fotos', $extraArgs);
-            
+
             while ( $fotos->have_posts() ) :
                 $fotos->the_post();
 
@@ -98,7 +105,7 @@
 
                 <!-- <button id="left" class="col-xs-1"></button> -->
                 
-                <div class="wrap-img col-xs-10">
+                <div class="wrap-img col-xs-10 col-xs-offset-1">
                     <span id="helper"></span>
                     <img src="" />
                 </div>

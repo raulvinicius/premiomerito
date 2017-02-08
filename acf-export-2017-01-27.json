@@ -1,0 +1,346 @@
+[
+    {
+        "key": "group_588b32093b995",
+        "title": "Fotos",
+        "fields": [
+            {
+                "key": "field_588b3300bf23f",
+                "label": "Edi\u00e7\u00e3o",
+                "name": "edicao",
+                "type": "taxonomy",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": 33,
+                    "class": "",
+                    "id": ""
+                },
+                "taxonomy": "tag-edicoes",
+                "field_type": "select",
+                "allow_null": 0,
+                "add_term": 1,
+                "save_terms": 0,
+                "load_terms": 0,
+                "return_format": "object",
+                "multiple": 0
+            },
+            {
+                "key": "field_588b3219cd813",
+                "label": "Foto",
+                "name": "foto",
+                "type": "gallery",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": 100,
+                    "class": "",
+                    "id": ""
+                },
+                "min": "",
+                "max": "",
+                "preview_size": "thumbnail",
+                "library": "all",
+                "min_width": 1080,
+                "min_height": 720,
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "jpg, jpeg, gif, png"
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "fotos"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": [
+            "the_content"
+        ],
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_588ae859e763c",
+        "title": "Homenageados",
+        "fields": [
+            {
+                "key": "field_588ae86beeb24",
+                "label": "Foto",
+                "name": "foto",
+                "type": "image",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": 40,
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "array",
+                "preview_size": "medium",
+                "library": "all",
+                "min_width": 570,
+                "min_height": 480,
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": ""
+            },
+            {
+                "key": "field_588ae8cdeeb25",
+                "label": "Edi\u00e7\u00e3o",
+                "name": "edicao",
+                "type": "taxonomy",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": 50,
+                    "class": "",
+                    "id": ""
+                },
+                "taxonomy": "tag-edicoes",
+                "field_type": "checkbox",
+                "allow_null": 0,
+                "add_term": 1,
+                "save_terms": 0,
+                "load_terms": 0,
+                "return_format": "object",
+                "multiple": 0
+            },
+            {
+                "key": "field_588ae921eeb26",
+                "label": "Categoria",
+                "name": "categoria",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": 33,
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "atendimento": "Atendimento",
+                    "crescimento": "Crescimento",
+                    "criatividade": "Criatividade",
+                    "personalidade": "Personalidade"
+                },
+                "default_value": [],
+                "allow_null": 0,
+                "multiple": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": "",
+                "disabled": 0,
+                "readonly": 0
+            },
+            {
+                "key": "field_588af958eeb27",
+                "label": "Empresa",
+                "name": "empresa",
+                "type": "text",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_588ae921eeb26",
+                            "operator": "!=",
+                            "value": "personalidade"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": 33,
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": "",
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_588af99aeeb28",
+                "label": "Logo da Empresa",
+                "name": "logo",
+                "type": "image",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_588ae921eeb26",
+                            "operator": "!=",
+                            "value": "personalidade"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": 33,
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "array",
+                "preview_size": "thumbnail",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "jpeg, jpg, gif, png"
+            },
+            {
+                "key": "field_588af9fbeeb29",
+                "label": "Biografia",
+                "name": "biografia",
+                "type": "text",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": 100,
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": "",
+                "readonly": 0,
+                "disabled": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "homenageados"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": [
+            "the_content"
+        ],
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_588acc10f0504",
+        "title": "Palestrantes",
+        "fields": [
+            {
+                "key": "field_588ad2fbcdfc8",
+                "label": "Foto",
+                "name": "foto",
+                "type": "image",
+                "instructions": "JPG, PNG",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": 50,
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "array",
+                "preview_size": "medium",
+                "library": "all",
+                "min_width": 800,
+                "min_height": 650,
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "jpg, jpeg, png"
+            },
+            {
+                "key": "field_588acc16618ae",
+                "label": "Ano da participa\u00e7\u00e3o",
+                "name": "ano",
+                "type": "text",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": 33,
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": 4,
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_588acc70618af",
+                "label": "Biografia",
+                "name": "biografia",
+                "type": "textarea",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": 100,
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "maxlength": "",
+                "rows": "",
+                "new_lines": "wpautop",
+                "readonly": 0,
+                "disabled": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "palestrantes"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": [
+            "the_content"
+        ],
+        "active": 1,
+        "description": ""
+    }
+]

@@ -2065,11 +2065,37 @@ footer .rodape #realizacao ul #feicotur
 .page-fotos ul
 {
     margin-bottom: 70px;
+    margin-top: -50px;
 }
 
 .page-fotos ul li
 {
     padding: 0px;
+}
+
+.page-fotos ul li:before
+{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 100%;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: url(img/premiomerito-bg-lupa-fotos.png) center;
+    pointer-events: none;
+    z-index: 10;
+
+    -webkit-transition: 0.4s all cubic-bezier(0.34, 0, 0, 1);
+    -moz-transition: 0.4s all cubic-bezier(0.34, 0, 0, 1);
+    -o-transition: 0.4s all cubic-bezier(0.34, 0, 0, 1);
+    -ms-transition: 0.4s all cubic-bezier(0.34, 0, 0, 1);
+    transition: 0.4s all cubic-bezier(0.34, 0, 0, 1);
+}
+
+.page-fotos ul li:hover:before
+{
+    top: 0;
 }
 
 .page-fotos ul li figure img

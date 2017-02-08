@@ -18,11 +18,11 @@ $(document).ready(function() {
 	$( window ).on('hashchange', function(e) 
 	{
 		//SE ESTIVER NA PÁGINA "HOMENAGEADOS" E HOUVER HASHTAG
-		if (window.location.href.indexOf('/homenageados/') && window.location.hash != '') 
+		if (window.location.href.indexOf('/homenageados/') && window.location.href.indexOf('#') > -1) 
 		{
 			abreLista();
 		} 
-		else if (window.location.href.indexOf('/homenageados/') && window.location.hash == '') 
+		else if (window.location.href.indexOf('/homenageados/') && window.location.href.indexOf('#') <= -1)
 		{
 			fechaLista();
 		};
@@ -83,11 +83,79 @@ $(document).ready(function() {
 
 
 
+	//-----------------SELECT EDICAO-----------------//
+
+	$('#select-edicao').on('change', function(event) {
+		url = trataURL();
+
+		if ('ano' in url['search'])
+		{
+			url['search']['ano'] = $(this).val();
+		}
+		else
+		{
+			url['search']['ano'] = $(this).val();
+		}
+
+		var strSearch = '';
+		$.each(url['search'], function (index, value)
+		{
+			strSearch += '&' + index + '=' + value;
+		});
+		strSearch = '?' + strSearch.substring(1);
+
+		window.location = url['url'] + url['hash'] + strSearch;
+	});
+
+	//-----------------SELECT EDICAO-----------------//
+
+
+
+
 	//-----------------HOMENAGEADOS-----------------//
 
-	// $('.page-homenageados #abre-lista').on('click', abreLista);
+	$('.page-homenageados #abre-lista').on('click', function(event) {
+		event.preventDefault();
+		url = trataURL();
 
-	$('.page-homenageados #fecha-lista').on('click', fechaLista);
+		url['hash'] = '#' + $(this).closest('li').attr('id');
+
+		var strSearch = '';
+
+		if( !$.isEmptyObject( url['search'] ) )
+		{
+			$.each(url['search'], function (index, value)
+			{
+				strSearch += '&' + index + '=' + value;
+			});
+			strSearch = '?' + strSearch.substring(1);
+		}
+
+		window.location.href = url['url'] + url['hash'] + strSearch
+		// abreLista();
+	});
+
+	$('.page-homenageados #fecha-lista').on('click', function(event) {
+		event.preventDefault();
+
+		url = trataURL();
+
+		url['hash'] = '';
+
+		var strSearch = '';
+
+		if( !$.isEmptyObject( url['search'] ) )
+		{
+			$.each(url['search'], function (index, value)
+			{
+				strSearch += '&' + index + '=' + value;
+			});
+			strSearch = '?' + strSearch.substring(1);
+		}
+
+		window.location.href = url['url'] + url['hash'] + strSearch
+		// fechaLista();
+	});
 
 	//-----------------HOMENAGEADOS-----------------//
 
@@ -388,22 +456,27 @@ function fechaZoomFoto ()
 var scrlWindow;
 function abreLista (e)
 {
-	$('.page-homenageados').height( $('.page-homenageados').height() );
-	$('body').css('overflow', 'hidden');
-	$('.page-homenageados .grade').addClass('lista').removeClass('grade');
+	
+	if( $('.page-homenageados').length > 0 )
+	{
+		$('.page-homenageados').height( $('.page-homenageados').height() );
+		$('body').css('overflow', 'hidden');
+		$('.page-homenageados .grade').addClass('lista').removeClass('grade');
 
-	scrlWindow = $(window).scrollTop();
+		scrlWindow = $(window).scrollTop();
 
-	$('.page-homenageados .lista')
-		.scrollTop( 
-			$('.page-homenageados ' + window.location.hash).offset().top - 
-			$(window).scrollTop() + 
-			$('.page-homenageados .lista').scrollTop() 
-		);
+		$('.page-homenageados .lista')
+			.scrollTop( 
+				$('.page-homenageados ' + window.location.hash.split('?')[0]).offset().top - 
+				$(window).scrollTop() + 
+				$('.page-homenageados .lista').scrollTop() 
+			);
+	}
 }
 
 function fechaLista (e)
 {
+
 	$('.page-homenageados').css('height', 'auto');
 	$('body').css('overflow', 'visible');
 	$('.page-homenageados .lista').addClass('grade').removeClass('lista');
@@ -412,4 +485,59 @@ function fechaLista (e)
 		.scrollTop( 
 			scrlWindow
 		);
+}
+
+function trataURL () 
+{
+	var hash = '';
+	var search = '';
+
+	// SE HÁ HASH
+	if ( window.location.hash != '' )
+	{
+		hash = window.location.hash.split('?');
+
+		// SE HÁ VARIÁVEIS DENTRO DA HASH, COLOCA EM SEARCH
+		if( hash.length > 1 )
+		{
+			search = '?' + hash[1];
+		}
+
+		hash = hash[0];
+	} 
+	else if ( window.location.search != '' ) // SE HÁ SÓ VARIÁVEIS NA URL, COLOCA NA SEARCH
+	{
+		search = window.location.search;
+	}
+
+	// VERIFICA SE HÁ MAIS DE UMA VARIÁVEL
+	if ( search != '' && search.substring(1).indexOf('&') > -1 )
+	{
+		tmpSearch = search.substring(1).split('&');
+		search = {};
+		for (var i = 0; i < tmpSearch.length; i++) 
+		{
+			search[tmpSearch[i].split('=')[0]] = tmpSearch[i].split('=')[1];
+		};
+
+	}
+	else if (search != '' && search.substring(1).indexOf('&') <= -1)
+	{
+		tmpSearch = search.substring(1).split('=');
+
+		search = {};
+		search[tmpSearch[0]] = tmpSearch[1];
+	}
+
+	if ( search == '' )
+	{
+		search = {};
+	}
+
+
+	return {
+		'url'		: 		window.location.origin + window.location.pathname,
+		'hash'		: 		hash,
+		'search'	: 		search
+	};
 }
