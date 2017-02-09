@@ -243,10 +243,12 @@
                                         <a href="<?php bloginfo('url') ?>/sobre" class="ani-04">O Prêmio Mérito</a>
                                         </li> --><li>
                                             <a href="<?php bloginfo('url') ?>/palestrantes" class="merito-bt bg-cor-1-hover ani-04">Palestrantes</a>
-                                        </li><!-- <li>
+                                        </li><li>
                                             <a href="<?php bloginfo('url') ?>/homenageados" class="merito-bt bg-cor-1-hover ani-04">Homenageados</a>
-                                        </li> --><li>
+                                        </li><li>
                                             <a href="<?php bloginfo('url') ?>/fotos" class="merito-bt bg-cor-1-hover ani-04">Fotos</a>
+                                        </li><li>
+                                            <a href="<?php bloginfo('url') ?>/livros" class="merito-bt bg-cor-1-hover ani-04">Livros</a>
                                         </li><li>
                                             <a href="<?php bloginfo('url') ?>/contato" class="merito-bt bg-cor-1-hover ani-04">Contato</a>
                                         </li>

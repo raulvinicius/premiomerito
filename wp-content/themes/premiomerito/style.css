@@ -1486,9 +1486,23 @@ footer .rodape #realizacao ul #feicotur
 
 .page-homenageados li
 {
-    margin-bottom: 30px;
+    margin: 15px;
     overflow: hidden;
     padding: 0;
+}
+
+.page-homenageados .lista li
+{
+    margin: 0;
+}
+
+.page-homenageados ul div:nth-child(5n+6):before
+{
+    content: '';
+    display: block;
+    float: left;
+    background: red;
+    width: 100%;
 }
 
 .page-homenageados .categorias h2 span
@@ -1524,8 +1538,22 @@ footer .rodape #realizacao ul #feicotur
     color: #ff4c34;
 }
 
-.page-homenageados li img
+.page-homenageados .categorias li img
 {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+
+}
+
+.page-homenageados #personalidade li img
+{
+    padding: 0;
+}
+
+.page-homenageados .grade #personalidade li img
+{
+    width: auto;
     height: 230px;
 }
 
@@ -1558,6 +1586,12 @@ footer .rodape #realizacao ul #feicotur
     margin: 0 0 0 10px;  
 }
 
+.page-homenageados li h3,
+.page-homenageados li h4
+{
+    text-align: center;
+}
+
 .page-homenageados .categorias h2
 {
     font-size: 20px;
@@ -1576,6 +1610,22 @@ footer .rodape #realizacao ul #feicotur
 {
     font-size: 16px;
     margin-top: 10px;
+}
+
+.page-homenageados li .fake-logo
+{
+    border: 1px solid #00a489;
+    height: 190px;
+    display: table;
+    margin-bottom: 10px;
+}
+
+.page-homenageados li .fake-logo h3
+{
+    font-size: 28px;
+    display: table-cell;
+    vertical-align: middle;
+    margin: 0;
 }
 
 .page-homenageados li h4
@@ -1610,6 +1660,12 @@ footer .rodape #realizacao ul #feicotur
     background: url(img/grey-80.png);
     background: rgba(0, 175, 146, 0.8);
     padding: 120px 0;
+}
+
+.page-homenageados .lista h3,
+.page-homenageados .lista h4
+{
+    text-align: left;
 }
 
 .page-homenageados .lista li
@@ -1690,10 +1746,65 @@ footer .rodape #realizacao ul #feicotur
     z-index: 0;
 }
 
+.page-homenageados .lista #atendimento li .fake-logo,
+.page-homenageados .lista #crescimento li .fake-logo,
+.page-homenageados .lista #criatividade li .fake-logo
+{
+    width: 33.33333333%;
+    margin-left: -15px;
+    padding: 15px 15px 15px 40px;
+    border-left: none;
+    height: auto;
+    float: left;
+}
+
+.page-homenageados .lista #atendimento li.dir .fake-logo,
+.page-homenageados .lista #crescimento li.dir .fake-logo,
+.page-homenageados .lista #criatividade li.dir .fake-logo
+{
+    position: relative;
+    left: 66.66666666%;
+    margin-left: 0;
+    padding: 15px 40px 15px 15px;
+    border-left: 1px solid #00a489;
+    border-right: none;
+}
+
+.page-homenageados .lista #atendimento li .fake-logo h3,
+.page-homenageados .lista #crescimento li .fake-logo h3,
+.page-homenageados .lista #criatividade li .fake-logo h3
+{
+    text-align: right;
+}
+
+.page-homenageados .lista #atendimento li.dir .fake-logo h3,
+.page-homenageados .lista #crescimento li.dir .fake-logo h3,
+.page-homenageados .lista #criatividade li.dir .fake-logo h3
+{
+    text-align: left;
+}
+
 .page-homenageados .lista li.dir #wrap
 {
     position: relative;
     right: 50%;
+}
+
+.page-homenageados .lista #atendimento li #wrap,
+.page-homenageados .lista #crescimento li #wrap,
+.page-homenageados .lista #criatividade li #wrap
+{
+    width: 66.66666667%;
+    float: left;
+}
+
+.page-homenageados .lista #atendimento li.dir #wrap,
+.page-homenageados .lista #crescimento li.dir #wrap,
+.page-homenageados .lista #criatividade li.dir #wrap
+{
+    position: relative;
+    right: 33.33333333%;
+    text-align: right;
 }
 
 .page-homenageados .lista section img,
@@ -1701,6 +1812,13 @@ footer .rodape #realizacao ul #feicotur
 {
     width: 50%;
     float: left;
+}
+
+.page-homenageados .lista section#atendimento img,
+.page-homenageados .lista section#crescimento img,
+.page-homenageados .lista section#criatividade img
+{
+    width: 33.33333333%;
 }
 
 .page-homenageados .lista section img

@@ -92,7 +92,7 @@
 
 			$arHomenageados[ $categoria ][] = array(
 				'nome' => $nome,
-				'foto' => $foto['sizes']['foto-homenageado'],
+				'foto' => $foto,
 				'edicao' => $edicao,
 				'categoria' => $categoria,
 				'empresa' => $empresa,
@@ -141,19 +141,33 @@
 					<?php for ($i=0; $i < count( $arHomenageados['atendimento'] ); $i++) :
 
 						?>
-						<li class="col-md-2 <?php echo ( $i % 2 != 0 ) ? 'dir' : '' ; ?>" id="<?php echo slugify( $arHomenageados['atendimento'][$i]['nome'] ); ?>">
-							<a href="<?php echo $currentUrl ?>/#" class="ani-06" id="fecha-lista"></a>
-							<a href="<?php echo $currentUrl ?>/#<?php echo slugify( $arHomenageados['atendimento'][$i]['nome'] ); ?>" id="abre-lista"></a>
+						<div>
+							<li class="col-md-2 <?php echo ( $i % 2 != 0 ) ? 'dir' : '' ; ?>" id="<?php echo slugify( $arHomenageados['atendimento'][$i]['nome'] ); ?>">
+								<a href="<?php echo $currentUrl ?>/#" class="ani-06" id="fecha-lista"></a>
+								<a href="<?php echo $currentUrl ?>/#<?php echo slugify( $arHomenageados['atendimento'][$i]['nome'] ); ?>" id="abre-lista"></a>
 
-							<img src="<?php echo $arHomenageados['atendimento'][$i]['foto'] ?>" nopin="nopin">
-							<div id="wrap">
-								<h3 class="cor-1"><?php echo $arHomenageados['atendimento'][$i]['nome'] ?></h3>
-								<h4><?php echo $arHomenageados['atendimento'][$i]['empresa'] ?></h4>
-								<div id="txt">
-									<?php echo $arHomenageados['atendimento'][$i]['biografia'] ?>
-								</div>
-							</div>
-						</li>
+								<?php if ( $arHomenageados['atendimento'][$i]['foto']['sizes']['logo-homenageado'] != '' ): ?>
+									<img src="<?php echo $arHomenageados['atendimento'][$i]['foto']['sizes']['logo-homenageado'] ?>" nopin="nopin">
+									<div id="wrap">
+										<h3 class="cor-1"><?php echo $arHomenageados['atendimento'][$i]['nome'] ?></h3>
+										<h4><?php echo $arHomenageados['atendimento'][$i]['empresa'] ?></h4>
+										<div id="txt">
+											<?php echo $arHomenageados['atendimento'][$i]['biografia'] ?>
+										</div>
+									</div>
+								<?php else : ?>
+									<div class="fake-logo">
+										<h3 class="cor-1"><?php echo $arHomenageados['atendimento'][$i]['nome'] ?></h3>
+									</div>
+									<div id="wrap">
+										<h4><?php echo $arHomenageados['atendimento'][$i]['empresa'] ?></h4>
+										<div id="txt">
+											<?php echo $arHomenageados['atendimento'][$i]['biografia'] ?>
+										</div>
+									</div>
+								<?php endif; ?>
+							</li>
+						</div>
 						<?php 
 					endfor;
 					?>
@@ -197,7 +211,7 @@
 							<a href="<?php echo $currentUrl ?>/#" class="ani-06" id="fecha-lista"></a>
 							<a href="<?php echo $currentUrl ?>/#<?php echo slugify( $arHomenageados['crescimento'][$i]['nome'] ); ?>" id="abre-lista"></a>
 
-							<img src="<?php echo $arHomenageados['crescimento'][$i]['foto'] ?>" nopin="nopin">
+							<img src="<?php echo $arHomenageados['crescimento'][$i]['foto']['sizes']['logo-homenageado'] ?>" nopin="nopin">
 							<div id="wrap">
 								<h3 class="cor-1"><?php echo $arHomenageados['crescimento'][$i]['nome'] ?></h3>
 								<h4><?php echo $arHomenageados['crescimento'][$i]['empresa'] ?></h4>
@@ -251,7 +265,7 @@
 							<a href="<?php echo $currentUrl ?>/#" class="ani-06" id="fecha-lista"></a>
 							<a href="<?php echo $currentUrl ?>/#<?php echo slugify( $arHomenageados['criatividade'][$i]['nome'] ); ?>" id="abre-lista"></a>
 
-							<img src="<?php echo $arHomenageados['criatividade'][$i]['foto'] ?>" nopin="nopin">
+							<img src="<?php echo $arHomenageados['criatividade'][$i]['foto']['sizes']['logo-homenageado'] ?>" nopin="nopin">
 							<div id="wrap">
 								<h3 class="cor-1"><?php echo $arHomenageados['criatividade'][$i]['nome'] ?></h3>
 								<h4><?php echo $arHomenageados['criatividade'][$i]['empresa'] ?></h4>
@@ -308,7 +322,7 @@
 							<a href="<?php echo $currentUrl ?>/#" class="ani-06" id="fecha-lista"></a>
 							<a href="<?php echo $currentUrl ?>/#<?php echo slugify( $arHomenageados['personalidade'][$i]['nome'] ); ?>" id="abre-lista"></a>
 
-							<img src="<?php echo $arHomenageados['personalidade'][$i]['foto'] ?>" nopin="nopin">
+							<img src="<?php echo $arHomenageados['personalidade'][$i]['foto']['sizes']['foto-homenageado'] ?>" nopin="nopin">
 							<div id="wrap">
 								<h3 class="cor-1"><?php echo $arHomenageados['personalidade'][$i]['nome'] ?></h3>
 								<h4><?php echo $arHomenageados['personalidade'][$i]['empresa'] ?></h4>

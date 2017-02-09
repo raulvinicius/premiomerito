@@ -181,6 +181,8 @@ if ( function_exists( 'add_image_size' ) )
 	add_image_size( 'foto-galeria', 480, 310, true );
 	add_image_size( 'foto-palestrante', 800, 650, true );
 	add_image_size( 'foto-homenageado', 570, 480, true );
+	add_image_size( 'logo-homenageado', 390, 390, false );
+	add_image_size( 'capa-livro', 585, 428, true );
 }
 
 
