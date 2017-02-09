@@ -1,4 +1,5 @@
 <?php 
+//flush_rewrite_rules();
 
 //IN CASE OF REWRITE CHASH BREAK THIS COMMENTS
 //flush_rewrite_rules();
