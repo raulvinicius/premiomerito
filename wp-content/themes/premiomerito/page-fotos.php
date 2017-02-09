@@ -44,7 +44,6 @@
                     if ( isset( $_GET['ano'] ) ) 
                     {
                         $ano = get_term_by('slug', $_GET['ano'], 'tag-edicoes')->term_id;
-                        var_dump($ano);
                     }
                     else
                     {
@@ -63,7 +62,6 @@
 
             <?php 
 
-            var_dump($ano);
 
             $extraArgs = array(
                 'meta_key'      => 'edicao',

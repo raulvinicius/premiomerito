@@ -127,7 +127,6 @@
 
         <section class="pagina">
 
-
             <header>
 
                 <nav>

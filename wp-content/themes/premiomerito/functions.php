@@ -1,9 +1,51 @@
 <?php 
 //flush_rewrite_rules();
 
+//IN CASE OF REWRITE CHASH BREAK THIS COMMENTS
+//flush_rewrite_rules();
+
+//OR THIS
+//global $wp_rewrite;
+//$wp_rewrite->flush_rules();
+
 // CUSTOM POST
 
 function codex_custom_init() {
+	$labelsLivros = array(
+		'name' => _x('Livros', 'nome plural do tipo de post'),
+		'singular_name' => _x('Livro', 'nome singular do tipo de post'),
+		'add_new' => _x('Adicionar Livro', 'livros'),
+		'add_new_item' => __('Adicionar Livro'),
+		'edit_item' => __('Editar Livro'),
+		'new_item' => __('Novo Livro'),
+		'all_items' => __('Todos os Livros'),
+		'view_item' => __('Ver Livro'),
+		'search_items' => __('Procurar por Livro'),
+		'not_found' =>  __('Nenhum Livro foi encontrado'),
+		'not_found_in_trash' => __('Não há Livros na lixeira'), 
+		'parent_item_colon' => '',
+		'menu_name' => 'Livros'
+
+	);
+	$argsLivros = array(
+		'labels' => $labelsLivros,
+		'public' => true,
+		'publicly_queryable' => true,
+		'show_ui' => true, 
+		'show_in_menu' => true, 
+		'query_var' => true,
+		'rewrite' => true,
+		'capability_type' => 'post',
+		'has_archive' => true, 
+		'hierarchical' => false,
+		'menu_position' => 5,
+		'supports' => array( 'title' )
+	); 
+	register_post_type('livros',$argsLivros);
+
+
+
+
 	$labelsPalestrantes = array(
 		'name' => _x('Palestrantes', 'nome plural do tipo de post'),
 		'singular_name' => _x('Palestrante', 'nome singular do tipo de post'),
