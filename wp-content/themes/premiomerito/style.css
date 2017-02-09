@@ -1484,7 +1484,8 @@ footer .rodape #realizacao ul #feicotur
 
 /*-------------------HOMENAGEADOS-------------------*/
 
-.page-homenageados li
+.page-homenageados li,
+.page-livros li
 {
     margin-bottom: 30px;
     overflow: hidden;
@@ -1496,7 +1497,8 @@ footer .rodape #realizacao ul #feicotur
     display: none;
 }
 
-.page-homenageados li:after
+.page-homenageados li:after,
+.page-livros li a:after
 {
     content: "";
     display: block;
@@ -1514,12 +1516,14 @@ footer .rodape #realizacao ul #feicotur
     transition: 0.4s all cubic-bezier(0.34, 0, 0, 1);
 }
 
-.page-homenageados li:hover:after
+.page-homenageados li:hover:after,
+.page-livros li a:hover:after
 {
     left: 0px;
 }
 
-.page-homenageados li:hover h3
+.page-homenageados li:hover h3,
+.page-livros li:hover h3
 {
     color: #ff4c34;
 }
@@ -1529,7 +1533,8 @@ footer .rodape #realizacao ul #feicotur
     height: 230px;
 }
 
-.page-homenageados .categorias
+.page-homenageados .categorias,
+.page-livros .categorias
 {
     margin-bottom: 100px;
 }
@@ -1551,6 +1556,7 @@ footer .rodape #realizacao ul #feicotur
 
 .page-homenageados .categorias h2,
 .page-homenageados li h3,
+.page-livros li h3,
 .page-homenageados li h4
 {
     font-family: 'titillium-bold', Arial, sans-serif;
@@ -1572,7 +1578,8 @@ footer .rodape #realizacao ul #feicotur
     margin-right: 16px;
 }
 
-.page-homenageados li h3
+.page-homenageados li h3,
+.page-livros li h3
 {
     font-size: 16px;
     margin-top: 10px;
@@ -2180,5 +2187,29 @@ footer .rodape #realizacao ul #feicotur
 
 
 
+/*-------------------LIVROS-------------------*/
+
+.page-livros ul
+{
+    padding: 0 0 0 30px;
+}
+
+.page-livros ul li h3
+{
+    font-size: 36px;
+}
+
+.page-livros li img
+{
+    width: 100%;
+}
+
+.page-livros li a
+{
+    display: block;
+    margin-right: 30px;
+}
+
+/*-------------------LIVROS-------------------*/
 
 
