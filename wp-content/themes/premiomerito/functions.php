@@ -1,4 +1,5 @@
 <?php 
+//flush_rewrite_rules();
 
 // CUSTOM POST
 
