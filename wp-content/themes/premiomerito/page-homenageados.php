@@ -18,7 +18,7 @@
 
 				$arEdicoes = array();
 
-				$homenageados = get_post_by_type('homenageados');
+				$homenageados = get_post_by_type('homenageados', NULL, 'ASC', -1);
 
 				while ( $homenageados->have_posts() ) :
 					$homenageados->the_post();
@@ -85,17 +85,19 @@
 			$homenageados->the_post();
 			$nome = get_the_title();
 			$foto = get_field('foto');
+			$logo = get_field('logo');
 			$edicao = get_field('edicao');
 			$categoria = get_field('categoria');
-			$empresa = get_field('empresa');
+			$empresario = get_field('empresario');
 			$biografia = get_field('biografia');
 
 			$arHomenageados[ $categoria ][] = array(
 				'nome' => $nome,
 				'foto' => $foto,
+				'logo' => $logo,
 				'edicao' => $edicao,
 				'categoria' => $categoria,
-				'empresa' => $empresa,
+				'empresario' => $empresario,
 				'biografia' => $biografia
 			);
 
@@ -147,25 +149,47 @@
 								<a href="<?php echo $currentUrl ?>/#<?php echo slugify( $arHomenageados['atendimento'][$i]['nome'] ); ?>" id="abre-lista"></a>
 
 								<?php if ( $arHomenageados['atendimento'][$i]['foto']['sizes']['logo-homenageado'] != '' ): ?>
+
 									<img src="<?php echo $arHomenageados['atendimento'][$i]['foto']['sizes']['logo-homenageado'] ?>" nopin="nopin">
 									<div id="wrap">
 										<h3 class="cor-1"><?php echo $arHomenageados['atendimento'][$i]['nome'] ?></h3>
-										<h4><?php echo $arHomenageados['atendimento'][$i]['empresa'] ?></h4>
+										<h4><?php echo $arHomenageados['atendimento'][$i]['empresario'] ?></h4>
 										<div id="txt">
 											<?php echo $arHomenageados['atendimento'][$i]['biografia'] ?>
 										</div>
 									</div>
+									
 								<?php else : ?>
-									<div class="fake-logo">
-										<h3 class="cor-1"><?php echo $arHomenageados['atendimento'][$i]['nome'] ?></h3>
-									</div>
-									<div id="wrap">
-										<h4><?php echo $arHomenageados['atendimento'][$i]['empresa'] ?></h4>
-										<div id="txt">
-											<?php echo $arHomenageados['atendimento'][$i]['biografia'] ?>
+								
+									<?php if ( $arHomenageados['atendimento'][$i]['logo']['sizes']['logo-homenageado'] != '' ): ?>
+
+										<div class="fake-logo">
+											<img src="<?php echo $arHomenageados['atendimento'][$i]['logo']['sizes']['logo-homenageado'] ?>" nopin="nopin">
 										</div>
-									</div>
+										<div id="wrap">
+											<h3 class="cor-1"><?php echo $arHomenageados['atendimento'][$i]['nome'] ?></h3>
+											<h4><?php echo $arHomenageados['atendimento'][$i]['empresario'] ?></h4>
+											<div id="txt">
+												<?php echo $arHomenageados['atendimento'][$i]['biografia'] ?>
+											</div>
+										</div>
+										
+									<?php else : ?>
+
+										<div class="fake-logo">
+											<h3 class="cor-1"><?php echo $arHomenageados['atendimento'][$i]['nome'] ?></h3>
+										</div>
+										<div id="wrap">
+											<h4><?php echo $arHomenageados['atendimento'][$i]['empresario'] ?></h4>
+											<div id="txt">
+												<?php echo $arHomenageados['atendimento'][$i]['biografia'] ?>
+											</div>
+										</div>
+
+									<?php endif; ?>
+
 								<?php endif; ?>
+
 							</li>
 						</div>
 						<?php 
@@ -211,14 +235,47 @@
 							<a href="<?php echo $currentUrl ?>/#" class="ani-06" id="fecha-lista"></a>
 							<a href="<?php echo $currentUrl ?>/#<?php echo slugify( $arHomenageados['crescimento'][$i]['nome'] ); ?>" id="abre-lista"></a>
 
-							<img src="<?php echo $arHomenageados['crescimento'][$i]['foto']['sizes']['logo-homenageado'] ?>" nopin="nopin">
-							<div id="wrap">
-								<h3 class="cor-1"><?php echo $arHomenageados['crescimento'][$i]['nome'] ?></h3>
-								<h4><?php echo $arHomenageados['crescimento'][$i]['empresa'] ?></h4>
-								<div id="txt">
-									<?php echo $arHomenageados['crescimento'][$i]['biografia'] ?>
+							<?php if ( $arHomenageados['crescimento'][$i]['foto']['sizes']['logo-homenageado'] != '' ): ?>
+
+								<img src="<?php echo $arHomenageados['crescimento'][$i]['foto']['sizes']['logo-homenageado'] ?>" nopin="nopin">
+								<div id="wrap">
+									<h3 class="cor-1"><?php echo $arHomenageados['crescimento'][$i]['nome'] ?></h3>
+									<h4><?php echo $arHomenageados['crescimento'][$i]['empresario'] ?></h4>
+									<div id="txt">
+										<?php echo $arHomenageados['crescimento'][$i]['biografia'] ?>
+									</div>
 								</div>
-							</div>
+
+							<?php else : ?>
+							
+								<?php if ( $arHomenageados['crescimento'][$i]['logo']['sizes']['logo-homenageado'] != '' ): ?>
+
+									<div class="fake-logo">
+										<img src="<?php echo $arHomenageados['crescimento'][$i]['logo']['sizes']['logo-homenageado'] ?>" nopin="nopin">
+									</div>
+									<div id="wrap">
+										<h3 class="cor-1"><?php echo $arHomenageados['crescimento'][$i]['nome'] ?></h3>
+										<h4><?php echo $arHomenageados['crescimento'][$i]['empresario'] ?></h4>
+										<div id="txt">
+											<?php echo $arHomenageados['crescimento'][$i]['biografia'] ?>
+										</div>
+									</div>
+									
+								<?php else : ?>
+
+									<div class="fake-logo">
+										<h3 class="cor-1"><?php echo $arHomenageados['crescimento'][$i]['nome'] ?></h3>
+									</div>
+									<div id="wrap">
+										<h4><?php echo $arHomenageados['crescimento'][$i]['empresario'] ?></h4>
+										<div id="txt">
+											<?php echo $arHomenageados['crescimento'][$i]['biografia'] ?>
+										</div>
+									</div>
+
+								<?php endif; ?>
+
+							<?php endif; ?>
 						</li>
 						<?php 
 					endfor;
@@ -265,14 +322,47 @@
 							<a href="<?php echo $currentUrl ?>/#" class="ani-06" id="fecha-lista"></a>
 							<a href="<?php echo $currentUrl ?>/#<?php echo slugify( $arHomenageados['criatividade'][$i]['nome'] ); ?>" id="abre-lista"></a>
 
-							<img src="<?php echo $arHomenageados['criatividade'][$i]['foto']['sizes']['logo-homenageado'] ?>" nopin="nopin">
-							<div id="wrap">
-								<h3 class="cor-1"><?php echo $arHomenageados['criatividade'][$i]['nome'] ?></h3>
-								<h4><?php echo $arHomenageados['criatividade'][$i]['empresa'] ?></h4>
-								<div id="txt">
-									<?php echo $arHomenageados['criatividade'][$i]['biografia'] ?>
+							<?php if ( $arHomenageados['criatividade'][$i]['foto']['sizes']['logo-homenageado'] != '' ): ?>
+
+								<img src="<?php echo $arHomenageados['criatividade'][$i]['foto']['sizes']['logo-homenageado'] ?>" nopin="nopin">
+								<div id="wrap">
+									<h3 class="cor-1"><?php echo $arHomenageados['criatividade'][$i]['nome'] ?></h3>
+									<h4><?php echo $arHomenageados['criatividade'][$i]['empresario'] ?></h4>
+									<div id="txt">
+										<?php echo $arHomenageados['criatividade'][$i]['biografia'] ?>
+									</div>
 								</div>
-							</div>
+								
+							<?php else : ?>
+							
+								<?php if ( $arHomenageados['criatividade'][$i]['logo']['sizes']['logo-homenageado'] != '' ): ?>
+
+									<div class="fake-logo">
+										<img src="<?php echo $arHomenageados['criatividade'][$i]['logo']['sizes']['logo-homenageado'] ?>" nopin="nopin">
+									</div>
+									<div id="wrap">
+										<h3 class="cor-1"><?php echo $arHomenageados['criatividade'][$i]['nome'] ?></h3>
+										<h4><?php echo $arHomenageados['criatividade'][$i]['empresario'] ?></h4>
+										<div id="txt">
+											<?php echo $arHomenageados['criatividade'][$i]['biografia'] ?>
+										</div>
+									</div>
+									
+								<?php else : ?>
+
+									<div class="fake-logo">
+										<h3 class="cor-1"><?php echo $arHomenageados['criatividade'][$i]['nome'] ?></h3>
+									</div>
+									<div id="wrap">
+										<h4><?php echo $arHomenageados['criatividade'][$i]['empresario'] ?></h4>
+										<div id="txt">
+											<?php echo $arHomenageados['criatividade'][$i]['biografia'] ?>
+										</div>
+									</div>
+
+								<?php endif; ?>
+
+							<?php endif; ?>
 						</li>
 						<?php 
 					endfor;
@@ -303,7 +393,7 @@
 							c0-0.5,0-1.1,0-1.7c1.8-0.8,3.5-2.9,3.8-6.2c3.3,4.4,7.2,3.8,8.7,5.2c0-0.4-0.3-1.3-0.8-1.6c1.3,0.1,3.1,0.3,4.8,1.1
 							C32,11.9,32,13,32,14c0,1.4-0.2,3.5-0.9,4.9c-0.8,1.7-2.1,3.2-3.6,4.2c-1.3,0.9-2.7,1.5-3.8,1.5s-2.5-0.5-3.8-1.5
 							c-1.5-1.1-2.8-2.6-3.6-4.2C15.6,17.5,15.4,15.5,15.4,14z M22,28.1l-3.3,3.8l-0.9-2.9l1.5-1.8C20.2,27.5,21.1,27.9,22,28.1z
-							 M3.7,39.3c0.5-2.3,1.5-4.2,2.5-5.1c0.6-0.5,2.5-1.1,4.3-1.7c1.3-0.4,2.8-0.9,4.2-1.5l4,13.1c-3.3-0.3-6.5-0.9-9.2-1.8
+								 M3.7,39.3c0.5-2.3,1.5-4.2,2.5-5.1c0.6-0.5,2.5-1.1,4.3-1.7c1.3-0.4,2.8-0.9,4.2-1.5l4,13.1c-3.3-0.3-6.5-0.9-9.2-1.8
 							C5.8,41.1,4.1,39.9,3.7,39.3z M22.5,44.4l-1.3-4.2l1.3-2.4h2.2l1.3,2.4l-1.3,4.2c-0.4,0-0.8,0-1.1,0C23.3,44.4,22.9,44.4,22.5,44.4z
 							 M38,42.3c-2.8,0.9-5.9,1.5-9.3,1.8l4-13.2c1.4,0.6,2.9,1.1,4.2,1.5c1.7,0.6,3.7,1.2,4.3,1.7c1,0.9,2,2.9,2.5,5.1
 							C43.3,39.9,41.6,41.1,38,42.3z"/>
@@ -325,7 +415,6 @@
 							<img src="<?php echo $arHomenageados['personalidade'][$i]['foto']['sizes']['foto-homenageado'] ?>" nopin="nopin">
 							<div id="wrap">
 								<h3 class="cor-1"><?php echo $arHomenageados['personalidade'][$i]['nome'] ?></h3>
-								<h4><?php echo $arHomenageados['personalidade'][$i]['empresa'] ?></h4>
 								<div id="txt">
 									<?php echo $arHomenageados['personalidade'][$i]['biografia'] ?>
 								</div>

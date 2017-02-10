@@ -42,7 +42,7 @@
 
 						<li class="col-sm-6">
 							
-							<a href="<?php echo $currentUrl ?>/">
+							<a href="<?php echo bloginfo('url') ?>/livro/<?php echo $ano ?>">
 								<div id="wrap">
 									<h3 class="cor-1">
 										<?php echo $arLivros[$i]['ano'] ?>

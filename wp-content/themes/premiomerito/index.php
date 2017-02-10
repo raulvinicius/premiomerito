@@ -193,14 +193,14 @@
 
 	                    <div class="row">
 	                        <li class="col-md-5 col-md-offset-1">
-	                            <a href="<?php bloginfo('url') ?>/fotos">
+	                            <a href="<?php bloginfo('url') ?>/fotos/?ano=2016">
 	                                <h3 class="ani-04">20<span class="cor-1 ani-04">16</span></h3>
 	                                <p>Cen. de Convenções Ulysses Guimarães</p>
 	                            </a>
 	                        </li>
 
 	                        <li class="col-md-5">
-	                            <a href="<?php bloginfo('url') ?>/fotos">
+	                            <a href="<?php bloginfo('url') ?>/fotos/?ano=2015">
 	                                <h3 class="ani-04">20<span class="cor-1 ani-04">15</span></h3>
 	                                <p>Museu da República</p>
 	                            </a>
@@ -209,15 +209,15 @@
 
 	                    <div class="row">
 	                        <li class="col-md-5 col-md-offset-1">
-	                            <a href="<?php bloginfo('url') ?>/fotos">
-	                                <h3 class="ani-04">20<span class="cor-1 ani-04">14</span></h3>
+	                            <a href="<?php bloginfo('url') ?>/fotos/?ano=2013">
+	                                <h3 class="ani-04">20<span class="cor-1 ani-04">13</span></h3>
 	                                <p>Museu da República</p>
 	                            </a>
 	                        </li>
 
 	                        <li class="col-md-5">
-	                            <a href="<?php bloginfo('url') ?>/fotos">
-	                                <h3 class="ani-04">20<span class="cor-1 ani-04">13</span></h3>
+	                            <a href="<?php bloginfo('url') ?>/fotos/?ano=2012">
+	                                <h3 class="ani-04">20<span class="cor-1 ani-04">12</span></h3>
 	                                <p>Museu da República</p>
 	                            </a>
 	                        </li>

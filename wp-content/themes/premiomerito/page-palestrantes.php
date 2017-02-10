@@ -26,11 +26,11 @@
 
 				?>
 
-				<li class="col-xs-12 <?php echo ($i % 2 != 0) ? 'align-right' : '' ; ?>">
-					<div class="col-md-5 <?php echo ($i % 2 != 0) ? 'col-md-push-7' : '' ; ?> img">
+				<li class="col-xs-12">
+					<div class="col-md-5 img">
 						<img src="<?php echo $foto['sizes']['foto-palestrante'] ?>">
 					</div>
-					<div class="col-md-7 <?php echo ($i % 2 != 0) ? 'col-md-pull-5' : '' ; ?> txt">
+					<div class="col-md-7 txt">
 						<div class="wrap">
 							<h4 class="merito-title"><?php echo $ano ?></h4>
 							<h3 class="cor-1 merito-title"><?php the_title(); ?></h3>

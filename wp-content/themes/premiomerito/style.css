@@ -1492,12 +1492,32 @@ footer .rodape #realizacao ul #feicotur
     padding: 0;
 }
 
+.page-homenageados li
+{
+    height: 230px;
+}
+
+.page-homenageados #atendimento li,
+.page-homenageados #crescimento li,
+.page-homenageados #criatividade li
+{
+    height: 250px;
+}
+
+.page-homenageados .lista #atendimento li,
+.page-homenageados .lista #crescimento li,
+.page-homenageados .lista #criatividade li,
+.page-homenageados .lista #personalidade li
+{
+    height: auto;
+}
+
 .page-homenageados .lista li
 {
     margin: 0;
 }
 
-.page-homenageados ul div:nth-child(5n+6):before
+/*.page-homenageados ul div:nth-child(5n+6):before
 {
     content: '';
     display: block;
@@ -1505,7 +1525,7 @@ footer .rodape #realizacao ul #feicotur
     background: red;
     width: 100%;
 }
-
+*/
 .page-homenageados .categorias h2 span
 {
     display: none;
@@ -1517,7 +1537,7 @@ footer .rodape #realizacao ul #feicotur
     content: "";
     display: block;
     position: absolute;
-    bottom: 54px;
+    bottom: 85px;
     left: -42px;
     width: 42px;
     height: 42px;
@@ -1557,8 +1577,8 @@ footer .rodape #realizacao ul #feicotur
 
 .page-homenageados .grade #personalidade li img
 {
-    width: auto;
-    height: 230px;
+    width: 100%;
+    height: auto;
 }
 
 .page-homenageados .categorias,
@@ -1593,6 +1613,13 @@ footer .rodape #realizacao ul #feicotur
 }
 
 .page-homenageados li h3,
+.page-livros li h3,
+.page-homenageados li h4
+{
+    margin: 0;  
+}
+
+.page-homenageados li h3,
 .page-homenageados li h4
 {
     text-align: center;
@@ -1623,16 +1650,24 @@ footer .rodape #realizacao ul #feicotur
 {
     border: 1px solid #00a489;
     height: 190px;
+    max-height: 190px;
     display: table;
     margin-bottom: 10px;
+    width: 100%;
+    padding: 10px;
 }
 
 .page-homenageados li .fake-logo h3
 {
-    font-size: 28px;
+    font-size: 24px;
     display: table-cell;
     vertical-align: middle;
     margin: 0;
+}
+
+.page-homenageados li .fake-logo img
+{
+    display: table-cell;
 }
 
 .page-homenageados li h4
@@ -1678,6 +1713,12 @@ footer .rodape #realizacao ul #feicotur
 .page-homenageados .lista li
 {
     overflow: visible;
+    margin-bottom: 100px;
+}
+
+.page-homenageados .lista li li
+{
+    margin-bottom: 0;
 }
 
 .page-homenageados .lista li:after
@@ -1749,7 +1790,7 @@ footer .rodape #realizacao ul #feicotur
 .page-homenageados .lista li.dir img
 {
     position: relative;
-    left: 50%;
+    /*left: 50%;*/
     z-index: 0;
 }
 
@@ -1758,8 +1799,8 @@ footer .rodape #realizacao ul #feicotur
 .page-homenageados .lista #criatividade li .fake-logo
 {
     width: 33.33333333%;
-    margin-left: -15px;
-    padding: 15px 15px 15px 40px;
+    margin-left: 0;
+    padding: 15px 15px 15px 50px;
     border-left: none;
     height: auto;
     float: left;
@@ -1772,7 +1813,7 @@ footer .rodape #realizacao ul #feicotur
     position: relative;
     left: 66.66666666%;
     margin-left: 0;
-    padding: 15px 40px 15px 15px;
+    padding: 15px 50px 15px 15px;
     border-left: 1px solid #00a489;
     border-right: none;
 }
@@ -1817,7 +1858,7 @@ footer .rodape #realizacao ul #feicotur
 .page-homenageados .lista section img,
 .page-homenageados .lista section #wrap
 {
-    width: 50%;
+    /*width: 50%;*/
     float: left;
 }
 
@@ -1825,7 +1866,7 @@ footer .rodape #realizacao ul #feicotur
 .page-homenageados .lista section#crescimento img,
 .page-homenageados .lista section#criatividade img
 {
-    width: 33.33333333%;
+    /*width: 33.33333333%;*/
 }
 
 .page-homenageados .lista section img
@@ -2315,6 +2356,7 @@ footer .rodape #realizacao ul #feicotur
 .page-livros ul li h3
 {
     font-size: 36px;
+    margin-bottom: 15px;
 }
 
 .page-livros li img
