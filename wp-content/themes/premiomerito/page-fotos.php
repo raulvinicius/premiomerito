@@ -79,7 +79,7 @@
                     ?>
 
 
-                    <li class="col-sm-3">
+                    <li class="col-sm-2">
                         <a href="javascript:void(0)" data-img="<?php echo $galeria[$i]['sizes']['large'] ?>"> 
                             <figure><img src="<?php echo $galeria[$i]['sizes']['foto-galeria'] ?>" nopin="nopin"/></figure>
                         </a>
