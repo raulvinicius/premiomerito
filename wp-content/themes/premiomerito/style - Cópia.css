@@ -1484,22 +1484,38 @@ footer .rodape #realizacao ul #feicotur
 
 /*-------------------HOMENAGEADOS-------------------*/
 
-/*.page-homenageados .lista #atendimento li,
+.page-homenageados li,
+.page-livros li
+{
+    margin: 15px;
+    overflow: hidden;
+    padding: 0;
+}
+
+.page-homenageados li
+{
+    height: 230px;
+}
+
+.page-homenageados #atendimento li,
+.page-homenageados #crescimento li,
+.page-homenageados #criatividade li
+{
+    height: 250px;
+}
+
+.page-homenageados .lista #atendimento li,
 .page-homenageados .lista #crescimento li,
 .page-homenageados .lista #criatividade li,
 .page-homenageados .lista #personalidade li
 {
     height: auto;
 }
-*/
 
-
-/*.page-homenageados .lista li
+.page-homenageados .lista li
 {
     margin: 0;
 }
-*/
-
 
 /*.page-homenageados ul div:nth-child(5n+6):before
 {
@@ -1510,14 +1526,63 @@ footer .rodape #realizacao ul #feicotur
     width: 100%;
 }
 */
-
-
 .page-homenageados .categorias h2 span
 {
     display: none;
 }
 
-.page-homenageados .categorias
+.page-homenageados li:after,
+.page-livros li a:after
+{
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 85px;
+    left: -42px;
+    width: 42px;
+    height: 42px;
+    background: url(img/premiomerito-lupa-homenageados.png) no-repeat center #ff4c34;
+
+    -webkit-transition: 0.4s all cubic-bezier(0.34, 0, 0, 1);
+    -moz-transition: 0.4s all cubic-bezier(0.34, 0, 0, 1);
+    -o-transition: 0.4s all cubic-bezier(0.34, 0, 0, 1);
+    -ms-transition: 0.4s all cubic-bezier(0.34, 0, 0, 1);
+    transition: 0.4s all cubic-bezier(0.34, 0, 0, 1);
+}
+
+.page-homenageados li:hover:after,
+.page-livros li a:hover:after
+{
+    left: 0px;
+}
+
+.page-homenageados li:hover h3,
+.page-livros li:hover h3
+{
+    color: #ff4c34;
+}
+
+.page-homenageados .categorias li img
+{
+    width: 100%;
+    height: auto;
+    padding: 20px;
+
+}
+
+.page-homenageados #personalidade li img
+{
+    padding: 0;
+}
+
+.page-homenageados .grade #personalidade li img
+{
+    width: 100%;
+    height: auto;
+}
+
+.page-homenageados .categorias,
+.page-livros .categorias
 {
     margin-bottom: 100px;
 }
@@ -1537,14 +1602,34 @@ footer .rodape #realizacao ul #feicotur
     display: block;
 }
 
-.page-homenageados .categorias h2
+.page-homenageados .categorias h2,
+.page-homenageados li h3,
+.page-livros li h3,
+.page-homenageados li h4
 {
     font-family: 'titillium-bold', Arial, sans-serif;
+    text-transform: uppercase;
+    margin: 0 0 0 10px;  
+}
+
+.page-homenageados li h3,
+.page-livros li h3,
+.page-homenageados li h4
+{
+    margin: 0;  
+}
+
+.page-homenageados li h3,
+.page-homenageados li h4
+{
+    text-align: center;
+}
+
+.page-homenageados .categorias h2
+{
     font-size: 20px;
     color: #555;
-    margin: 0;
     margin-bottom: 24px;
-    text-transform: uppercase;
 }
 
 .page-homenageados .categorias h2 .ico
@@ -1554,45 +1639,46 @@ footer .rodape #realizacao ul #feicotur
     margin-right: 16px;
 }
 
-.page-homenageados .categorias ol
+.page-homenageados li h3,
+.page-livros li h3
 {
-    font-size: 20px;
-    color: #5b5b5b;
-    font-family: 'titillium-bold', Arial, sans-serif;
-    background: #323232;
-    list-style-type: decimal-leading-zero;
-    list-style-position: inside;
-    padding: 35px 20px 30px 20px;
+    font-size: 16px;
+    margin-top: 10px;
 }
 
-.page-homenageados .categorias ol li
+.page-homenageados li .fake-logo
 {
-    margin-bottom: 5px;
+    border: 1px solid #00a489;
+    height: 190px;
+    max-height: 190px;
+    display: table;
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 10px;
 }
 
-.page-homenageados .categorias li h2
-
+.page-homenageados li .fake-logo h3
 {
-    color: white;
+    font-size: 24px;
+    display: table-cell;
+    vertical-align: middle;
+    margin: 0;
 }
 
-.page-homenageados .categorias li h2,
-.page-homenageados .categorias li h3
+.page-homenageados li .fake-logo img
 {
-    margin: 0 0 0 2px;
-    display: inline-block;
+    display: table-cell;
 }
 
-.page-homenageados .categorias li h3
+.page-homenageados li h4
 {
-    font-family: 'titillium-regular', Arial, sans-serif;
     font-size: 14px;
     font-style: italic;
-    text-transform: uppercase;
+    color: #343434;
+    margin-top: 2px;
+    font-family: 'titillium-regular', Arial, sans-serif;
 }
 
-
-/*
 .page-homenageados li #txt
 {
     display: none;
@@ -1604,15 +1690,6 @@ footer .rodape #realizacao ul #feicotur
     font-size: 16px;
 }
 
-*/
-
-
-
-
-
-
-
-/*
 .page-homenageados .lista
 {
     position: fixed;
@@ -1713,6 +1790,7 @@ footer .rodape #realizacao ul #feicotur
 .page-homenageados .lista li.dir img
 {
     position: relative;
+    /*left: 50%;*/
     z-index: 0;
 }
 
@@ -1780,6 +1858,7 @@ footer .rodape #realizacao ul #feicotur
 .page-homenageados .lista section img,
 .page-homenageados .lista section #wrap
 {
+    /*width: 50%;*/
     float: left;
 }
 
@@ -1787,6 +1866,7 @@ footer .rodape #realizacao ul #feicotur
 .page-homenageados .lista section#crescimento img,
 .page-homenageados .lista section#criatividade img
 {
+    /*width: 33.33333333%;*/
 }
 
 .page-homenageados .lista section img
@@ -1857,10 +1937,6 @@ footer .rodape #realizacao ul #feicotur
     line-height: 0.9;
     font-size: 94px;
 }
-
-*/
-
-
 
 /*-------------------HOMENAGEADOS-------------------*/
 
@@ -2272,29 +2348,15 @@ footer .rodape #realizacao ul #feicotur
 
 /*-------------------LIVROS-------------------*/
 
-.page-livros .categorias
-{
-    margin-bottom: 100px;
-}
-
 .page-livros ul
 {
     padding: 0 0 0 30px;
 }
 
-.page-livros li
-{
-    margin: 15px;
-    overflow: hidden;
-    padding: 0;
-}
-
 .page-livros ul li h3
 {
     font-size: 36px;
-    font-family: 'titillium-bold', Arial, sans-serif;
-    text-transform: uppercase;
-    margin: 10px 0; 
+    margin-bottom: 15px;
 }
 
 .page-livros li img
@@ -2307,36 +2369,6 @@ footer .rodape #realizacao ul #feicotur
     display: block;
     margin-right: 30px;
 }
-
-.page-livros li a:after
-{
-    content: "";
-    display: block;
-    position: absolute;
-    bottom: 85px;
-    left: -42px;
-    width: 42px;
-    height: 42px;
-    background: url(img/premiomerito-lupa-homenageados.png) no-repeat center #ff4c34;
-
-    -webkit-transition: 0.4s all cubic-bezier(0.34, 0, 0, 1);
-    -moz-transition: 0.4s all cubic-bezier(0.34, 0, 0, 1);
-    -o-transition: 0.4s all cubic-bezier(0.34, 0, 0, 1);
-    -ms-transition: 0.4s all cubic-bezier(0.34, 0, 0, 1);
-    transition: 0.4s all cubic-bezier(0.34, 0, 0, 1);
-}
-
-.page-livros li a:hover:after
-{
-    left: 0px;
-}
-
-.page-livros li:hover h3
-{
-    color: #ff4c34;
-}
-
-
 
 /*-------------------LIVROS-------------------*/
 

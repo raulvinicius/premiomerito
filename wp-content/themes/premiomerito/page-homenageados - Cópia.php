@@ -137,30 +137,64 @@
 				</h2>
 			</div>
 			<div class="row">
-				<ol class="col-xs-12">
+				<ul class="col-xs-12">
+					<?php 
+					 ?>
+					<?php for ($i=0; $i < count( $arHomenageados['atendimento'] ); $i++) :
 
+						?>
 						<div>
-							
-							<li class="col-xs-12">
+							<li class="col-md-2 <?php echo ( $i % 2 != 0 ) ? 'dir' : '' ; ?>" id="<?php echo slugify( $arHomenageados['atendimento'][$i]['nome'] ); ?>">
+								<a href="<?php echo $currentUrl ?>/#" class="ani-06" id="fecha-lista"></a>
+								<a href="<?php echo $currentUrl ?>/#<?php echo slugify( $arHomenageados['atendimento'][$i]['nome'] ); ?>" id="abre-lista"></a>
 
-								<a href="#">
-									<h2>Smart Soluções</h2>
-									<h3 class="cor-1">Ronilton Silva de Souza</h3>
-								</a>
+								<?php if ( $arHomenageados['atendimento'][$i]['foto']['sizes']['logo-homenageado'] != '' ): ?>
 
-							</li>	
-													
-							<li class="col-xs-12">
+									<img src="<?php echo $arHomenageados['atendimento'][$i]['foto']['sizes']['logo-homenageado'] ?>" nopin="nopin">
+									<div id="wrap">
+										<h3 class="cor-1"><?php echo $arHomenageados['atendimento'][$i]['nome'] ?></h3>
+										<h4><?php echo $arHomenageados['atendimento'][$i]['empresario'] ?></h4>
+										<div id="txt">
+											<?php echo $arHomenageados['atendimento'][$i]['biografia'] ?>
+										</div>
+									</div>
+									
+								<?php else : ?>
+								
+									<?php if ( $arHomenageados['atendimento'][$i]['logo']['sizes']['logo-homenageado'] != '' ): ?>
 
-								<a href="#">
-									<h2>Smart Soluções</h2>
-									<h3 class="cor-1">Ronilton Silva de Souza</h3>
-								</a>
+										<div class="fake-logo">
+											<img src="<?php echo $arHomenageados['atendimento'][$i]['logo']['sizes']['logo-homenageado'] ?>" nopin="nopin">
+										</div>
+										<div id="wrap">
+											<h3 class="cor-1"><?php echo $arHomenageados['atendimento'][$i]['nome'] ?></h3>
+											<h4><?php echo $arHomenageados['atendimento'][$i]['empresario'] ?></h4>
+											<div id="txt">
+												<?php echo $arHomenageados['atendimento'][$i]['biografia'] ?>
+											</div>
+										</div>
+										
+									<?php else : ?>
+
+										<div class="fake-logo">
+											<h3 class="cor-1"><?php echo $arHomenageados['atendimento'][$i]['nome'] ?></h3>
+										</div>
+										<div id="wrap">
+											<h4><?php echo $arHomenageados['atendimento'][$i]['empresario'] ?></h4>
+											<div id="txt">
+												<?php echo $arHomenageados['atendimento'][$i]['biografia'] ?>
+											</div>
+										</div>
+
+									<?php endif; ?>
+
+								<?php endif; ?>
 
 							</li>
-
 						</div>
-
+						<?php 
+					endfor;
+					?>
 				</ul>
 			</div>
 		</section>
