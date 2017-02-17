@@ -17,6 +17,7 @@
 				);
 
 				$arEdicoes = array();
+				$ano = '';
 
 				$homenageados = get_post_by_type('homenageados', NULL, 'ASC', -1);
 
@@ -50,20 +51,22 @@
 						<?php 
 					endfor;
 
-
-					if ( isset( $_GET['ano'] ) ) 
-					{
-					    $ano = get_term_by('slug', $_GET['ano'], 'tag-edicoes')->term_id;
-					    var_dump($ano);
-					}
-					else
-					{
-					    $ano = $arEdicoes[0]->id;
-					}
-
 				?>
 
 			</select>
+
+			<?php 
+
+				if ( isset( $_GET['ano'] ) ) 
+				{
+				    $ano = get_term_by('slug', $_GET['ano'], 'tag-edicoes')->term_id;
+				}
+				else
+				{
+				    $ano = $arEdicoes[0]['id'];
+				}
+
+			?>
 		</div>
 	</div>
 
@@ -103,6 +106,12 @@
 
 		endwhile;
 
+		$arHomenageados['atendimento'] = array_orderby($arHomenageados['atendimento'], 'nome', SORT_ASC);
+		$arHomenageados['crescimento'] = array_orderby($arHomenageados['crescimento'], 'nome', SORT_ASC);
+		$arHomenageados['criatividade'] = array_orderby($arHomenageados['criatividade'], 'nome', SORT_ASC);
+		$arHomenageados['personalidade'] = array_orderby($arHomenageados['personalidade'], 'nome', SORT_ASC);
+
+
 		$currentUrl = home_url(add_query_arg(array(),$wp->request)); 
 	?>
 
@@ -110,7 +119,7 @@
 
 
 		<section class="container categorias" id="atendimento">
-		<a href="<?php echo $currentUrl ?>/#" class="ani-06" id="fecha-lista"></a>
+			<a href="<?php echo $currentUrl ?>/#" class="ani-06" id="fecha-lista"></a>
 			<div class="row">
 				<h2 class="col-xs-12">
 					<i class="ico">
@@ -136,91 +145,41 @@
 							C436.8,111.6,373.9,50.5,261.2,50.5z"/>
 						</svg>
 					</i>
-					<span id="pre">Homenageados </span>Atendimento<span id="pos"> <?php echo get_term_by('id', $ano, 'tag-edicoes')->name ?></span>
+					Atendimento<span> <?php echo get_term_by('id', $ano, 'tag-edicoes')->name ?></span>
 				</h2>
+				<div class="clearfix"></div>
+				<p class="intro">A criatividade é a ferramenta mais adequada para encontrarmos maneiras de fazer mais com menos, de reduzir custos, de simplificar processos e sistemas, de aumentar lucratividade, de encontrar novos usos para produtos, de encontrar novos segmentos de mercado, de desenvolver novos produtos e muito mais. Nesta categoria são premiadas empresas que se destacaram pelo uso da criatividade como principal ferramenta de sucesso.</p>
 			</div>
 			<div class="row">
 				<ol class="col-xs-12">
 
-					<li class="col-xs-12">
+					<?php for ($i=0; $i < count( $arHomenageados['atendimento'] ); $i++) : ?>
 
-						<a href="#">
-							<h2>Smart Soluções</h2>
-							<h3 class="cor-1">( Ronilton Silva de Souza )</h3>
-						</a>
+						<li class="col-xs-12" id="<?php echo slugify( $arHomenageados['atendimento'][$i]['nome'] ); ?>">
 
-						<div id="txt">
-							<p>Brasiliense, Ronilton Silva de Souza nasceu em 23 de abril de 1993 e cresceu no Paranoá, embora já seja morador do itapoã há 14 anos. Sua infância foi marcada por algumas dificuldades e perdas difíceis, tendo crescido sozinho com sua mãe e irmãos. </br>
-								Sua mãe, comerciante local do Paranoá – DF, sempre lutou para criar os filhos com dignidade e tornou-se no seu maior exemplo de vida e de trabalho.</br></br>
-								No comercio de sua mãe ajudava no que podia. Antes de terminar o ensino médio, em 2007, já fazia serviços como free lancer de informática para amigos e clientes avulsos. Tempos depois, em 2010, abriu sua própria empresa como micro empreendedor individual, mudando o foco dos seus atendimentos passando a prestar serviços mais para empresas te lojas do comércio local. Logo que terminou o ensino médio começou a faculdade em Sistemas de Informações. Ronilton percebeu que em sua cidade havia carência de um comércio com mais variedades e atendimento, pois muitas pessoas lhe perguntavam se ele tinha loja física quando fazia seus atendimentos. Mudou sua empresa de MEI para Micro Empresa em 2014 e abriu sua loja na cidade. </br> </br>
-								No começo foi um pouco difícil, pois muitas pessoas tinham e algumas ainda têm discriminação em relação à cidade onde fica localizado seu estabelecimento. Sem precisar fazer propaganda, só com a qualidade dos seus serviços e do atendimento, os próprios clientes trouxeram outros e assim, com muita luta foi conquistando clientes e ganhando confiança e credibilidade tanto nos serviços prestados como nos produtos vendidos, gerando assim mais empregos. </br> </br>
-								Hoje consolidou-se como empresário e tornou-se referência para muitos da cidade e região. Para este ano a Smart Soluções tem como sua maior meta ter uma base mais forte e sólida para poder ampliar seu espaço.
-							</p>
-						</div>
+							<a class="ani-04" href="<?php echo $currentUrl ?>/#<?php echo slugify( $arHomenageados['atendimento'][$i]['nome'] ); ?>">
+								<h2><?php echo $arHomenageados['atendimento'][$i]['nome'] ?></h2>
+								<?php if ( $arHomenageados['atendimento'][$i]['empresario'] != '' ): ?>
+									
+									<h3 class="cor-1">( <?php echo $arHomenageados['atendimento'][$i]['empresario'] ?> )</h3>
 
-					</li>
+								<?php endif ?>
+							</a>
 
-				</ol>
-			</div>
-		</section>
+							<div id="txt">
+								<?php echo $arHomenageados['atendimento'][$i]['biografia'] ?>
+							</div>
 
-		<section class="container categorias" id="personalidade">
-			<div class="row">
-				<h2 class="col-xs-12">
-					<i class="ico">
-						<!-- Generator: Adobe Illustrator 19.2.1, SVG Export Plug-In  -->
-						<svg version="1.1"
-							 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
-							 x="0px" y="0px" width="50px" height="48px" viewBox="0 0 522.4 503.5" style="enable-background:new 0 0 522.4 503.5;"
-							 xml:space="preserve">
-						<style type="text/css">
-							.sth0{fill:#00a489;}
-						</style>
-						<defs>
-						</defs>
-						<path class="sth0" d="M496.2,222.1c-1.6-69.2-15.3-119.6-54-156.2C398.4,24.6,330.8,0,261.2,0S124,24.7,80.3,65.9
-							c-38.7,36.6-52.4,86.9-54,156.1c-39.7,20.8-33.7,133.5,13.5,133.5c19.6,0,32.9,0,40.8,0c2.4,9,5.4,16,9,23.5
-							c35.8,73.3,109.4,124.5,171.6,124.5c62.2,0,135.8-51.2,171.6-124.5c3.6-7.4,6.6-14.4,9-23.4c7.9,0,21.2,0,40.8,0
-							C529.9,355.6,535.9,242.9,496.2,222.1z M417.6,275.8c-0.7,27-3.2,61.5-16.2,88c-28.7,58.8-90.3,104.8-140.2,104.8
-							c-38.8,0-84.7-27.9-116.7-67.9c15.2,5.9,32.8,10.3,53,12.2c7.6,9.6,22.2,16.1,39,16.1c24.6,0,44.5-13.9,44.5-31.1
-							c0-17.2-19.9-31.1-44.5-31.1c-16.1,0-30.2,6-38,14.9c-42.7-4.6-70.5-21.9-84.5-36c-7-22.9-8.6-48.7-9.2-70c-0.2-7.4-0.2-14.6,0-21.6
-							c34.9-3.1,79.4-37.6,84.1-106.6c52.7,70.6,116,60.8,139.1,83.8c0-6.5-5.2-20.7-13-25.9c28.1,1.1,68.7,7.1,101.8,33.1
-							C417.7,250.3,417.9,262.7,417.6,275.8z M261.2,50.5c-112.7,0-175.6,61-188.8,169c-4.1,0-11.2,0-18.8,0c1.9-61,13.7-103.6,45.4-133.5
-							c38.8-36.6,99.5-58.7,162.3-58.7s123.5,22.1,162.3,58.7c31.7,29.9,43.5,72.4,45.4,133.4c-7.6,0-14.8,0-18.8,0
-							C436.8,111.6,373.9,50.5,261.2,50.5z"/>
-						</svg>
-					</i>
-					<span id="pre">Homenageados </span>Atendimento<span id="pos"> <?php echo get_term_by('id', $ano, 'tag-edicoes')->name ?></span>
-				</h2>
-			</div>
-			<div class="row">
-				<ol class="col-xs-12">
+						</li>
 
-					<li class="col-xs-12">
-
-						<img src="<?php echo bloginfo("template_url") ?>/img/ph-homenageado-05.jpg" alt="">
-
-						<a href="#">
-							<h2>Smart Soluções</h2>
-							<h3 class="cor-1">( Ronilton Silva de Souza )</h3>
-						</a>
-
-						<div id="txt">
-							<p>Brasiliense, Ronilton Silva de Souza nasceu em 23 de abril de 1993 e cresceu no Paranoá, embora já seja morador do itapoã há 14 anos. Sua infância foi marcada por algumas dificuldades e perdas difíceis, tendo crescido sozinho com sua mãe e irmãos. </br>
-								Sua mãe, comerciante local do Paranoá – DF, sempre lutou para criar os filhos com dignidade e tornou-se no seu maior exemplo de vida e de trabalho.</br></br>
-								No comercio de sua mãe ajudava no que podia. Antes de terminar o ensino médio, em 2007, já fazia serviços como free lancer de informática para amigos e clientes avulsos. Tempos depois, em 2010, abriu sua própria empresa como micro empreendedor individual, mudando o foco dos seus atendimentos passando a prestar serviços mais para empresas te lojas do comércio local. Logo que terminou o ensino médio começou a faculdade em Sistemas de Informações. Ronilton percebeu que em sua cidade havia carência de um comércio com mais variedades e atendimento, pois muitas pessoas lhe perguntavam se ele tinha loja física quando fazia seus atendimentos. Mudou sua empresa de MEI para Micro Empresa em 2014 e abriu sua loja na cidade. </br> </br>
-								No começo foi um pouco difícil, pois muitas pessoas tinham e algumas ainda têm discriminação em relação à cidade onde fica localizado seu estabelecimento. Sem precisar fazer propaganda, só com a qualidade dos seus serviços e do atendimento, os próprios clientes trouxeram outros e assim, com muita luta foi conquistando clientes e ganhando confiança e credibilidade tanto nos serviços prestados como nos produtos vendidos, gerando assim mais empregos. </br> </br>
-								Hoje consolidou-se como empresário e tornou-se referência para muitos da cidade e região. Para este ano a Smart Soluções tem como sua maior meta ter uma base mais forte e sólida para poder ampliar seu espaço.
-							</p>
-						</div>
-
-					</li>
+					<?php endfor; ?>
 
 				</ol>
 			</div>
 		</section>
 
 		<section class="container categorias" id="crescimento">
+			<a href="<?php echo $currentUrl ?>/#" class="ani-06" id="fecha-lista"></a>
 			<div class="row">
 				<h2 class="col-xs-12">
 					<i class="ico">
@@ -242,70 +201,42 @@
 								C42,1.1,40.8,0,39.4,0z M38,8.6v35.3h-4v-33l4-3V8.6z"/>
 						</g>
 						</svg>
-
 					</i>
-					<span id="pre">Homenageados </span>Crescimento<span id="pos"> <?php echo get_term_by('id', $ano, 'tag-edicoes')->name ?></span>
+					Crescimento<span id="pos"> <?php echo get_term_by('id', $ano, 'tag-edicoes')->name ?></span>
 				</h2>
+				<div class="clearfix"></div>
+				<p class="intro">Crescer é um dos maiores desafios das empresas. O aumento do faturamento e da lucratividade significa para uma empresa, o que o sangue, o alimento e oxigênio significam para um ser humano. Eles não são o sentido da vida, mas sem eles não há vida e muito menos crescimento. Nesta categoria, são premiadas as empresas que se destacaram pelo crescimento do negócio através de estratégias diversificadas.</p>
 			</div>
 			<div class="row">
-				<ul class="col-xs-12">
-					<?php for ($i=0; $i < count( $arHomenageados['crescimento'] ); $i++) :
+				<ol class="col-xs-12">
 
-						?>
-						<li class="col-md-2 <?php echo ( $i % 2 != 0 ) ? 'dir' : '' ; ?>" id="<?php echo slugify( $arHomenageados['crescimento'][$i]['nome'] ); ?>">
-							<a href="<?php echo $currentUrl ?>/#" class="ani-06" id="fecha-lista"></a>
-							<a href="<?php echo $currentUrl ?>/#<?php echo slugify( $arHomenageados['crescimento'][$i]['nome'] ); ?>" id="abre-lista"></a>
+					<?php for ($i=0; $i < count( $arHomenageados['crescimento'] ); $i++) : ?>
 
-							<?php if ( $arHomenageados['crescimento'][$i]['foto']['sizes']['logo-homenageado'] != '' ): ?>
+						<li class="col-xs-12" id="<?php echo slugify( $arHomenageados['crescimento'][$i]['nome'] ); ?>">
 
-								<img src="<?php echo $arHomenageados['crescimento'][$i]['foto']['sizes']['logo-homenageado'] ?>" nopin="nopin">
-								<div id="wrap">
-									<h3 class="cor-1"><?php echo $arHomenageados['crescimento'][$i]['nome'] ?></h3>
-									<h4><?php echo $arHomenageados['crescimento'][$i]['empresario'] ?></h4>
-									<div id="txt">
-										<?php echo $arHomenageados['crescimento'][$i]['biografia'] ?>
-									</div>
-								</div>
+							<a class="ani-04" href="<?php echo $currentUrl ?>/#<?php echo slugify( $arHomenageados['crescimento'][$i]['nome'] ); ?>">
+								<h2><?php echo $arHomenageados['crescimento'][$i]['nome'] ?></h2>
+								<?php if ( $arHomenageados['crescimento'][$i]['empresario'] != '' ): ?>
 
-							<?php else : ?>
-							
-								<?php if ( $arHomenageados['crescimento'][$i]['logo']['sizes']['logo-homenageado'] != '' ): ?>
+									<h3 class="cor-1">( <?php echo $arHomenageados['crescimento'][$i]['empresario'] ?> )</h3>
 
-									<div class="fake-logo">
-										<img src="<?php echo $arHomenageados['crescimento'][$i]['logo']['sizes']['logo-homenageado'] ?>" nopin="nopin">
-									</div>
-									<div id="wrap">
-										<h3 class="cor-1"><?php echo $arHomenageados['crescimento'][$i]['nome'] ?></h3>
-										<h4><?php echo $arHomenageados['crescimento'][$i]['empresario'] ?></h4>
-										<div id="txt">
-											<?php echo $arHomenageados['crescimento'][$i]['biografia'] ?>
-										</div>
-									</div>
-									
-								<?php else : ?>
+								<?php endif ?>
+							</a>
 
-									<div class="fake-logo">
-										<h3 class="cor-1"><?php echo $arHomenageados['crescimento'][$i]['nome'] ?></h3>
-									</div>
-									<div id="wrap">
-										<h4><?php echo $arHomenageados['crescimento'][$i]['empresario'] ?></h4>
-										<div id="txt">
-											<?php echo $arHomenageados['crescimento'][$i]['biografia'] ?>
-										</div>
-									</div>
+							<div id="txt">
+								<?php echo $arHomenageados['crescimento'][$i]['biografia'] ?>
+							</div>
 
-								<?php endif; ?>
-
-							<?php endif; ?>
 						</li>
-						<?php 
-					endfor;
-					?>
-				</ul>
+
+					<?php endfor; ?>
+
+				</ol>
 			</div>
 		</section>
 
 		<section class="container categorias" id="criatividade">
+			<a href="<?php echo $currentUrl ?>/#" class="ani-06" id="fecha-lista"></a>
 			<div class="row">
 				<h2 class="col-xs-12">
 					<i class="ico">
@@ -331,68 +262,39 @@
 						</svg>
 
 					</i>
-					<span id="pre">Homenageados </span>Criatividade<span id="pos"> <?php echo get_term_by('id', $ano, 'tag-edicoes')->name ?></span>
+					Criatividade<span id="pos"> <?php echo get_term_by('id', $ano, 'tag-edicoes')->name ?></span>
 				</h2>
+				<div class="clearfix"></div>
+				<p class="intro">A criatividade é a ferramenta mais adequada para encontrarmos maneiras de fazer mais com menos, de reduzir custos, de simplificar processos e sistemas, de aumentar lucratividade, de encontrar novos usos para produtos, de encontrar novos segmentos de mercado, de desenvolver novos produtos e muito mais. Nesta categoria são premiadas empresas que se destacaram pelo uso da criatividade como principal ferramenta de sucesso.</p>
 			</div>
 			<div class="row">
-				<ul class="col-xs-12">
-					<?php for ($i=0; $i < count( $arHomenageados['criatividade'] ); $i++) :
+				<ol class="col-xs-12">
 
-						?>
-						<li class="col-md-2 <?php echo ( $i % 2 != 0 ) ? 'dir' : '' ; ?>" id="<?php echo slugify( $arHomenageados['criatividade'][$i]['nome'] ); ?>">
-							<a href="<?php echo $currentUrl ?>/#" class="ani-06" id="fecha-lista"></a>
-							<a href="<?php echo $currentUrl ?>/#<?php echo slugify( $arHomenageados['criatividade'][$i]['nome'] ); ?>" id="abre-lista"></a>
+					<?php for ($i=0; $i < count( $arHomenageados['criatividade'] ); $i++) : ?>
 
-							<?php if ( $arHomenageados['criatividade'][$i]['foto']['sizes']['logo-homenageado'] != '' ): ?>
+						<li class="col-xs-12" id="<?php echo slugify( $arHomenageados['criatividade'][$i]['nome'] ); ?>">
 
-								<img src="<?php echo $arHomenageados['criatividade'][$i]['foto']['sizes']['logo-homenageado'] ?>" nopin="nopin">
-								<div id="wrap">
-									<h3 class="cor-1"><?php echo $arHomenageados['criatividade'][$i]['nome'] ?></h3>
-									<h4><?php echo $arHomenageados['criatividade'][$i]['empresario'] ?></h4>
-									<div id="txt">
-										<?php echo $arHomenageados['criatividade'][$i]['biografia'] ?>
-									</div>
-								</div>
-								
-							<?php else : ?>
-							
-								<?php if ( $arHomenageados['criatividade'][$i]['logo']['sizes']['logo-homenageado'] != '' ): ?>
+							<a class="ani-04" href="<?php echo $currentUrl ?>/#<?php echo slugify( $arHomenageados['criatividade'][$i]['nome'] ); ?>">
+								<h2><?php echo $arHomenageados['criatividade'][$i]['nome'] ?></h2>
+								<?php if ( $arHomenageados['criatividade'][$i]['empresario'] != '' ): ?>
+									<h3 class="cor-1">( <?php echo $arHomenageados['criatividade'][$i]['empresario'] ?> )</h3>
+								<?php endif ?>
+							</a>
 
-									<div class="fake-logo">
-										<img src="<?php echo $arHomenageados['criatividade'][$i]['logo']['sizes']['logo-homenageado'] ?>" nopin="nopin">
-									</div>
-									<div id="wrap">
-										<h3 class="cor-1"><?php echo $arHomenageados['criatividade'][$i]['nome'] ?></h3>
-										<h4><?php echo $arHomenageados['criatividade'][$i]['empresario'] ?></h4>
-										<div id="txt">
-											<?php echo $arHomenageados['criatividade'][$i]['biografia'] ?>
-										</div>
-									</div>
-									
-								<?php else : ?>
+							<div id="txt">
+								<?php echo $arHomenageados['criatividade'][$i]['biografia'] ?>
+							</div>
 
-									<div class="fake-logo">
-										<h3 class="cor-1"><?php echo $arHomenageados['criatividade'][$i]['nome'] ?></h3>
-									</div>
-									<div id="wrap">
-										<h4><?php echo $arHomenageados['criatividade'][$i]['empresario'] ?></h4>
-										<div id="txt">
-											<?php echo $arHomenageados['criatividade'][$i]['biografia'] ?>
-										</div>
-									</div>
-
-								<?php endif; ?>
-
-							<?php endif; ?>
 						</li>
-						<?php 
-					endfor;
-					?>
-				</ul>
+
+					<?php endfor; ?>
+
+				</ol>
 			</div>
 		</section>
 
 		<section class="container categorias" id="personalidade">
+			<a href="<?php echo $currentUrl ?>/#" class="ani-06" id="fecha-lista"></a>
 			<div class="row">
 				<h2 class="col-xs-12">
 					<i class="ico">
@@ -421,32 +323,36 @@
 						</svg>
 
 					</i>
-					<span id="pre">Homenageados </span>Personalidade<span id="pos"> <?php echo get_term_by('id', $ano, 'tag-edicoes')->name ?></span>
+					Personalidade<span id="pos"> <?php echo get_term_by('id', $ano, 'tag-edicoes')->name ?></span>
 				</h2>
+				<div class="clearfix"></div>
+				<p class="intro">Encontrar uma exata definição para o termo personalidade não é uma tarefa simples. Personalidade é o conjunto das características marcantes de uma pessoa, que a tornam única e diferente de todas as outras. A presente categoria homenageia pessoas que se destacaram no cenário econômico, político, cultural e social do DF e entorno, deixando sua marca na história de Brasília. </p>
 			</div>
 			<div class="row">
-				<ul class="col-xs-12">
-					<?php for ($i=0; $i < count( $arHomenageados['personalidade'] ); $i++) :
+				<ol class="col-xs-12">
 
-						?>
-						<li class="col-md-2 <?php echo ( $i % 2 != 0 ) ? 'dir' : '' ; ?>" id="<?php echo slugify( $arHomenageados['personalidade'][$i]['nome'] ); ?>">
-							<a href="<?php echo $currentUrl ?>/#" class="ani-06" id="fecha-lista"></a>
-							<a href="<?php echo $currentUrl ?>/#<?php echo slugify( $arHomenageados['personalidade'][$i]['nome'] ); ?>" id="abre-lista"></a>
+					<?php for ($i=0; $i < count( $arHomenageados['personalidade'] ); $i++) : ?>
 
-							<img src="<?php echo $arHomenageados['personalidade'][$i]['foto']['sizes']['foto-homenageado'] ?>" nopin="nopin">
-							<div id="wrap">
-								<h3 class="cor-1"><?php echo $arHomenageados['personalidade'][$i]['nome'] ?></h3>
-								<div id="txt">
-									<?php echo $arHomenageados['personalidade'][$i]['biografia'] ?>
-								</div>
+						<li class="col-xs-12" id="<?php echo slugify( $arHomenageados['personalidade'][$i]['nome'] ); ?>">
+
+							<img src="<?php echo $arHomenageados['personalidade'][$i]['foto']['sizes']['mini-foto-homenageado'] ?>" nopin='nopin'>
+
+							<a class="ani-04" href="<?php echo $currentUrl ?>/#<?php echo slugify( $arHomenageados['personalidade'][$i]['nome'] ); ?>">
+								<h2><?php echo $arHomenageados['personalidade'][$i]['nome'] ?></h2>
+							</a>
+
+							<div id="txt">
+								<?php echo $arHomenageados['personalidade'][$i]['biografia'] ?>
 							</div>
+
 						</li>
-						<?php 
-					endfor;
-					?>					
-				</ul>
+
+					<?php endfor; ?>
+
+				</ol>
 			</div>
 		</section>
+
 	</div>
 
 </section>

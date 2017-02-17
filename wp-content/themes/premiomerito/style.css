@@ -530,6 +530,7 @@ body
 {
     font-family: 'titillium-regular', Arial, sans-serif;
     letter-spacing: -0.03em;
+    font-size: 16px;
 }
 
 *, *:before, *:after
@@ -1087,7 +1088,6 @@ header ul li a
     display: block;
 }
 
-
 .page-home .homenageados ul,
 .page-home .edicoes-anteriores ul
 {
@@ -1525,6 +1525,13 @@ footer .rodape #realizacao ul #feicotur
     display: none;
 }
 
+.page-homenageados .lista .categorias h2 span
+{
+    display: inline;
+    color: #a9a9a9;
+    font-family: 'museo300', Arial, sans-serif;
+}
+
 .page-homenageados .lista #fecha-lista
 {
     display: block;
@@ -1557,6 +1564,19 @@ footer .rodape #realizacao ul #feicotur
     text-transform: uppercase;
 }
 
+.page-homenageados .categorias .intro
+{
+    background: #00a489;
+    color: white;
+    padding: 10px 10px 15px 70px;
+    margin-top: -10px;
+}
+
+.page-homenageados .lista .categorias .intro
+{
+    display: none;
+}
+
 .page-homenageados .categorias h2 .ico
 {
     vertical-align: middle;
@@ -1577,7 +1597,12 @@ footer .rodape #realizacao ul #feicotur
 
 .page-homenageados .categorias ol li
 {
-    margin-bottom: 5px;
+    margin-bottom: 9px;
+}
+
+.page-homenageados .categorias ol li:hover
+{
+    /*padding-left: 20px;*/
 }
 
 .page-homenageados .categorias li h2
@@ -1603,12 +1628,13 @@ footer .rodape #realizacao ul #feicotur
 
 .page-homenageados .categorias li a
 {
-    padding-right: 15px;
+    padding: 4px 15px 4px 0;
 }
 
 .page-homenageados .grade li a:hover
 {
     background-color: #262626;
+    padding-left: 5px;
 }
 
 .page-homenageados li p
@@ -2026,6 +2052,8 @@ footer .rodape #realizacao ul #feicotur
 .page-fotos ul li
 {
     padding: 0px;
+    border: 1px solid white;
+    width: 12.5%;
 }
 
 .page-fotos ul li:before
