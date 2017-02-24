@@ -24,25 +24,7 @@
                     <div class="row-fluid">
                         <div class="container">
                             <div class="row">
-                                <nav class="col-lg-7">
-                                    <ul id="menu-rodape">
-                                        <!-- 
-                                        <li>
-                                            <a class="ani-04" href="<?php bloginfo('url') ?>/anuncie">Anuncie</a>
-                                        </li>
-                                        <li>
-                                            <a class="ani-04" href="<?php bloginfo('url') ?>/edicoes">Revista On-line</a>
-                                        </li>
-                                        <li>
-                                            <a class="ani-04" href="<?php bloginfo('url') ?>/editorial">Editorial</a>
-                                        </li>
-                                        <li>
-                                            <a class="ani-04" href="<?php bloginfo('url') ?>/dados-tecnicos">Dados Técnicos</a>
-                                        </li>
-                                         -->
-                                    </ul>
-                                </nav>
-                                <div id="realizacao" class="col-lg-5">
+                                <div id="realizacao" class="col-lg-12">
                                     <ul>
                                         <h3>Realização</h3>
                                         <li>
@@ -52,7 +34,25 @@
                                     <ul>
                                         <h3>Coordenação</h3>
                                         <li>
-                                            <a id="feicotur" href="http://feicotur.com" target="_blank">FEICOTUR</a>
+                                            <a id="merito-comunicacao" href="http://meritocomunicacao.com" target="_blank">Mérito Comunicação</a>
+                                        </li>
+                                    </ul>
+                                    <ul>
+                                        <h3>Apoio Institucional</h3>
+                                        <li>
+                                            <a id="cacb" href="http://www.cacb.com.br" target="_blank">CACB</a>
+                                        </li>
+                                        <li>
+                                            <a id="brb" href="http://www.brb.com.br" target="_blank">BRB</a>
+                                        </li>
+                                        <li>
+                                            <a id="cidades" href="http://www.sde.df.gov.br" target="_blank">Secretaria de Estado de Economia e Desenvolvimento Sustentável</a>
+                                        </li>
+                                        <li>
+                                            <a id="turismo" href="http://www.setur.df.gov.br" target="_blank">Secretaria de Estado de Turismo</a>
+                                        </li>
+                                        <li>
+                                            <a id="governo" href="http://www.df.gov.br" target="_blank">CACB</a>
                                         </li>
                                     </ul>
                                 </div>

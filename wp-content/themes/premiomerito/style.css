@@ -443,7 +443,7 @@ ul.tags,
 
 .merito-title-pagina select
 {
-    background-image: url(img/premiomerito-seta-select.png);
+    /*background-image: url(img/premiomerito-seta-select.png);*/
     background-repeat: no-repeat;
     background-position: right center;
     border: none;
@@ -453,7 +453,8 @@ ul.tags,
     font-size: 27px;
     line-height: 1;
     display: inline-block;
-    padding: 8px 52px 8px 8px;
+    /*padding: 8px 52px 8px 8px;*/
+    padding: 8px 10px 8px 8px;
     margin-left: 16px;
     vertical-align: bottom;
     -webkit-appearance: none;
@@ -707,19 +708,37 @@ header ul li a
 {
     content: '';
     display: block;
-    border: 6px solid transparent;
-    border-top-color: #00a489;
+    border: 3px solid transparent;
+    border-top-color: #878787;
     width: 0;
     position: absolute;
     left: 50%;
-    margin-left: -3px;
-    bottom: 2px;
+    bottom: 20px;
+    margin-left: -2px;
     z-index: 5000;
+}
+
+.menu ul li.has-submenu:hover:after,
+.menu ul li.has-submenu:focus:after
+{
+    border-top-color: white;
+}
+
+.menu ul li.has-submenu:hover ul,
+.menu ul li.has-submenu:focus ul
+{
+    display: block;
+}
+
+.menu ul li:hover a,
+.menu ul li:focus a
+{
+    color: white;
 }
 
 .menu ul li ul
 {
-    /*display: none;*/
+    display: none;
     position: absolute;
     top: 100%;
     left: 0;
@@ -728,14 +747,19 @@ header ul li a
 
 .menu ul li ul li
 {
+    background: #64928d;
     display: block;
-    padding: 15px;
+    padding: 10px 15px;
     color: #f1f1f1;
+    font-size: 20px;
 }
 
-.menu ul li ul li:hover
+.menu ul li ul li a
 {
-
+    text-transform: uppercase;
+    font-family: 'titillium-regular', Arial, sans-serif;
+    padding: 0;
+    height: auto;
 }
 
 .menu ul li a
@@ -1380,26 +1404,61 @@ footer .rodape #realizacao ul li
     margin-left: 30px;
 }
 
-footer .rodape #realizacao ul #facidf
+footer .rodape #realizacao ul li a
 {
-    background: url(img/premiomerito-logo-facidf.png) no-repeat center;
-    width: 42px;
-    height: 42px;
     display: block;
     text-indent: -9999px;
     float: right;
     text-align: left;
 }
 
-footer .rodape #realizacao ul #feicotur
+footer .rodape #realizacao ul #facidf
 {
-    background: url(img/premiomerito-logo-feicotur.png) no-repeat center;
-    width: 124px;
+    background: url(img/premiomerito-logo-facidf.png) no-repeat center;
+    width: 42px;
+    height: 42px;
+}
+
+footer .rodape #realizacao ul #merito-comunicacao
+{
+    background: url(img/premiomerito-logo-merito-comunicacao.png) no-repeat center;
+    width: 94px;
     height: 32px;
-    display: block;
-    text-indent: -9999px;
-    float: right;
-    text-align: left;
+}
+
+footer .rodape #realizacao ul #brb
+{
+    background: url(img/premiomerito-logo-brb.png) no-repeat center;
+    width: 74px;
+    height: 32px;
+}
+
+footer .rodape #realizacao ul #cidades
+{
+    background: url(img/premiomerito-logo-secretaria-de-economia-e-desenvolvimento.png) no-repeat center;
+    width: 134px;
+    height: 32px;
+}
+
+footer .rodape #realizacao ul #turismo
+{
+    background: url(img/premiomerito-logo-secretaria-de-estado-de-turismo.png) no-repeat center;
+    width: 134px;
+    height: 32px;
+}
+
+footer .rodape #realizacao ul #governo
+{
+    background: url(img/premiomerito-logo-governo-de-brasilia.png) no-repeat center;
+    width: 114px;
+    height: 32px;
+}
+
+footer .rodape #realizacao ul #merito-comunicacao
+{
+    background: url(img/premiomerito-logo-merito-comunicacao.png) no-repeat center;
+    width: 94px;
+    height: 32px;
 }
 
 
@@ -2285,10 +2344,33 @@ footer .rodape #realizacao ul #feicotur
 
 /*-------------------SOBRE-------------------*/
 
+.page-sobre .noticias #wrap-text
+{
+    background: url(img/grey-90.png);
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+}
+
+.page-sobre .noticias #wrap-text h2
+{
+    font-family: 'museo500', Arial, sans-serif;
+    font-size: 70px;
+    text-transform: uppercase;
+    color: white;
+    padding: 0px 30px 0px 40px;
+}
+
+.page-sobre .noticias #wrap-text h2 span
+{
+    font-family: 'museo900', Arial, sans-serif;
+}
+
 .page-sobre .conteudo
 {
     background: url(img/premiomerito-bg-sobre.jpg) center repeat-y;
     border-bottom: 30px solid #00a489;
+    border-top: 30px solid #00a489;
 }
 
 .page-sobre .desde,

@@ -254,6 +254,46 @@
                         $arEdicoesHomenageados = array_map('unserialize', array_unique(array_map('serialize', $arEdicoesHomenageados)));
                         $arEdicoesHomenageados = array_orderby($arEdicoesHomenageados, 'name', SORT_DESC);
 
+
+                        $arEdicoesFotos = array();
+
+                        $fotos = get_post_by_type('fotos', NULL, 'ASC', -1);
+
+                        while ( $fotos->have_posts() ) :
+                            $fotos->the_post();
+                            $edicao = get_field('edicao');
+
+                            $arEdicoesFotos[] = array(
+                                'id' => $edicao,
+                                'name' => get_term_by('id', $edicao, 'tag-edicoes')->name
+                            );
+
+                        endwhile;
+
+                        wp_reset_query();
+                        $arEdicoesFotos = array_map('unserialize', array_unique(array_map('serialize', $arEdicoesFotos)));
+                        $arEdicoesFotos = array_orderby($arEdicoesFotos, 'name', SORT_DESC);
+
+
+                        $arEdicoesLivros = array();
+
+                        $livros = get_post_by_type('livros', NULL, 'ASC', -1);
+
+                        while ( $livros->have_posts() ) :
+                            $livros->the_post();
+                            $edicao = get_field('edicao');
+
+                            $arEdicoesLivros[] = array(
+                                'id' => $edicao,
+                                'name' => get_term_by('id', $edicao, 'tag-edicoes')->name
+                            );
+
+                        endwhile;
+
+                        wp_reset_query();
+                        $arEdicoesLivros = array_map('unserialize', array_unique(array_map('serialize', $arEdicoesLivros)));
+                        $arEdicoesLivros = array_orderby($arEdicoesLivros, 'name', SORT_DESC);
+
                     ?>
                     
                     <div class="container-fluid menu">
@@ -262,25 +302,67 @@
                             <div class="row">
                                 <div class="col-md-offset-1 col-md-10">
                                     <ul>
-                                        <!-- <li>
-                                        <a href="<?php bloginfo('url') ?>/sobre" class="ani-04">O Prêmio Mérito</a>
-                                        </li> --><li>
+                                        <li>
+                                        <a href="<?php bloginfo('url') ?>/sobre" class="merito-bt bg-cor-1-hover ani-04">O Prêmio Mérito</a>
+                                        </li><li>
                                             <a href="<?php bloginfo('url') ?>/palestrantes" class="merito-bt bg-cor-1-hover ani-04">Palestrantes</a>
-                                        </li><li class="has-submenu">
-                                            <a href="<?php bloginfo('url') ?>/homenageados" class="merito-bt bg-cor-1-hover ani-04">Homenageados</a>
+                                        </li><li class="has-submenu bg-cor-1-hover ani-04">
+                                            <a href="<?php bloginfo('url') ?>/homenageados" class="merito-bt">Homenageados</a>
+                                            
+                                            <?php if (count($arEdicoesHomenageados) > 0): ?>
                                             <ul>
 
                                                 <?php for ($i=0; $i<count($arEdicoesHomenageados); $i++): ?>
 
-                                                    <li class="ani-04 bg-cor-1 bg-cor-2-hover"><?php echo $arEdicoesHomenageados[$i]['name'] ?></li>
+                                                    <li class="ani-04 bg-cor-1 bg-cor-2-hover">
+                                                        <a href="<?php echo bloginfo('url') ?>/homenageados/?ano=<?php echo $arEdicoesHomenageados[$i]['name'] ?>">
+                                                            <?php echo $arEdicoesHomenageados[$i]['name'] ?>
+                                                        </a>
+                                                    </li>
                                                     
                                                 <?php endfor ?>
 
                                             </ul>
-                                        </li><li>
+                                            <?php endif ?>
+
+                                        </li><li class="has-submenu bg-cor-1-hover ani-04">
                                             <a href="<?php bloginfo('url') ?>/fotos" class="merito-bt bg-cor-1-hover ani-04">Fotos</a>
-                                        </li><li>
+
+                                            <?php if (count($arEdicoesFotos) > 0): ?>
+                                            <ul>
+
+                                                <?php for ($i=0; $i<count($arEdicoesFotos); $i++): ?>
+
+                                                    <li class="ani-04 bg-cor-1 bg-cor-2-hover">
+                                                        <a href="<?php echo bloginfo('url') ?>/fotos/?ano=<?php echo $arEdicoesFotos[$i]['name'] ?>">
+                                                            <?php echo $arEdicoesFotos[$i]['name'] ?>
+                                                        </a>
+                                                    </li>
+                                                    
+                                                <?php endfor ?>
+
+                                            </ul>
+                                            <?php endif ?>
+
+                                        </li><li class="has-submenu bg-cor-1-hover ani-04">
                                             <a href="<?php bloginfo('url') ?>/livros" class="merito-bt bg-cor-1-hover ani-04">Livros</a>
+
+                                            <?php if (count($arEdicoesLivros) > 0): ?>
+                                            <ul>
+
+                                                <?php for ($i=0; $i<count($arEdicoesLivros); $i++): ?>
+
+                                                    <li class="ani-04 bg-cor-1 bg-cor-2-hover">
+                                                        <a href="<?php echo bloginfo('url') ?>/livros/?ano=<?php echo $arEdicoesLivros[$i]['name'] ?>">
+                                                            <?php echo $arEdicoesLivros[$i]['name'] ?>
+                                                        </a>
+                                                    </li>
+                                                    
+                                                <?php endfor ?>
+
+                                            </ul>
+                                            <?php endif ?>
+
                                         </li><li>
                                             <a href="<?php bloginfo('url') ?>/contato" class="merito-bt bg-cor-1-hover ani-04">Contato</a>
                                         </li>

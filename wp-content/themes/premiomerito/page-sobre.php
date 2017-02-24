@@ -5,6 +5,11 @@
 		
 	<section class="container-fluid noticias">
 	    <div class="row">
+
+			<div id="wrap-text">
+                <h2>A história quem faz é <span class="oneline cor-1">você</span>!</h2>
+			</div>
+	    	        			
 <!--         	<button id="seta-esq" class="ani-02 layer seta esq ani-04-in-out"></button>
         	<button id="seta-dir" class="ani-02 layer seta dir ani-04-in-out"></button>
  -->
@@ -19,24 +24,29 @@
 	        				<!-- <img src="<?php echo $capa['sizes']['header-artigo'] ?>"> -->
 		        			<img src="<?php bloginfo('template_url') ?>/img/premiomerito-img-noticia-temp.jpg"/>
 	        			</figure>
-	        			<div id="wrap-text">
-	        				<div class="col-lg-5">
-	        					<!-- <h2><?php echo $titulo ?></h2> -->
-		                        <h2>2016: Palestra proferida por <span class="oneline cor-1">Geninho Goes</span></h2>
-<!-- 	        					<div id="wrap-link">
-	        						<a class="ani-02" href="<?php bloginfo('url') ?>/artigos/<?php echo $slug; ?>">Continuar lendo<i class="ico ani-04 mais-circ-line right"></i></a>
-	        					</div>
- -->	        				</div>
-	        			</div>
+
+
+	        		</article>
+	        	</li>
+
+	        	<li>
+	        		<article style="background-image: url('<?php bloginfo('template_url') ?>/img/premiomerito-img-noticia-temp2.jpg')">
+	        		<!-- <article style="background-image: url('<?php echo $capa['sizes']['artigo-destaque-home'] ?>')"> -->
+	        			<figure class="hidden">
+	        				<div id="msk"></div>
+	        				<!-- <img src="<?php echo $capa['sizes']['header-artigo'] ?>"> -->
+		        			<img src="<?php bloginfo('template_url') ?>/img/premiomerito-img-noticia-temp.jpg"/>
+	        			</figure>
+
 	        		</article>
 	        	</li>
 
 	        </ul>
 	        
-<!-- 	        <div id="contador" style="width: 48px;">
+	        <div id="contador" style="width: 48px;">
 	        	<div id="marca" style="left: 5px; right: 37px;"></div>
 	        </div>
- -->
+
 
 	    </div>
 	</section>
