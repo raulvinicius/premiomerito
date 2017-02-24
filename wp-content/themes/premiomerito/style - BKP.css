@@ -530,6 +530,7 @@ body
 {
     font-family: 'titillium-regular', Arial, sans-serif;
     letter-spacing: -0.03em;
+    font-size: 16px;
 }
 
 *, *:before, *:after
@@ -1087,7 +1088,6 @@ header ul li a
     display: block;
 }
 
-
 .page-home .homenageados ul,
 .page-home .edicoes-anteriores ul
 {
@@ -1484,40 +1484,24 @@ footer .rodape #realizacao ul #feicotur
 
 /*-------------------HOMENAGEADOS-------------------*/
 
-.page-homenageados li,
-.page-livros li
-{
-    margin: 15px;
-    overflow: hidden;
-    padding: 0;
-}
-
-.page-homenageados li
-{
-    height: 230px;
-}
-
-.page-homenageados #atendimento li,
-.page-homenageados #crescimento li,
-.page-homenageados #criatividade li
-{
-    height: 250px;
-}
-
-.page-homenageados .lista #atendimento li,
+/*.page-homenageados .lista #atendimento li,
 .page-homenageados .lista #crescimento li,
 .page-homenageados .lista #criatividade li,
 .page-homenageados .lista #personalidade li
 {
     height: auto;
 }
+*/
 
-.page-homenageados .lista li
+
+/*.page-homenageados .lista li
 {
     margin: 0;
 }
+*/
 
-/*.page-homenageados ul div:nth-child(5n+6):before
+/*
+.page-homenageados ul div:nth-child(5n+6):before
 {
     content: '';
     display: block;
@@ -1526,110 +1510,71 @@ footer .rodape #realizacao ul #feicotur
     width: 100%;
 }
 */
-.page-homenageados .categorias h2 span
-{
-    display: none;
-}
 
-.page-homenageados li:after,
-.page-livros li a:after
-{
-    content: "";
-    display: block;
-    position: absolute;
-    bottom: 85px;
-    left: -42px;
-    width: 42px;
-    height: 42px;
-    background: url(img/premiomerito-lupa-homenageados.png) no-repeat center #ff4c34;
 
-    -webkit-transition: 0.4s all cubic-bezier(0.34, 0, 0, 1);
-    -moz-transition: 0.4s all cubic-bezier(0.34, 0, 0, 1);
-    -o-transition: 0.4s all cubic-bezier(0.34, 0, 0, 1);
-    -ms-transition: 0.4s all cubic-bezier(0.34, 0, 0, 1);
-    transition: 0.4s all cubic-bezier(0.34, 0, 0, 1);
-}
-
-.page-homenageados li:hover:after,
-.page-livros li a:hover:after
-{
-    left: 0px;
-}
-
-.page-homenageados li:hover h3,
-.page-livros li:hover h3
-{
-    color: #ff4c34;
-}
-
-.page-homenageados .categorias li img
-{
-    width: 100%;
-    height: auto;
-    padding: 20px;
-
-}
-
-.page-homenageados #personalidade li img
-{
-    padding: 0;
-}
-
-.page-homenageados .grade #personalidade li img
-{
-    width: 100%;
-    height: auto;
-}
-
-.page-homenageados .categorias,
-.page-livros .categorias
+.page-homenageados .grade .categorias
 {
     margin-bottom: 100px;
 }
 
-.page-homenageados .categorias #fecha-lista
+.page-homenageados .categorias h2 span,
+.page-homenageados .grade .categorias ol li img,
+.page-homenageados .grade #fecha-lista,
+.page-homenageados li #txt
 {
     display: none;
 }
 
-.page-homenageados .categorias #abre-lista
+.page-homenageados .lista .categorias h2 span
 {
-    position: absolute;
-    bottom: 0;
-    top: 0;
-    right: 0;
-    left: 0;
+    display: inline;
+    color: #a9a9a9;
+    font-family: 'museo300', Arial, sans-serif;
+}
+
+.page-homenageados .lista #fecha-lista
+{
     display: block;
+    background: url(img/premiomerito-icon-fecha-lista-homenageados.png) no-repeat center #ff4c34;
+    width: 50px;
+    height: 50px;
+    border: none;
+    padding: 0;
+    position: fixed;
+    right: 50%;
+    margin-right: -587px;
+    top: 110px;
+    z-index: 10;
 }
 
-.page-homenageados .categorias h2,
-.page-homenageados li h3,
-.page-livros li h3,
-.page-homenageados li h4
+
+.page-homenageados .lista #fecha-lista:hover
 {
-    font-family: 'titillium-bold', Arial, sans-serif;
-    text-transform: uppercase;
-    margin: 0 0 0 10px;  
+    top: 105px;
 }
 
-.page-homenageados li h3,
-.page-livros li h3,
-.page-homenageados li h4
-{
-    margin: 0;  
-}
-
-.page-homenageados li h3,
-.page-homenageados li h4
-{
-    text-align: center;
-}
 
 .page-homenageados .categorias h2
 {
+    font-family: 'titillium-bold', Arial, sans-serif;
     font-size: 20px;
     color: #555;
+    margin: 0;
     margin-bottom: 24px;
+    text-transform: uppercase;
+}
+
+.page-homenageados .categorias .intro
+{
+    background: #00a489;
+    color: white;
+    padding: 10px 10px 15px 70px;
+    margin-top: -10px;
+}
+
+.page-homenageados .lista .categorias .intro
+{
+    display: none;
 }
 
 .page-homenageados .categorias h2 .ico
@@ -1639,56 +1584,67 @@ footer .rodape #realizacao ul #feicotur
     margin-right: 16px;
 }
 
-.page-homenageados li h3,
-.page-livros li h3
+.page-homenageados .categorias ol
 {
-    font-size: 16px;
-    margin-top: 10px;
+    font-size: 20px;
+    color: #5b5b5b;
+    font-family: 'titillium-bold', Arial, sans-serif;
+    background: #323232;
+    list-style-type: decimal-leading-zero;
+    list-style-position: inside;
+    padding: 35px 20px 30px 20px;
 }
 
-.page-homenageados li .fake-logo
+.page-homenageados .categorias ol li
 {
-    border: 1px solid #00a489;
-    height: 190px;
-    max-height: 190px;
-    display: table;
-    margin-bottom: 10px;
-    width: 100%;
-    padding: 10px;
+    margin-bottom: 9px;
 }
 
-.page-homenageados li .fake-logo h3
+.page-homenageados .categorias ol li:hover
 {
-    font-size: 24px;
-    display: table-cell;
-    vertical-align: middle;
-    margin: 0;
+    /*padding-left: 20px;*/
 }
 
-.page-homenageados li .fake-logo img
+.page-homenageados .categorias li h2
 {
-    display: table-cell;
+    color: white;
 }
 
-.page-homenageados li h4
+.page-homenageados .categorias li h2,
+.page-homenageados .categorias li h3
 {
+    margin: 0 0 0 2px;
+    display: inline-block;
+}
+
+.page-homenageados .categorias li h3
+{
+    font-family: 'titillium-regular', Arial, sans-serif;
     font-size: 14px;
     font-style: italic;
-    color: #343434;
-    margin-top: 2px;
-    font-family: 'titillium-regular', Arial, sans-serif;
+    text-transform: uppercase;
+    margin-left: 7px;
 }
 
-.page-homenageados li #txt
+.page-homenageados .categorias li a
 {
-    display: none;
+    padding: 4px 15px 4px 0;
+}
+
+.page-homenageados .grade li a:hover
+{
+    background-color: #262626;
+    padding-left: 5px;
 }
 
 .page-homenageados li p
 {
-    color: #777;
-    font-size: 16px;
+    color: #323232;
+    font-size: 14px;
+    font-family: 'titillium-regular', Arial, sans-serif;
 }
+
+
 
 .page-homenageados .lista
 {
@@ -1704,239 +1660,98 @@ footer .rodape #realizacao ul #feicotur
     padding: 120px 0;
 }
 
-.page-homenageados .lista h3,
-.page-homenageados .lista h4
-{
-    text-align: left;
-}
-
-.page-homenageados .lista li
-{
-    overflow: visible;
-    margin-bottom: 100px;
-}
-
 .page-homenageados .lista li li
 {
     margin-bottom: 0;
 }
 
-.page-homenageados .lista li:after
+/*.page-homenageados .lista li:after
 {
     content: none;
-}
-
-.page-homenageados .lista #fecha-lista
-{
-    display: block;
-    background: url(img/premiomerito-icon-fecha-lista-homenageados.png) no-repeat center #ff4c34;
-    width: 64px;
-    height: 64px;
-    border: none;
-    padding: 0;
-    position: absolute;
-    left: -20px;
-    top: 60px;
-}
-
-.page-homenageados .lista .dir #fecha-lista
-{
-    right: -20px;
-    left: auto;
-    z-index: 2;
-}
-
-.page-homenageados .lista #fecha-lista:hover
-{
-    top: 55px;
-}
-
-.page-homenageados .lista #abre-lista
-{
-    display: none;
-}
+}*/
 
 .page-homenageados .lista section
 {
     position: relative;
-    background: white;
-    padding: 0px 0 100px;
+    background: #323232;
 }
 
-.page-homenageados .lista section h2 i
+.page-homenageados .lista section h2 i .sth0
 {
-    display: none;
+    fill: white;
 }
 
 .page-homenageados .lista section h2
 {
-    background: #00af92;
-    font-family: 'museo900', Arial, sans-serif;
-    color: #003434;
-    width: 240px;
-    padding: 16px;
-    display: block;
-    margin: -20px auto 72px;
-    font-size: 28px;
-    float: none;
+    color: white;
+    font-size: 18px;
+    padding: 66px 0 0 40px;
 }
 
-.page-homenageados .lista section li
+.page-homenageados .lista section ol
 {
-    padding-top: 40px;
-    width: 100%;
+    padding: 0;
 }
 
-.page-homenageados .lista li.dir img
+.page-homenageados .lista section ol li
 {
-    position: relative;
-    /*left: 50%;*/
-    z-index: 0;
+    background: #191919;
+    padding: 0 55px;
+    margin-bottom: 90px;
 }
 
-.page-homenageados .lista #atendimento li .fake-logo,
-.page-homenageados .lista #crescimento li .fake-logo,
-.page-homenageados .lista #criatividade li .fake-logo
+.page-homenageados .lista section ol li h2
 {
-    width: 33.33333333%;
-    margin-left: 0;
-    padding: 15px 15px 15px 50px;
-    border-left: none;
-    height: auto;
-    float: left;
+    padding: 15px 0;
 }
 
-.page-homenageados .lista #atendimento li.dir .fake-logo,
-.page-homenageados .lista #crescimento li.dir .fake-logo,
-.page-homenageados .lista #criatividade li.dir .fake-logo
+.page-homenageados .lista section ol li h3
 {
-    position: relative;
-    left: 66.66666666%;
-    margin-left: 0;
-    padding: 15px 50px 15px 15px;
-    border-left: 1px solid #00a489;
-    border-right: none;
-}
-
-.page-homenageados .lista #atendimento li .fake-logo h3,
-.page-homenageados .lista #crescimento li .fake-logo h3,
-.page-homenageados .lista #criatividade li .fake-logo h3
-{
-    text-align: right;
-}
-
-.page-homenageados .lista #atendimento li.dir .fake-logo h3,
-.page-homenageados .lista #crescimento li.dir .fake-logo h3,
-.page-homenageados .lista #criatividade li.dir .fake-logo h3
-{
-    text-align: left;
-}
-
-.page-homenageados .lista li.dir #wrap
-{
-    position: relative;
-    right: 50%;
-}
-
-.page-homenageados .lista #atendimento li #wrap,
-.page-homenageados .lista #crescimento li #wrap,
-.page-homenageados .lista #criatividade li #wrap
-{
-    width: 66.66666667%;
-    float: left;
-}
-
-.page-homenageados .lista #atendimento li.dir #wrap,
-.page-homenageados .lista #crescimento li.dir #wrap,
-.page-homenageados .lista #criatividade li.dir #wrap
-{
-    position: relative;
-    right: 33.33333333%;
-    text-align: right;
-}
-
-.page-homenageados .lista section img,
-.page-homenageados .lista section #wrap
-{
-    /*width: 50%;*/
-    float: left;
-}
-
-.page-homenageados .lista section#atendimento img,
-.page-homenageados .lista section#crescimento img,
-.page-homenageados .lista section#criatividade img
-{
-    /*width: 33.33333333%;*/
-}
-
-.page-homenageados .lista section img
-{
-    height: auto;
-}
-
-.page-homenageados .lista section #wrap
-{
-    padding-left: 30px;
-    padding-right: 30px;
-}
-
-.page-homenageados .lista section li h3,
-.page-homenageados .lista section li h4
-{
-    margin-left: 0;
-    margin-right: 0;
-}
-
-.page-homenageados .lista section li.dir h3,
-.page-homenageados .lista section li.dir h4,
-.page-homenageados .lista section li.dir p
-{
-    text-align: right;
-}
-
-.page-homenageados .lista section li h3
-{
-    font-family: 'museo900', Arial, sans-serif;
-    font-size: 40px;
-    color: #ff4c34;
-}
-
-.page-homenageados .lista section li h4
-{
-    font-family: 'museo500', Arial, sans-serif;
-    font-size: 22px;
-    color: #777;
-    font-style: normal;
-    margin-bottom: 20px;
+    font-size: 13px;
 }
 
 .page-homenageados .lista section #txt
 {
     display: block;
+    background-color: #f5f5f5;
+    padding: 15px 87px;
+    margin: 0 -55px;
 }
 
-.page-homenageados .lista section#personalidade h2
+.page-homenageados .lista #personalidade .row > h2
 {
-    font-size: 24px;
+    margin-bottom: 54px;
 }
 
-.page-homenageados .lista section h2 span
+.page-homenageados .lista #crescimento .row > h2,
+.page-homenageados .lista #criatividade .row > h2,
+.page-homenageados .lista #personalidade .row > h2
 {
-    font-family: 'museo500', Arial, sans-serif;
-    color: white;
-    display: block;
+    margin-top: -60px;
 }
 
-.page-homenageados .lista section h2 #pre
+.page-homenageados .lista #personalidade ol li
 {
-    font-size: 24px;
+    position: relative;
+    padding: 0 55px 0 135px;
 }
 
-.page-homenageados .lista section h2 #pos
+.page-homenageados .lista #personalidade ol li img
 {
-    line-height: 0.9;
-    font-size: 94px;
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    position: absolute;
+    top: -17px;
+    left: 33px;
 }
+
+.page-homenageados .lista #personalidade ol li #txt
+{
+    margin-left: -135px;
+    padding-top: 38px;
+}
+
 
 /*-------------------HOMENAGEADOS-------------------*/
 
@@ -2237,6 +2052,8 @@ footer .rodape #realizacao ul #feicotur
 .page-fotos ul li
 {
     padding: 0px;
+    border: 1px solid white;
+    width: 12.5%;
 }
 
 .page-fotos ul li:before
@@ -2348,15 +2165,29 @@ footer .rodape #realizacao ul #feicotur
 
 /*-------------------LIVROS-------------------*/
 
+.page-livros .categorias
+{
+    margin-bottom: 100px;
+}
+
 .page-livros ul
 {
     padding: 0 0 0 30px;
 }
 
+.page-livros li
+{
+    margin: 15px;
+    overflow: hidden;
+    padding: 0;
+}
+
 .page-livros ul li h3
 {
     font-size: 36px;
-    margin-bottom: 15px;
+    font-family: 'titillium-bold', Arial, sans-serif;
+    text-transform: uppercase;
+    margin: 10px 0; 
 }
 
 .page-livros li img
@@ -2369,6 +2200,36 @@ footer .rodape #realizacao ul #feicotur
     display: block;
     margin-right: 30px;
 }
+
+.page-livros li a:after
+{
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 85px;
+    left: -42px;
+    width: 42px;
+    height: 42px;
+    background: url(img/premiomerito-lupa-homenageados.png) no-repeat center #ff4c34;
+
+    -webkit-transition: 0.4s all cubic-bezier(0.34, 0, 0, 1);
+    -moz-transition: 0.4s all cubic-bezier(0.34, 0, 0, 1);
+    -o-transition: 0.4s all cubic-bezier(0.34, 0, 0, 1);
+    -ms-transition: 0.4s all cubic-bezier(0.34, 0, 0, 1);
+    transition: 0.4s all cubic-bezier(0.34, 0, 0, 1);
+}
+
+.page-livros li a:hover:after
+{
+    left: 0px;
+}
+
+.page-livros li:hover h3
+{
+    color: #ff4c34;
+}
+
+
 
 /*-------------------LIVROS-------------------*/
 
