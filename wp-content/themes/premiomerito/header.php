@@ -233,6 +233,28 @@
                         </div>
                     </div>
                         
+                    <?php 
+
+                        $arEdicoesHomenageados = array();
+
+                        $homenageados = get_post_by_type('homenageados', NULL, 'ASC', -1);
+
+                        while ( $homenageados->have_posts() ) :
+                            $homenageados->the_post();
+                            $edicao = get_field('edicao');
+                            
+                            $arEdicoesHomenageados[] = array(
+                                'id' => $edicao[0],
+                                'name' => get_term_by('id', $edicao[0], 'tag-edicoes')->name
+                            );
+
+                        endwhile;
+
+                        wp_reset_query();
+                        $arEdicoesHomenageados = array_map('unserialize', array_unique(array_map('serialize', $arEdicoesHomenageados)));
+                        $arEdicoesHomenageados = array_orderby($arEdicoesHomenageados, 'name', SORT_DESC);
+
+                    ?>
                     
                     <div class="container-fluid menu">
                         <div class="container">
@@ -244,8 +266,17 @@
                                         <a href="<?php bloginfo('url') ?>/sobre" class="ani-04">O Prêmio Mérito</a>
                                         </li> --><li>
                                             <a href="<?php bloginfo('url') ?>/palestrantes" class="merito-bt bg-cor-1-hover ani-04">Palestrantes</a>
-                                        </li><li>
+                                        </li><li class="has-submenu">
                                             <a href="<?php bloginfo('url') ?>/homenageados" class="merito-bt bg-cor-1-hover ani-04">Homenageados</a>
+                                            <ul>
+
+                                                <?php for ($i=0; $i<count($arEdicoesHomenageados); $i++): ?>
+
+                                                    <li class="ani-04 bg-cor-1 bg-cor-2-hover"><?php echo $arEdicoesHomenageados[$i]['name'] ?></li>
+                                                    
+                                                <?php endfor ?>
+
+                                            </ul>
                                         </li><li>
                                             <a href="<?php bloginfo('url') ?>/fotos" class="merito-bt bg-cor-1-hover ani-04">Fotos</a>
                                         </li><li>

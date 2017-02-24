@@ -667,12 +667,18 @@ header ul li a
     height: 208px;
 }
 
+.menu
+{
+    position: relative;
+    z-index: 100;
+}
+
 .menu hgroup
 {
     float: none;
 }
 
-.menu ul
+.menu > ul
 {
     list-style: none;
     margin: 0;
@@ -685,8 +691,44 @@ header ul li a
 
 .menu ul li
 {
+    position: relative;
     display: inline-block;
     height: 100%;
+}
+
+.menu ul li.has-submenu:after
+{
+    content: '';
+    display: block;
+    border: 6px solid transparent;
+    border-top-color: #00a489;
+    width: 0;
+    position: absolute;
+    left: 50%;
+    margin-left: -3px;
+    bottom: 2px;
+    z-index: 5000;
+}
+
+.menu ul li ul
+{
+    /*display: none;*/
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+}
+
+.menu ul li ul li
+{
+    display: block;
+    padding: 15px;
+    color: #f1f1f1;
+}
+
+.menu ul li ul li:hover
+{
+
 }
 
 .menu ul li a
