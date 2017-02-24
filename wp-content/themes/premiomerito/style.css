@@ -1771,8 +1771,10 @@ footer .rodape #realizacao ul #merito-comunicacao
 .page-homenageados .lista section ol li ol,
 .page-homenageados .lista section ol li ul
 {
+    background: none;
     margin: 0;
     margin-bottom: 20px;
+    margin-top: 10px;
 }
 
 .page-homenageados .lista section ol li ol li,
@@ -1784,8 +1786,16 @@ footer .rodape #realizacao ul #merito-comunicacao
     display: block;
     margin: 0;
     margin-bottom: 5px;
+    padding-left: 20px;
+    display: list-item;
+    list-style: initial;
+    list-style-position: inside;
 }
 
+.page-homenageados .lista section ol li ol li
+{
+    list-style-type: decimal-leading-zero;
+}
 /*.page-homenageados .lista li:after
 {
     content: none;
