@@ -497,7 +497,14 @@ ul.tags,
 
 @media (max-width: 1718px) {
 
-body .page-home .noticias ul li a h2
+body .page-home .noticias ul li a h2,
+{
+    width: 32%;
+    padding: 28px 40px;
+}
+
+
+body .page-sobre .noticias ul li a h2,
 {
     width: 32%;
     padding: 28px 40px;
@@ -2234,3 +2241,86 @@ footer .rodape #realizacao ul #feicotur
 /*-------------------LIVROS-------------------*/
 
 
+/*-------------------SOBRE-------------------*/
+
+.page-sobre .conteudo
+{
+    background: url(img/premiomerito-bg-sobre.jpg) center repeat-y;
+    border-bottom: 30px solid #00a489;
+}
+
+.page-sobre .desde,
+.page-sobre .descricao
+{
+    padding-top: 77px;
+    padding-bottom: 66px;
+}
+
+.page-sobre .desde
+{
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    font-family: 'museo500', Arial, sans-serif;
+}
+
+.page-sobre .desde h2
+{
+    width: 285px;
+    height: 285px;
+    font-size: 42px;
+    background: url(img/premiomerito-selo-desde.png) center;
+    padding-top: 95px;
+    margin: 0;
+
+}
+
+.page-sobre .desde span
+{
+    display: block;
+    font-size: 55px;
+    font-family: 'museo900', Arial, sans-serif;
+}
+
+.page-sobre .descricao
+{
+    background-color: white;
+}
+
+.page-sobre .descricao h3
+{
+    font-size: 30px;
+    font-family: 'museo900', Arial, sans-serif;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.page-sobre .descricao p
+{
+    margin-top: 5px;
+    margin-bottom: 30px;
+    color: #666;
+}
+
+.page-sobre .descricao ul
+{
+    font-family: 'titillium-bold', Arial, sans-serif;
+    padding-left: 10px;
+    margin-top: -20px;
+}
+
+.page-sobre .descricao ul li
+{
+    display: list-item;
+    list-style: inherit;
+    list-style-position: inside;
+    margin-bottom: 3px;
+}
+
+.page-sobre .descricao ul li p
+{
+    display: inline-block;
+    margin: 0 0 0 -15px;
+}
+
+/*-------------------SOBRE-------------------*/
