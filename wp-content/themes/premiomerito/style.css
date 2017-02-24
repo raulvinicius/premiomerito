@@ -1768,9 +1768,22 @@ footer .rodape #realizacao ul #merito-comunicacao
     padding: 120px 0;
 }
 
-.page-homenageados .lista li li
+.page-homenageados .lista section ol li ol,
+.page-homenageados .lista section ol li ul
 {
-    margin-bottom: 0;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.page-homenageados .lista section ol li ol li,
+.page-homenageados .lista section ol li ul li
+{
+    font-family: 'titillium-regular', Arial, sans-serif;
+    font-size: 16px;
+    background: none;
+    display: block;
+    margin: 0;
+    margin-bottom: 5px;
 }
 
 /*.page-homenageados .lista li:after

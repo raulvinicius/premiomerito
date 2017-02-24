@@ -46,7 +46,7 @@
 					for ($i=0; $i < count( $arEdicoes ); $i++) :
 						?>
 						
-						<option value="<?php echo $arEdicoes[$i]['name'] ?>" <?php echo ( ( isset( $_GET['ano'] ) && $_GET['ano'] == $arEdicoes[$i]['name'] ) || $i == 0 ) ? 'selected' : ''; ?>>em <?php echo $arEdicoes[$i]['name'] ?></option>
+						<option value="<?php echo $arEdicoes[$i]['name'] ?>" <?php echo ( ( isset( $_GET['ano'] ) && $_GET['ano'] == $arEdicoes[$i]['name'] ) || $i == 0 ) ? 'selected' : ''; ?>><?php echo $arEdicoes[$i]['name'] ?></option>
 
 						<?php 
 					endfor;
