@@ -1,5 +1,5 @@
 <?php 
-//flush_rewrite_rules();
+// flush_rewrite_rules();
 
 //IN CASE OF REWRITE CHASH BREAK THIS COMMENTS
 //flush_rewrite_rules();
@@ -148,6 +148,41 @@ function codex_custom_init() {
 		'taxonomies' => array('tag-edicoes')
 	); 
 	register_post_type('fotos',$argsFotos);
+
+
+
+
+	$labelsArtigos = array(
+		'name' => _x('Artigos', 'nome plural do tipo de post'),
+		'singular_name' => _x('Artigo', 'nome singular do tipo de post'),
+		'add_new' => _x('Adicionar Artigo', 'artigos'),
+		'add_new_item' => __('Adicionar Artigo'),
+		'edit_item' => __('Editar Artigo'),
+		'new_item' => __('Novo Artigo'),
+		'all_items' => __('Todos os Artigos'),
+		'view_item' => __('Ver Artigo'),
+		'search_items' => __('Procurar por Artigo'),
+		'not_found' =>  __('Nenhum Artigo foi encontrado'),
+		'not_found_in_trash' => __('Não há Artigos na lixeira'),
+		'parent_item_colon' => '',
+		'menu_name' => 'Artigos'
+
+	);
+	$argsArtigos = array(
+		'labels' => $labelsArtigos,
+		'public' => true,
+		'publicly_queryable' => true,
+		'show_ui' => true,
+		'show_in_menu' => true,
+		'query_var' => true,
+		'rewrite' => true,
+		'capability_type' => 'post',
+		'has_archive' => true,
+		'hierarchical' => false,
+		'menu_position' => 5,
+		'supports' => array( 'title' )
+	);	
+	register_post_type('artigos',$argsArtigos);
 }
 add_action( 'init', 'codex_custom_init' );
 
@@ -179,6 +214,8 @@ function build_taxonomies()
 
 if ( function_exists( 'add_image_size' ) ) 
 {
+	add_image_size( 'artigo-saude-cartao', 350, 250, true );
+	add_image_size( 'header-artigo', 1170, 500, true );
 	add_image_size( 'foto-galeria', 480, 310, true );
 	add_image_size( 'foto-palestrante', 800, 650, true );
 	add_image_size( 'foto-homenageado', 570, 480, true );

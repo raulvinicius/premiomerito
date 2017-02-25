@@ -42,6 +42,8 @@
 	</section>
 
 
+	<?php if (1 == 0): ?>
+		
 	<section class="container-fluid homenageados">
 	    <div class="container">
 	        <div class="row">
@@ -178,6 +180,80 @@
 	    </div>
 	</section>
 
+
+	<?php endif ?>
+
+	<?php 
+
+		$artigos = get_post_by_type('artigos', NULL, 'DESC', 4, NULL);
+
+	?>
+
+	<?php if ( count( $artigos->posts ) > 0 ): ?>
+		
+		<section id="artigos" class="container-fluid">
+
+			<div class="">
+
+				<div class="col-xs-2 col-xs-offset-1">
+
+					<h2>Dicas para <span id="linha-2">você</span> <span id="linha-3">Empreender</span></h2>
+					<p>Confira algumas dicas que escolhemos a dedo pra você empreender cada vez mais.</p>
+
+				</div>
+
+				<ul>
+
+					<div class="col-xs-8">
+
+						<?php 
+
+						$i = 0;
+
+						while ($artigos->have_posts()) :
+
+							$artigos->the_post();
+
+							$imagem = get_field('imagem_cabecalho');
+							$imagem = $imagem['sizes']['artigo-saude-cartao'];
+
+							$chamada = get_field('chamada');
+							?>
+
+								<li>
+
+									<article class="col-xs-3">
+
+										<figure>
+											<img src="<?php echo $imagem; ?>">
+										</figure>
+
+										<div id="wrap">
+											
+											<h2><?php the_title(); ?></h2>
+											<p><?php echo $chamada; ?></p>
+											
+											<a class="ani-04" href="<?php echo get_permalink( $post ); ?> ">Continuar Lendo</a>
+
+										</div>
+
+									</article>
+
+								</li>
+
+							<?php endwhile;
+
+						?>
+						
+					</div>	
+
+				</ul>
+
+			</div>
+			
+		</section>
+
+	<?php endif ?>
 
 
 	<section class="container-fluid edicoes-anteriores">
