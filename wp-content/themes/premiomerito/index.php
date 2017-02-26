@@ -183,6 +183,83 @@
 
 	<?php endif ?>
 
+
+	<section class="container-fluid edicoes-anteriores">
+	    <div class="container">
+	        <div class="row">
+
+	            <div class="col-md-5">
+	                <h2>Edições <span class="cor-1">anteriores</span></h2>
+	            </div>
+
+	            <div class="col-md-7">
+	                <ul>
+
+	                    <div class="row">
+	                        <li class="col-md-3">
+	                            <a href="<?php bloginfo('url') ?>/fotos/?ano=2016">
+	                                <h3 class="ani-04">20<span class="cor-1 ani-04">16</span></h3>
+	                                <p>Cen. de Convenções Ulysses Guimarães</p>
+	                            </a>
+	                        </li>
+
+	                        <li class="col-md-3">
+	                            <a href="<?php bloginfo('url') ?>/fotos/?ano=2015">
+	                                <h3 class="ani-04">20<span class="cor-1 ani-04">15</span></h3>
+	                                <p>Museu da República</p>
+	                            </a>
+	                        </li>
+	                        <li class="col-md-3">
+	                            <a href="<?php bloginfo('url') ?>/homenageados/?ano=2014">
+	                                <h3 class="ani-04">20<span class="cor-1 ani-04">14</span></h3>
+	                                <p>Museu da República</p>
+	                            </a>
+	                        </li>
+
+	                        <li class="col-md-3">
+	                            <a href="<?php bloginfo('url') ?>/fotos/?ano=2013">
+	                                <h3 class="ani-04">20<span class="cor-1 ani-04">13</span></h3>
+	                                <p>Museu da República</p>
+	                            </a>
+	                        </li>
+
+	                        <li class="col-md-3">
+	                            <a href="<?php bloginfo('url') ?>/fotos/?ano=2012">
+	                                <h3 class="ani-04">20<span class="cor-1 ani-04">12</span></h3>
+	                                <p>Museu da República</p>
+	                            </a>
+	                        </li>
+
+	                        <li class="col-md-3">
+	                            <a href="<?php bloginfo('url') ?>/fotos/?ano=2011">
+	                                <h3 class="ani-04">20<span class="cor-1 ani-04">11</span></h3>
+	                                <p>Museu da República</p>
+	                            </a>
+	                        </li>
+
+	                        <li class="col-md-3">
+	                            <a href="<?php bloginfo('url') ?>/fotos/?ano=2010">
+	                                <h3 class="ani-04">20<span class="cor-1 ani-04">10</span></h3>
+	                                <p>Museu da República</p>
+	                            </a>
+	                        </li>
+
+	                        <li class="col-md-3">
+	                            <a href="<?php bloginfo('url') ?>/fotos/?ano=2008">
+	                                <h3 class="ani-04">20<span class="cor-1 ani-04">08</span></h3>
+	                                <p>Museu da República</p>
+	                            </a>
+	                        </li>
+	                    </div>
+
+	                </ul>
+	            </div>
+
+	        </div>
+	    </div>
+	</section>
+
+
 	<?php 
 
 		$artigos = get_post_by_type('artigos', NULL, 'DESC', 4, NULL);
@@ -220,9 +297,9 @@
 							$chamada = get_field('chamada');
 							?>
 
-								<li>
+								<li class="col-xs-3">
 
-									<article class="col-xs-3">
+									<article>
 
 										<figure>
 											<img src="<?php echo $imagem; ?>">
@@ -254,57 +331,7 @@
 		</section>
 
 	<?php endif ?>
-
-
-	<section class="container-fluid edicoes-anteriores">
-	    <div class="container">
-	        <div class="row">
-
-	            <div class="col-md-6">
-	                <h2>Edições <span class="cor-1">anteriores</span></h2>
-	            </div>
-
-	            <div class="col-md-6">
-	                <ul>
-
-	                    <div class="row">
-	                        <li class="col-md-5 col-md-offset-1">
-	                            <a href="<?php bloginfo('url') ?>/fotos/?ano=2016">
-	                                <h3 class="ani-04">20<span class="cor-1 ani-04">16</span></h3>
-	                                <p>Cen. de Convenções Ulysses Guimarães</p>
-	                            </a>
-	                        </li>
-
-	                        <li class="col-md-5">
-	                            <a href="<?php bloginfo('url') ?>/fotos/?ano=2015">
-	                                <h3 class="ani-04">20<span class="cor-1 ani-04">15</span></h3>
-	                                <p>Museu da República</p>
-	                            </a>
-	                        </li>
-	                    </div>
-
-	                    <div class="row">
-	                        <li class="col-md-5 col-md-offset-1">
-	                            <a href="<?php bloginfo('url') ?>/fotos/?ano=2013">
-	                                <h3 class="ani-04">20<span class="cor-1 ani-04">13</span></h3>
-	                                <p>Museu da República</p>
-	                            </a>
-	                        </li>
-
-	                        <li class="col-md-5">
-	                            <a href="<?php bloginfo('url') ?>/fotos/?ano=2012">
-	                                <h3 class="ani-04">20<span class="cor-1 ani-04">12</span></h3>
-	                                <p>Museu da República</p>
-	                            </a>
-	                        </li>
-	                    </div>
-
-	                </ul>
-	            </div>
-
-	        </div>
-	    </div>
-	</section>
+	
 
 </section>
 

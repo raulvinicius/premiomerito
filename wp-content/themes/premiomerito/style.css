@@ -1209,7 +1209,7 @@ header ul li a
 
 .page-home #artigos
 {
-    height: 600px;
+    /*height: 600px;*/
     background: #308778;
     padding-top: 100px;
     padding-bottom: 100px;
@@ -1265,6 +1265,11 @@ header ul li a
     display: inline;
 }
 
+.page-home #artigos ul article
+{
+    background: white;
+}
+
 .page-home #artigos ul article figure img
 {
     width: 100%;
@@ -1289,6 +1294,7 @@ header ul li a
     font-size: 18px;
     color: #343434;
     height: 90px;
+    margin-bottom: 45px;
 }
 
 .page-home #artigos ul article a
@@ -1302,6 +1308,10 @@ header ul li a
     font-size: 18px;
     color: white;
     padding: 15px;
+    position: absolute;
+    bottom: 15px;
+    left: 30px;
+    right: 30px;
 }
 
 .page-home #artigos ul article a:hover,
@@ -1335,7 +1345,7 @@ header ul li a
     font-size: 72px;
     color: #ff4c34;
     position: relative;
-    top: 100px;
+    top: 60px;
     letter-spacing: -1px;
 }
 
@@ -1351,6 +1361,7 @@ header ul li a
     padding: 0 20px;
     margin-top: 20px;
     margin-bottom: 20px;
+    height: 100px;
 }
 
 .page-home .edicoes-anteriores ul li a
@@ -1362,11 +1373,16 @@ header ul li a
 .page-home .edicoes-anteriores ul li h3
 {
     font-family: 'titillium-bold', Arial, sans-serif;
-    font-size: 75px;
-    color: #343434;
+    font-size: 55px;
+    color: #656565;
     margin: 0;
     margin-top: 10px;
-    letter-spacing: -6px;
+    letter-spacing: -4px;
+}
+
+.page-home .edicoes-anteriores ul li h3 span
+{
+    padding-left: 3px;
 }
 
 .page-home .edicoes-anteriores ul li:hover h3
@@ -1382,11 +1398,11 @@ header ul li a
 
 .page-home .edicoes-anteriores ul li p
 {
-    font-size: 20px;
+    font-size: 16px;
     text-transform: none;
     color: #666666;
     letter-spacing: -1px;
-    line-height: 23px;
+    line-height: 1.2;
     margin-bottom: 10px;
 }
 
@@ -1441,23 +1457,9 @@ footer .parceiros ul a
     margin-right: 35px;
 }
 
-footer .parceiros ul a#p01
+footer .parceiros ul a#humano
 {
-    background-image: url(img/ph-parceiro-01.png);
-    width: 108px;
-    height: 33px;
-}
-
-footer .parceiros ul a#p02
-{
-    background-image: url(img/ph-parceiro-02.png);
-    width: 135px;
-    height: 34px;
-}
-
-footer .parceiros ul a#p03
-{
-    background-image: url(img/ph-parceiro-03.png);
+    background-image: url(img/premiomerito-parceiro-humanostudio.png);
     width: 110px;
     height: 28px;
 }
@@ -2725,7 +2727,8 @@ footer .rodape #realizacao ul #merito-comunicacao
     margin-top: 0;
 }
 
-.page-artigo #bloco ul
+.page-artigo #bloco ul,
+.page-artigo #bloco ol
 {
     margin-bottom: 20px;
     padding-left: 40px;
@@ -2734,6 +2737,12 @@ footer .rodape #realizacao ul #merito-comunicacao
 .page-artigo #bloco ul li
 {
     list-style: disc;
+    margin-bottom: 10px;
+}
+
+.page-artigo #bloco ol li
+{
+    margin-bottom: 10px;
 }
 
 .page-artigo #bloco img

@@ -12,7 +12,7 @@
                             <div class="row">
                                 <ul>
                                     <li>
-                                        <a id="p03" href="http://humanostud.io" target="_blank">Humano Studio</a>
+                                        <a id="humano" href="http://humanostud.io" target="_blank">Humano Studio</a>
                                     </li>
                                 </ul>
                             </div>

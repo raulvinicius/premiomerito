@@ -11,6 +11,7 @@ $(document).ready(function() {
 	$( window ).resize(function(e) 
 	{
 		//do something
+		nivelaAltura( $('.page-home #artigos ul li article') );
 	});
 	$( window ).trigger('resize');
 
@@ -540,4 +541,20 @@ function trataURL ()
 		'hash'		: 		hash,
 		'search'	: 		search
 	};
+}
+
+function nivelaAltura (el)
+{
+
+	if ($.type(el) === 'object' & el.length > 0)
+	{
+		var maxH = 0;
+		el.each(function(index, elm) 
+		{
+			maxH = Math.max( maxH, $(elm).outerHeight() )
+		});
+		el.outerHeight(maxH);
+		maxH = undefined;
+	};
+
 }
