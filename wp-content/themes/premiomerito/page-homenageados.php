@@ -118,8 +118,8 @@
 	<div class="grade">
 
 
+		<a href="<?php echo $currentUrl . '/'; echo (isset( $_GET['ano'] ) ) ? '?ano=' . $_GET['ano'] : '' ; ?>" class="ani-06" id="fecha-lista"></a>
 		<section class="container categorias" id="atendimento">
-			<a href="<?php echo $currentUrl ?>/#" class="ani-06" id="fecha-lista"></a>
 			<div class="row">
 				<h2 class="col-xs-12">
 					<i class="ico">
@@ -157,7 +157,7 @@
 
 						<li class="col-xs-12" id="<?php echo slugify( $arHomenageados['atendimento'][$i]['nome'] ); ?>">
 
-							<a class="ani-04" href="<?php echo $currentUrl ?>/#<?php echo slugify( $arHomenageados['atendimento'][$i]['nome'] ); ?>">
+							<a class="ani-04" href="<?php echo $currentUrl ?>/<?php echo (isset( $_GET['ano'] ) ) ? '?ano=' . $_GET['ano'] : '' ; echo '#' . slugify( $arHomenageados['atendimento'][$i]['nome'] ); ?>">
 								<h2><?php echo $arHomenageados['atendimento'][$i]['nome'] ?></h2>
 								<?php if ( $arHomenageados['atendimento'][$i]['empresario'] != '' ): ?>
 									
@@ -179,7 +179,6 @@
 		</section>
 
 		<section class="container categorias" id="crescimento">
-			<a href="<?php echo $currentUrl ?>/#" class="ani-06" id="fecha-lista"></a>
 			<div class="row">
 				<h2 class="col-xs-12">
 					<i class="ico">
@@ -214,7 +213,7 @@
 
 						<li class="col-xs-12" id="<?php echo slugify( $arHomenageados['crescimento'][$i]['nome'] ); ?>">
 
-							<a class="ani-04" href="<?php echo $currentUrl ?>/#<?php echo slugify( $arHomenageados['crescimento'][$i]['nome'] ); ?>">
+							<a class="ani-04" href="<?php echo $currentUrl ?>/<?php echo (isset( $_GET['ano'] ) ) ? '?ano=' . $_GET['ano'] : '' ; echo '#' . slugify( $arHomenageados['crescimento'][$i]['nome'] ); ?>">
 								<h2><?php echo $arHomenageados['crescimento'][$i]['nome'] ?></h2>
 								<?php if ( $arHomenageados['crescimento'][$i]['empresario'] != '' ): ?>
 
@@ -236,7 +235,6 @@
 		</section>
 
 		<section class="container categorias" id="criatividade">
-			<a href="<?php echo $currentUrl ?>/#" class="ani-06" id="fecha-lista"></a>
 			<div class="row">
 				<h2 class="col-xs-12">
 					<i class="ico">
@@ -274,7 +272,7 @@
 
 						<li class="col-xs-12" id="<?php echo slugify( $arHomenageados['criatividade'][$i]['nome'] ); ?>">
 
-							<a class="ani-04" href="<?php echo $currentUrl ?>/#<?php echo slugify( $arHomenageados['criatividade'][$i]['nome'] ); ?>">
+							<a class="ani-04" href="<?php echo $currentUrl ?>/<?php echo (isset( $_GET['ano'] ) ) ? '?ano=' . $_GET['ano'] : '' ; echo '#' . slugify( $arHomenageados['criatividade'][$i]['nome'] ); ?>">
 								<h2><?php echo $arHomenageados['criatividade'][$i]['nome'] ?></h2>
 								<?php if ( $arHomenageados['criatividade'][$i]['empresario'] != '' ): ?>
 									<h3 class="cor-1">( <?php echo $arHomenageados['criatividade'][$i]['empresario'] ?> )</h3>
@@ -294,7 +292,6 @@
 		</section>
 
 		<section class="container categorias" id="personalidade">
-			<a href="<?php echo $currentUrl ?>/#" class="ani-06" id="fecha-lista"></a>
 			<div class="row">
 				<h2 class="col-xs-12">
 					<i class="ico">
@@ -337,7 +334,7 @@
 
 							<img src="<?php echo $arHomenageados['personalidade'][$i]['foto']['sizes']['mini-foto-homenageado'] ?>" nopin='nopin'>
 
-							<a class="ani-04" href="<?php echo $currentUrl ?>/#<?php echo slugify( $arHomenageados['personalidade'][$i]['nome'] ); ?>">
+							<a class="ani-04" href="<?php echo $currentUrl ?>/<?php echo (isset( $_GET['ano'] ) ) ? '?ano=' . $_GET['ano'] : '' ; echo '#' . slugify( $arHomenageados['personalidade'][$i]['nome'] ); ?>">
 								<h2><?php echo $arHomenageados['personalidade'][$i]['nome'] ?></h2>
 							</a>
 

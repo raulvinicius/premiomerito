@@ -136,7 +136,7 @@ $(document).ready(function() {
 		// abreLista();
 	});
 
-	$('.page-homenageados #fecha-lista').on('click', function(event) {
+/*	$('.page-homenageados #fecha-lista').on('click', function(event) {
 		event.preventDefault();
 
 		url = trataURL();
@@ -157,7 +157,7 @@ $(document).ready(function() {
 		window.location.href = url['url'] + url['hash'] + strSearch
 		// fechaLista();
 	});
-
+*/
 	//-----------------HOMENAGEADOS-----------------//
 
 
