@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<section class="page-contato pagina container-fluid ani-02">
+<section class="page page-contato pagina container-fluid ani-02">
 
 	<div class="container">
 		<div class="row">

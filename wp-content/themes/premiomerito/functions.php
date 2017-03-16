@@ -1,12 +1,10 @@
 <?php 
-// flush_rewrite_rules();
-
 //IN CASE OF REWRITE CHASH BREAK THIS COMMENTS
-//flush_rewrite_rules();
+//flush_rewrite_rules( false );
 
 //OR THIS
-//global $wp_rewrite;
-//$wp_rewrite->flush_rules();
+// global $wp_rewrite;
+// $wp_rewrite->flush_rules();
 
 // CUSTOM POST
 
@@ -36,10 +34,12 @@ function codex_custom_init() {
 		'query_var' => true,
 		'rewrite' => true,
 		'capability_type' => 'post',
-		'has_archive' => true, 
+		'has_archive' => false, 
 		'hierarchical' => false,
 		'menu_position' => 5,
-		'supports' => array( 'title' )
+		'menu_icon' => 'dashicons-screenoptions',
+		'supports' => array( 'title' ),
+		'taxonomies' => array('tag-edicoes')
 	); 
 	register_post_type('livros',$argsLivros);
 
@@ -71,9 +71,10 @@ function codex_custom_init() {
 		'query_var' => true,
 		'rewrite' => true,
 		'capability_type' => 'post',
-		'has_archive' => true, 
+		'has_archive' => false, 
 		'hierarchical' => false,
 		'menu_position' => 5,
+		'menu_icon' => 'dashicons-screenoptions',
 		'supports' => array( 'title' )
 	); 
 	register_post_type('palestrantes',$argsPalestrantes);
@@ -106,9 +107,10 @@ function codex_custom_init() {
 		'query_var' => true,
 		'rewrite' => true,
 		'capability_type' => 'post',
-		'has_archive' => true, 
+		'has_archive' => false, 
 		'hierarchical' => false,
 		'menu_position' => 5,
+		'menu_icon' => 'dashicons-screenoptions',
 		'supports' => array( 'title' ),
 		'taxonomies' => array('tag-edicoes')
 	); 
@@ -141,9 +143,10 @@ function codex_custom_init() {
 		'query_var' => true,
 		'rewrite' => true,
 		'capability_type' => 'post',
-		'has_archive' => true, 
+		'has_archive' => false, 
 		'hierarchical' => false,
 		'menu_position' => 5,
+		'menu_icon' => 'dashicons-screenoptions',
 		'supports' => array( 'title' ),	
 		'taxonomies' => array('tag-edicoes')
 	); 
@@ -177,14 +180,59 @@ function codex_custom_init() {
 		'query_var' => true,
 		'rewrite' => true,
 		'capability_type' => 'post',
-		'has_archive' => true,
+		'has_archive' => false,
 		'hierarchical' => false,
 		'menu_position' => 5,
+		'menu_icon' => 'dashicons-screenoptions',
 		'supports' => array( 'title' )
 	);	
 	register_post_type('artigos',$argsArtigos);
+
 }
 add_action( 'init', 'codex_custom_init' );
+
+
+
+
+
+
+
+
+
+add_action('init', 'add_homenageado_url');
+function add_homenageado_url()
+{
+    add_rewrite_rule(
+        'homenageados/([0-9]+)/([^/]+)/?$',
+        'index.php?homenageados=$matches[2]&category_name=$matches[1]',
+        'top'
+    );
+
+    add_rewrite_rule(
+        'homenageados/([0-9]+)/?$',
+        'index.php?pagename=homenageados&category_name=$matches[1]',
+        'top'
+    );
+
+    add_rewrite_rule(
+        'fotos/([0-9]+)/?$',
+        'index.php?pagename=fotos&category_name=$matches[1]',
+        'top'
+    );
+
+    add_rewrite_rule(
+        'livros/([0-9]+)/?$',
+        'index.php?pagename=livros&category_name=$matches[1]',
+        'top'
+    );
+
+    // flush_rewrite_rules();
+}
+
+
+
+
+
 
 
 
@@ -374,3 +422,32 @@ function array_orderby()
     call_user_func_array('array_multisort', $args);
     return array_pop($args);
 }
+
+function wp_dump($str)
+{
+	echo "<div class='alert' style='position: fixed; z-index: 10000; top: 100px; right: 100px; bottom: 100px; left: 100px; background: white; padding: 20px; border: 20px solid black; overflow: auto'><button>Fecha</button><p>";
+	var_dump($str);
+	echo "</p></div>";
+}
+
+// Handle the post_type parameter given in get_terms function
+function df_terms_clauses($clauses, $taxonomy, $args) {
+	if (!empty($args['post_type']))	{
+		global $wpdb;
+
+		$post_types = array();
+
+		foreach($args['post_type'] as $cpt)	{
+			$post_types[] = "'".$cpt."'";
+		}
+
+	    if(!empty($post_types))	{
+			$clauses['fields'] = 'DISTINCT '.str_replace('tt.*', 'tt.term_taxonomy_id, tt.term_id, tt.taxonomy, tt.description, tt.parent', $clauses['fields']).', COUNT(t.term_id) AS count';
+			$clauses['join'] .= ' INNER JOIN '.$wpdb->term_relationships.' AS r ON r.term_taxonomy_id = tt.term_taxonomy_id INNER JOIN '.$wpdb->posts.' AS p ON p.ID = r.object_id';
+			$clauses['where'] .= ' AND p.post_type IN ('.implode(',', $post_types).')';
+			$clauses['orderby'] = 'GROUP BY t.term_id '.$clauses['orderby'];
+		}
+    }
+    return $clauses;
+}
+add_filter('terms_clauses', 'df_terms_clauses', 10, 3);

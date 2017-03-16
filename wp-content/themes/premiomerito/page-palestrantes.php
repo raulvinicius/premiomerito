@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 
-<section class="page-palestrantes container-fluid">
+<section class="page page-palestrantes container-fluid">
 		
 	<div class="row	merito-title-pagina">
 		<div class="container">

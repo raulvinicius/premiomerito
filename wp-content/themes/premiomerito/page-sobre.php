@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 
-<section class="page-home page-sobre">
+<section class="page page-home page-sobre">
 		
 	<section class="container-fluid noticias">
 	    <div class="row">

@@ -5,6 +5,7 @@ $(document).ready(function() {
 	{
 		setTimeout(showInAnimation,400);
 
+		flutuaMenu();
 	});
 	$( window ).trigger('scroll');
 
@@ -18,18 +19,15 @@ $(document).ready(function() {
 
 	$( window ).on('hashchange', function(e) 
 	{
-		//SE ESTIVER NA PÁGINA "HOMENAGEADOS" E HOUVER HASHTAG
-		if (window.location.href.indexOf('/homenageados/') && window.location.href.indexOf('#') > -1) 
-		{
-			abreLista();
-		} 
-		else if (window.location.href.indexOf('/homenageados/') && window.location.href.indexOf('#') <= -1)
-		{
-			fechaLista();
-		};
 	});
 
 	$( window ).trigger('hashchange');
+
+
+
+
+
+
 
 
 
@@ -87,25 +85,7 @@ $(document).ready(function() {
 	//-----------------SELECT EDICAO-----------------//
 
 	$('#select-edicao').on('change', function(event) {
-		url = trataURL();
-
-		if ('ano' in url['search'])
-		{
-			url['search']['ano'] = $(this).val();
-		}
-		else
-		{
-			url['search']['ano'] = $(this).val();
-		}
-
-		var strSearch = '';
-		$.each(url['search'], function (index, value)
-		{
-			strSearch += '&' + index + '=' + value;
-		});
-		strSearch = '?' + strSearch.substring(1);
-
-		window.location = url['url'] + url['hash'] + strSearch;
+		window.location = blogUrl + $(this).attr('data-p') + '/' + $(this).val();
 	});
 
 	//-----------------SELECT EDICAO-----------------//
@@ -115,49 +95,26 @@ $(document).ready(function() {
 
 	//-----------------HOMENAGEADOS-----------------//
 
-	$('.page-homenageados #abre-lista').on('click', function(event) {
-		event.preventDefault();
-		url = trataURL();
+	if( $('.page-homenageado').length > 0)
+	{
+		var pathname = window.location.pathname.split('/');
+		var cleanPathname = [];
 
-		url['hash'] = '#' + $(this).closest('li').attr('id');
-
-		var strSearch = '';
-
-		if( !$.isEmptyObject( url['search'] ) )
+		for (var i = 0; i < pathname.length; i++) 
 		{
-			$.each(url['search'], function (index, value)
+			if ( pathname[i] != '' )
 			{
-				strSearch += '&' + index + '=' + value;
-			});
-			strSearch = '?' + strSearch.substring(1);
-		}
+				cleanPathname.push(pathname[i]);
+			}
+		};
 
-		window.location.href = url['url'] + url['hash'] + strSearch
-		// abreLista();
-	});
+		pathname = undefined;
 
-/*	$('.page-homenageados #fecha-lista').on('click', function(event) {
-		event.preventDefault();
+		var maxScrollTop = $('body').prop('scrollHeight') - $('body').innerHeight();
 
-		url = trataURL();
+		$('body').scrollTop( Math.min($('#' + cleanPathname[ cleanPathname.length - 1 ]).offset().top, maxScrollTop) );
+	}
 
-		url['hash'] = '';
-
-		var strSearch = '';
-
-		if( !$.isEmptyObject( url['search'] ) )
-		{
-			$.each(url['search'], function (index, value)
-			{
-				strSearch += '&' + index + '=' + value;
-			});
-			strSearch = '?' + strSearch.substring(1);
-		}
-
-		window.location.href = url['url'] + url['hash'] + strSearch
-		// fechaLista();
-	});
-*/
 	//-----------------HOMENAGEADOS-----------------//
 
 
@@ -167,16 +124,56 @@ $(document).ready(function() {
 
 	//-----------------FOTOS-----------------//
 
+	//preenche a Array "fotos" com as URLs presentes na lista de fotos
+	$('.page-fotos li').each(function(index, el) {
+		fotos.push($(this).find('a').attr('data-img'));
+	});
+
 	$('.page-fotos li a').on('click', function() 
 	{
 		event.preventDefault();
-		zoomFoto( $(this).attr('data-img') );
+		zoomFoto( $(this).attr('data-i') );
 	});	
 
 	$('.page-fotos .foto-full #close').on('click', function() 
 	{
 		fechaZoomFoto();
 	});	
+
+	$('.page-fotos .foto-full #left').bind('click', function (e)
+	{
+		var iFoto = $(this).closest('.foto-full').find('img').attr('data-i');
+
+		if ( iFoto == 0 )
+		{
+			iFoto = fotos.length-1;
+		}
+		else
+		{
+			iFoto--;
+		}
+
+		zoomFoto( iFoto );
+
+	})
+
+	$('.page-fotos .foto-full #right').bind('click', function (e)
+	{
+		var iFoto = $(this).closest('.foto-full').find('img').attr('data-i');
+
+		if ( iFoto == fotos.length - 1 )
+		{
+			iFoto = 0;
+		}
+		else
+		{
+			iFoto++;
+		}
+
+		zoomFoto( iFoto );
+
+	})
+
 
 	//-----------------FOTOS-----------------//
 
@@ -275,6 +272,7 @@ $(document).ready(function() {
 	{
 		$(this).closest('.alert').hide();
 	})
+
 
 });
 
@@ -438,12 +436,15 @@ function showInAnimation ()
 	})
 }
 
-function zoomFoto (url) 
+var fotos = [];
+function zoomFoto (index)
 {
+	console.log(index);
 	$('.page-fotos .foto-full')
 		.css('display', 'block')
 		.find('img')
-		.attr('src', url);
+		.attr('src', fotos[index])
+		.attr('data-i', index);
 }
 
 function fechaZoomFoto () 
@@ -454,17 +455,16 @@ function fechaZoomFoto ()
 		.attr('src', '');
 }
 
-var scrlWindow;
+var iniScrlWindow;
 function abreLista (e)
 {
 	
 	if( $('.page-homenageados').length > 0 )
 	{
-		$('.page-homenageados').height( $('.page-homenageados').height() );
-		$('body').css('overflow', 'hidden');
+		// $('body').css('overflow', 'hidden');
 		$('.page-homenageados .grade').addClass('lista').removeClass('grade');
 
-		scrlWindow = $(window).scrollTop();
+		iniScrlWindow = $('body').scrollTop();
 
 		$('.page-homenageados .lista')
 			.scrollTop( 
@@ -484,63 +484,8 @@ function fechaLista (e)
 
 	$(window)
 		.scrollTop( 
-			scrlWindow
+			iniScrlWindow
 		);
-}
-
-function trataURL () 
-{
-	var hash = '';
-	var search = '';
-
-	// SE HÁ HASH
-	if ( window.location.hash != '' )
-	{
-		hash = window.location.hash.split('?');
-
-		// SE HÁ VARIÁVEIS DENTRO DA HASH, COLOCA EM SEARCH
-		if( hash.length > 1 )
-		{
-			search = '?' + hash[1];
-		}
-
-		hash = hash[0];
-	} 
-	else if ( window.location.search != '' ) // SE HÁ SÓ VARIÁVEIS NA URL, COLOCA NA SEARCH
-	{
-		search = window.location.search;
-	}
-
-	// VERIFICA SE HÁ MAIS DE UMA VARIÁVEL
-	if ( search != '' && search.substring(1).indexOf('&') > -1 )
-	{
-		tmpSearch = search.substring(1).split('&');
-		search = {};
-		for (var i = 0; i < tmpSearch.length; i++) 
-		{
-			search[tmpSearch[i].split('=')[0]] = tmpSearch[i].split('=')[1];
-		};
-
-	}
-	else if (search != '' && search.substring(1).indexOf('&') <= -1)
-	{
-		tmpSearch = search.substring(1).split('=');
-
-		search = {};
-		search[tmpSearch[0]] = tmpSearch[1];
-	}
-
-	if ( search == '' )
-	{
-		search = {};
-	}
-
-
-	return {
-		'url'		: 		window.location.origin + window.location.pathname,
-		'hash'		: 		hash,
-		'search'	: 		search
-	};
 }
 
 function nivelaAltura (el)
@@ -557,4 +502,17 @@ function nivelaAltura (el)
 		maxH = undefined;
 	};
 
+}
+
+var limiteFlutuaMenu = $('header .menu').offset().top;
+function flutuaMenu()
+{
+	if( $(window).scrollTop() > limiteFlutuaMenu )
+	{
+		$('header').addClass('fixtop');
+	}
+	else
+	{
+		$('header').removeClass('fixtop');
+	}
 }

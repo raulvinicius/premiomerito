@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 
-<section class="page-home">
+<section class="page page-home">
 		
 	<section class="container-fluid noticias">
 	    <div class="row">
@@ -183,7 +183,8 @@
 
 	<?php endif ?>
 
-
+	<?php if (1 == 0): ?>
+		
 	<section class="container-fluid edicoes-anteriores">
 	    <div class="container">
 	        <div class="row">
@@ -259,6 +260,8 @@
 	    </div>
 	</section>
 
+	<?php endif ?>
+
 
 	<?php 
 
@@ -317,6 +320,15 @@
 									</article>
 
 								</li>
+
+								<script type="text/javascript">
+
+								if (typeof nivelaAltura !== 'undefined' && typeof nivelaAltura === 'function')
+								{
+									nivelaAltura( $('.page-home #artigos ul li article') );
+								}
+									
+								</script>
 
 							<?php endwhile;
 

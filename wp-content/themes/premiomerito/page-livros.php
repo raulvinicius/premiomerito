@@ -1,11 +1,48 @@
 <?php get_header(); ?>
 
 
-<section class="page-livros container-fluid">
+<section class="page page-livros container-fluid">
 		
 	<div class="row	merito-title-pagina">
 		<div class="container">
-			<h2 class="merito-title">Livros</h2>
+			<h2 class="merito-title">Livro</h2>
+
+			<?php 
+
+				$ano = get_query_var('category_name');
+
+
+				$arEdicoes = get_terms('tag-edicoes', array(
+				            'order'         => DESC,
+				            'post_type'     => array('livros'),
+				        )
+				    );
+
+			?>
+
+			<select id="select-edicao" class="ani-04 bg-cor-1 bg-cor-2-hover" name="ano" data-p="livros" <?php echo ( $ano != '' ) ? 'data-s="' . $ano . '"' : ''; ?> <?php echo ( count( $arEdicoes ) <= 1 ) ? 'disabled' : ''; ?>>
+				<?php
+					for ($i=0; $i < count( $arEdicoes ); $i++) :
+						?>
+						
+						<option value="<?php echo $arEdicoes[$i]->name ?>" <?php echo ( ( $ano != '' && $ano == $arEdicoes[$i]->name ) || $i == 0 ) ? 'selected' : ''; ?>><?php echo $arEdicoes[$i]->name ?></option>
+
+						<?php
+					endfor;
+
+				?>
+
+			</select>
+
+			<?php 
+
+				if ( $ano == '' ) 
+				{
+				    $ano = $arEdicoes[0]->name;
+				}
+
+			?>
+
 		</div>
 	</div>
 
@@ -16,7 +53,6 @@
 		
 		while ( $livros->have_posts() ) :
 			$livros->the_post();
-			$ano = get_the_title();
 			$capa = get_field('capa');
 			
 
@@ -34,32 +70,8 @@
 	<div class="grade">
 		<section class="container categorias">
 
-			<div class="row">
-				<ul class="col-xs-12">
+			<iframe src="<?php echo bloginfo('url') ?>/livro/<?php echo ($ano != '') ? $ano : '2016' ; ?>" frameborder="0"></iframe>
 
-					<?php for ($i=0; $i < count( $arLivros ); $i++) :
-						?>
-
-						<li class="col-sm-6">
-							
-							<a href="<?php echo bloginfo('url') ?>/livro/<?php echo $ano ?>">
-								<div id="wrap">
-									<h3 class="cor-1">
-										<?php echo $arLivros[$i]['ano'] ?>
-									</h3>
-								</div>
-
-								<img src="<?php echo $arLivros[$i]['capa'] ?>" nopin="nopin">
-								<div class="clearfix"></div>
-							</a>
-						</li>
-
-						<?php 
-					endfor;
-					?>
-
-				</ul>
-			</div>
 		</section>
 
 		

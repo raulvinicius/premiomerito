@@ -531,7 +531,7 @@ html,
 body
 {
     height: 100%;
-    padding-top: 0;
+    padding-top: 1px;
 }
 
 body
@@ -782,41 +782,76 @@ header ul li a
     color: white;
 }
 
+header
+{
+    position: absolute;
+    width: 100%;
+    background: white;
+}
 
-#menu.fixtop
+.fixtop
 {
     position: fixed;
+    top: -1px;
     z-index: 1000;
     width: 100%;
-    height: 70px;
-    background: #e4e4e4;
-    padding: 0 20px;
+    background: white;
 }
 
-#menu.fixtop hgroup
+.fixtop .menu
 {
-    float: left;
-    height: 70px;
-    padding: 0;
-    background-image: url(img/premiomerito-logo-menu-fixed.png);
-    background-position: center left;
+    background: white;
 }
 
-#menu.fixtop ul
+.fixtop nav > .container,
+.fixtop nav > .container-fluid
+{
+    width: 25%;
+    float: left;
+}
+
+.fixtop nav > .container-fluid
+{
+    width: 75%;
+}
+
+.fixtop nav > .container-fluid .container
+{
+    width: 100%;
+}
+
+.fixtop nav > .container-fluid .container .row div
+{
+    margin: 0;
+    width: 100%;
+}
+
+.fixtop nav > .container-fluid .container .row div ul
 {
     text-align: right;
-    padding-left: 200px;
-    height: 70px;
 }
 
-#menu.fixtop ul li a
+.fixtop nav > .container-fluid .container .row div ul li li
 {
-    font-size: 18px;
-    padding-top: 22px;
-    padding-bottom: 22px;
+    text-align: center;
 }
 
+.fixtop .logo
+{
+    margin: 0;
+    margin-top: 10px;
+    height: 100%;
+}
 
+.fixtop .logo svg
+{
+    height: 60px;
+}
+
+.page
+{
+    margin-top: 220px;
+}
 
 
 /*-------------------MENU-------------------*/
@@ -1521,6 +1556,7 @@ footer .rodape #realizacao ul
 footer .rodape #realizacao ul li
 {
     margin-left: 30px;
+    margin-bottom: 20px;
 }
 
 footer .rodape #realizacao ul li a
@@ -1552,7 +1588,70 @@ footer .rodape #realizacao ul #brb
     height: 32px;
 }
 
+footer .rodape #realizacao ul #atlantida
+{
+    background: url(img/premiomerito-logo-atlantida-moveis.png) no-repeat center;
+    width: 88px;
+    height: 40px;
+}
+
+footer .rodape #realizacao ul #faciplac
+{
+    background: url(img/premiomerito-logo-faciplac.png) no-repeat center;
+    width: 121px;
+    height: 32px;
+}
+
+footer .rodape #realizacao ul #dona
+{
+    background: url(img/premiomerito-logo-supermercado-dona-de-casa.png) no-repeat center;
+    width: 63px;
+    height: 45px;
+}
+
+footer .rodape #realizacao ul #saopaulo
+{
+    background: url(img/premiomerito-logo-sao-paulo-pizzaria-restaurante.png) no-repeat center;
+    width: 99px;
+    height: 32px;
+}
+
+footer .rodape #realizacao ul #castelo
+{
+    background: url(img/premiomerito-logo-castelo-forte.png) no-repeat center;
+    width: 68px;
+    height: 40px;
+}
+
+footer .rodape #realizacao ul #pedragon
+{
+    background: url(img/premiomerito-logo-pedragon.png) no-repeat center;
+    width: 92px;
+    height: 35px;
+}
+
+footer .rodape #realizacao ul #perboni
+{
+    background: url(img/premiomerito-logo-perboni.png) no-repeat center;
+    width: 93px;
+    height: 35px;
+}
+
+footer .rodape #realizacao ul #influencia
+{
+    background: url(img/premiomerito-logo-revista-influencia.png) no-repeat center;
+    width: 158px;
+    height: 30px;
+}
+
 footer .rodape #realizacao ul #cidades
+{
+    background: url(img/premiomerito-logo-secretaria-das-cidades.png) no-repeat center;
+    width: 158px;
+    height: 32px;
+}
+
+footer .rodape #realizacao ul #economia
 {
     background: url(img/premiomerito-logo-secretaria-de-economia-e-desenvolvimento.png) no-repeat center;
     width: 134px;
@@ -1769,7 +1868,7 @@ footer .rodape #realizacao ul #merito-comunicacao
     padding: 0;
     position: fixed;
     right: 50%;
-    margin-right: -587px;
+    margin-right: -602px;
     top: 110px;
     z-index: 10;
 }
@@ -1820,6 +1919,12 @@ footer .rodape #realizacao ul #merito-comunicacao
     list-style-type: decimal-leading-zero;
     list-style-position: inside;
     padding: 35px 20px 30px 20px;
+}
+
+.page-homenageados .categorias ol .wrap
+{
+    padding-top: 30px;
+    display: inline;
 }
 
 .page-homenageados .categorias ol li
@@ -1875,13 +1980,13 @@ footer .rodape #realizacao ul #merito-comunicacao
 
 .page-homenageados .lista
 {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
+    position: relative;
+    margin-top: 0;
+    margin-bottom: -602px;
+    margin-right: -15px;
+    margin-left: -15px;
     z-index: 8000;
-    overflow-y: scroll;
+
     background: url(img/grey-80.png);
     background: rgba(0, 175, 146, 0.8);
     padding: 120px 0;
@@ -2362,31 +2467,56 @@ footer .rodape #realizacao ul #merito-comunicacao
 
 .page-fotos .foto-full #close
 {
+/* 
     width: 33px;
     height: 33px;
     top: 30px;
     right: 30px;
     position: absolute;
     background: url(img/premiomerito-button-close.png);
+ */
 
+    /*TESTANDO*/
+    position: absolute;
+    background: url(img/premiomerito-button-close.png) no-repeat 98% 30px;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    display: block;
 }
 
 .page-fotos .foto-full #left,
 .page-fotos .foto-full #right
 {
-    height: 60px;
+    height: 60%;
+    width: 90px;
     display: block;
     top: 45%;
-    padding: 0;
+    padding: 20px;
     vertical-align: middle;
-    background: url(img/premiomerito-button-left.png) right no-repeat;
+    background-image: url(img/premiomerito-button-left.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    display: inline;
+    position: relative;
+    z-index: 20;
+}
+
+.page-fotos .foto-full #left:hover,
+.page-fotos .foto-full #right:hover
+{
+    background-color: rgba(0,0,0,0.7);
 }
 
 
 .page-fotos .foto-full #right
 {
     left: auto;
-    background: url(img/premiomerito-button-right.png) left no-repeat;
+    background-image: url(img/premiomerito-button-right.png);
+    margin-left: 15px;
 }
 
 .page-fotos .foto-full #helper
@@ -2402,6 +2532,10 @@ footer .rodape #realizacao ul #merito-comunicacao
     text-align: center;
 }
 
+.page-fotos .foto-full .wrap-img img
+{
+}
+
 .page-fotos .foto-full img
 {
     max-width: 80%;
@@ -2414,6 +2548,12 @@ footer .rodape #realizacao ul #merito-comunicacao
 
 
 /*-------------------LIVROS-------------------*/
+
+.page-livros
+{
+    background: #343434;
+    border-bottom: 10px solid #00A489;
+}
 
 .page-livros .categorias
 {
@@ -2479,6 +2619,12 @@ footer .rodape #realizacao ul #merito-comunicacao
     color: #ff4c34;
 }
 
+
+.page-livros iframe
+{
+    width: 100%;
+    height: 800px;
+}
 
 
 /*-------------------LIVROS-------------------*/
@@ -2604,17 +2750,17 @@ footer .rodape #realizacao ul #merito-comunicacao
     padding-bottom: 80px;
 }
 
-.page-artigo header
+.page-artigo #header
 {
     position: relative;
 }
 
-.page-artigo header figure
+.page-artigo #header figure
 {
     padding: 0;
 }
 
-.page-artigo header #wrap
+.page-artigo #header #wrap
 {
     background: url(img/gray-50.png);
     position: absolute;
@@ -2622,14 +2768,14 @@ footer .rodape #realizacao ul #merito-comunicacao
     padding: 13px 20px 20px;
 }
 
-.page-artigo header #wrap #data,
-.page-artigo header #wrap #texto
+.page-artigo #header #wrap #data,
+.page-artigo #header #wrap #texto
 {
     float: left;
     display: inline-block;
 }
 
-.page-artigo header #wrap #data
+.page-artigo #header #wrap #data
 {
     background: white;
     color: #ff4c34;
@@ -2639,7 +2785,7 @@ footer .rodape #realizacao ul #merito-comunicacao
     margin-right: 20px;
 }
 
-.page-artigo header #wrap #data span
+.page-artigo #header #wrap #data span
 {
     display: block;
     margin: 0;
@@ -2647,31 +2793,31 @@ footer .rodape #realizacao ul #merito-comunicacao
     line-height: 0.9;
 }
 
-.page-artigo header #wrap #data #linha1
+.page-artigo #header #wrap #data #linha1
 {
     font-family: 'titilliumbold', Arial, sans-serif;
     font-size: 46px;
 }
 
-.page-artigo header #wrap #data #linha2
+.page-artigo #header #wrap #data #linha2
 {
     font-family: 'titilliumregular', Arial, sans-serif;
     font-size: 32px;
 }
 
-.page-artigo header #wrap #data #linha3
+.page-artigo #header #wrap #data #linha3
 {
     font-family: 'titilliumbold', Arial, sans-serif;
     font-size: 24px;
 }
 
-.page-artigo header #wrap #texto
+.page-artigo #header #wrap #texto
 {
     margin-left: -20px;
     padding-left: 30px;
 }
 
-.page-artigo header #wrap #texto h2
+.page-artigo #header #wrap #texto h2
 {
     font-family: 'museo900', Arial, sans-serif;
     font-size: 46px;
@@ -2681,7 +2827,7 @@ footer .rodape #realizacao ul #merito-comunicacao
     margin: 0;
 }
 
-.page-artigo header #wrap #texto #fonte
+.page-artigo #header #wrap #texto #fonte
 {
     font-size: 11px;
     text-transform: uppercase;
@@ -2689,7 +2835,7 @@ footer .rodape #realizacao ul #merito-comunicacao
     font-style: italic;
 }
 
-.page-artigo header #wrap #texto #fonte span
+.page-artigo #header #wrap #texto #fonte span
 {
     text-decoration: underline;;
 }
