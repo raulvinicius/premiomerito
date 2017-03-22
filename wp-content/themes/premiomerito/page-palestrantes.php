@@ -32,8 +32,10 @@
 					</div>
 					<div class="col-md-7 txt">
 						<div class="wrap">
-							<h4 class="merito-title"><?php echo $ano ?></h4>
-							<h3 class="cor-1 merito-title"><?php the_title(); ?></h3>
+							<div class="wrap-tit">
+								<h4 class="merito-title"><?php echo $ano ?></h4>
+								<h3 class="cor-1 merito-title"><?php the_title(); ?></h3>
+							</div>
 							<?php echo $biografia ?>
 						</div>
 					</div>

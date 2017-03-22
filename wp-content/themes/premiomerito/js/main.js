@@ -9,10 +9,15 @@ $(document).ready(function() {
 	});
 	$( window ).trigger('scroll');
 
+	$( window ).load(function(e) 
+	{
+		nivelaAlturaArtigos();
+	});
+	$( window ).trigger('load');
+
 	$( window ).resize(function(e) 
 	{
-		//do something
-		nivelaAltura( $('.page-home #artigos ul li article') );
+		nivelaAlturaArtigos();
 	});
 	$( window ).trigger('resize');
 
@@ -25,6 +30,30 @@ $(document).ready(function() {
 
 
 
+
+
+
+	//-----------------HOME-----------------//
+
+
+	if( $('.page.page-home').length > 0 )
+	{
+		var intNivelaArtigos = setInterval(function()
+		{
+			nivelaAlturaArtigos();
+			console.log('tic')
+		}, 200)
+
+		setTimeout(function()
+		{
+			clearInterval(intNivelaArtigos);
+			intNivelaArtigos = undefined;
+			console.log('tac')
+		}, 10000)
+	}
+
+
+	//-----------------HOME-----------------//
 
 
 
@@ -488,18 +517,30 @@ function fechaLista (e)
 		);
 }
 
-function nivelaAltura (el)
+function nivelaAlturaArtigos ()
 {
 
-	if ($.type(el) === 'object' & el.length > 0)
+	console.log('hein');
+
+	if ($('.page-home #artigos article').length > 0)
 	{
-		var maxH = 0;
-		el.each(function(index, elm) 
-		{
-			maxH = Math.max( maxH, $(elm).outerHeight() )
+		var arH = [];
+
+		$('.page-home #artigos article').each(function(index, el) {
+			arH.push( $(this).find('img').outerHeight() + $(this).find('#wrap').outerHeight() );
 		});
-		el.outerHeight(maxH);
-		maxH = undefined;
+		console.log(arH);
+
+		var maxH = 0;
+		for (var i = 0; i < arH.length; i++) {
+			maxH = Math.max(maxH, arH[i]);
+		};
+		console.log(maxH);
+
+		$('.page-home #artigos article').height(maxH);
+
+		maxH = arH = undefined;
+
 	};
 
 }

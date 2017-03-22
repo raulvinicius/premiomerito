@@ -21,23 +21,23 @@
             </section>
 
             <section class="rodape container-fluid">
-                <div class="row-fluid">
-                    <div class="container">
-                        <div class="row">
+                <div class="">
+                    <div class="">
+                        <div class="row-fluid">
                             <div id="realizacao" class="col-lg-12">
-                                <ul>
+                                <ul class="col-md-1 col-md-offset-1">
                                     <h3>Realização</h3>
                                     <li>
                                         <a id="facidf" href="http://blogdafacidf.blogspot.com.br/" target="_blank">FACIDF</a>
                                     </li>
                                 </ul>
-                                <ul>
+                                <ul class="col-md-1">
                                     <h3>Coordenação</h3>
                                     <li>
                                         <a id="merito-comunicacao" href="http://meritocomunicacao.com" target="_blank">Mérito Comunicação</a>
                                     </li>
                                 </ul>
-                                <ul>
+                                <ul id="apoio" class="col-md-8">
                                     <h3>Apoio Institucional</h3>
                                     <li>
                                         <a id="cacb" href="http://www.cacb.com.br" target="_blank">CACB</a>

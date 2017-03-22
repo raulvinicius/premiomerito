@@ -278,7 +278,7 @@
 				<div class="col-xs-2 col-xs-offset-1">
 
 					<h2>Dicas para <span id="linha-2">você</span> <span id="linha-3">Empreender</span></h2>
-					<p>Confira algumas dicas que escolhemos a dedo pra você empreender cada vez mais.</p>
+					<!-- <p>Confira algumas dicas que escolhemos a dedo pra você empreender cada vez mais.</p> -->
 
 				</div>
 
@@ -317,18 +317,10 @@
 
 										</div>
 
+										<div class="clearfix"></div>
 									</article>
 
 								</li>
-
-								<script type="text/javascript">
-
-								if (typeof nivelaAltura !== 'undefined' && typeof nivelaAltura === 'function')
-								{
-									nivelaAltura( $('.page-home #artigos ul li article') );
-								}
-									
-								</script>
 
 							<?php endwhile;
 

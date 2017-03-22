@@ -231,7 +231,7 @@
 						<div class="clearfix"></div>
 
 						<?php if ($categoria == 'atendimento'): ?>
-							<p class="intro">A criatividade é a ferramenta mais adequada para encontrarmos maneiras de fazer mais com menos, de reduzir custos, de simplificar processos e sistemas, de aumentar lucratividade, de encontrar novos usos para produtos, de encontrar novos segmentos de mercado, de desenvolver novos produtos e muito mais. Nesta categoria são premiadas empresas que se destacaram pelo uso da criatividade como principal ferramenta de sucesso.</p>
+							<p class="intro">Hoje em dia, é indiscutível que a excelência no atendimento ao cliente é um dos maiores diferenciais competitivos do mercado e o fator principal para o crescimento das vendas e a evolução das empresas. Nesta categoria são premiadas as empresas que se destacaram pela excelência no atendimento como o seu diferencial competitivo.</p>
 						<?php elseif ($categoria == 'crescimento'): ?>
 							<p class="intro">Crescer é um dos maiores desafios das empresas. O aumento do faturamento e da lucratividade significa para uma empresa, o que o sangue, o alimento e oxigênio significam para um ser humano. Eles não são o sentido da vida, mas sem eles não há vida e muito menos crescimento. Nesta categoria, são premiadas as empresas que se destacaram pelo crescimento do negócio através de estratégias diversificadas.</p>
 						<?php elseif ($categoria == 'criatividade'): ?>
@@ -258,6 +258,7 @@
 							<div id="<?php echo $post->post_name; ?>" class="wrap">
 								<li class="col-xs-12">
 
+									
 									<a class="ani-04" href="<?php bloginfo('url'); echo "/homenageados/{$ano}/{$post->post_name}"; ?>">
 										<h2><?php the_title() ?></h2>
 

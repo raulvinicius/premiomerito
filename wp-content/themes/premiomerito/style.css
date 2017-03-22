@@ -1328,8 +1328,7 @@ header
     font-family: 'titillium-regular', Arial, sans-serif;
     font-size: 18px;
     color: #343434;
-    height: 90px;
-    margin-bottom: 45px;
+    margin-bottom: 65px;
 }
 
 .page-home #artigos ul article a
@@ -1537,7 +1536,7 @@ footer .rodape #menu-rodape a.current
 
 footer .rodape #realizacao
 {
-    text-align: right;
+    text-align: left;
 }
 
 footer .rodape #realizacao h3
@@ -1553,9 +1552,22 @@ footer .rodape #realizacao ul
     letter-spacing: 0;
 }
 
+footer .rodape #realizacao ul#apoio:after
+{
+        content: '';
+        display: block;
+        position: absolute;
+        background: #555;
+        height: 1px;
+        left: 0;
+        right: 0;
+        top: 50%;
+        margin-top: 17px;
+}
+
 footer .rodape #realizacao ul li
 {
-    margin-left: 30px;
+    margin-right: 20px;
     margin-bottom: 20px;
 }
 
@@ -1570,50 +1582,57 @@ footer .rodape #realizacao ul li a
 footer .rodape #realizacao ul #facidf
 {
     background: url(img/premiomerito-logo-facidf.png) no-repeat center;
-    width: 42px;
-    height: 42px;
+    width: 32px;
+    height: 32px;
 }
 
 footer .rodape #realizacao ul #merito-comunicacao
 {
     background: url(img/premiomerito-logo-merito-comunicacao.png) no-repeat center;
-    width: 94px;
-    height: 32px;
+    width: 71px;
+    height: 24px;
 }
 
 footer .rodape #realizacao ul #brb
 {
     background: url(img/premiomerito-logo-brb.png) no-repeat center;
-    width: 74px;
-    height: 32px;
+    width: 56px;
+    height: 24px;
+}
+
+footer .rodape #realizacao ul #cacb
+{
+    background: url(img/premiomerito-logo-cacb.png) no-repeat center;
+    width: 60px;
+    height: 12px;
 }
 
 footer .rodape #realizacao ul #atlantida
 {
     background: url(img/premiomerito-logo-atlantida-moveis.png) no-repeat center;
-    width: 88px;
-    height: 40px;
+    width: 66px;
+    height: 30px;
 }
 
 footer .rodape #realizacao ul #faciplac
 {
     background: url(img/premiomerito-logo-faciplac.png) no-repeat center;
-    width: 121px;
-    height: 32px;
+    width: 91px;
+    height: 24px;
 }
 
 footer .rodape #realizacao ul #dona
 {
     background: url(img/premiomerito-logo-supermercado-dona-de-casa.png) no-repeat center;
-    width: 63px;
-    height: 45px;
+    width: 47px;
+    height: 34px;
 }
 
 footer .rodape #realizacao ul #saopaulo
 {
     background: url(img/premiomerito-logo-sao-paulo-pizzaria-restaurante.png) no-repeat center;
-    width: 99px;
-    height: 32px;
+    width: 74px;
+    height: 24px;
 }
 
 footer .rodape #realizacao ul #castelo
@@ -1626,8 +1645,8 @@ footer .rodape #realizacao ul #castelo
 footer .rodape #realizacao ul #pedragon
 {
     background: url(img/premiomerito-logo-pedragon.png) no-repeat center;
-    width: 92px;
-    height: 35px;
+    width: 69px;
+    height: 26px;
 }
 
 footer .rodape #realizacao ul #perboni
@@ -1640,15 +1659,15 @@ footer .rodape #realizacao ul #perboni
 footer .rodape #realizacao ul #influencia
 {
     background: url(img/premiomerito-logo-revista-influencia.png) no-repeat center;
-    width: 158px;
-    height: 30px;
+    width: 95px;
+    height: 18px;
 }
 
 footer .rodape #realizacao ul #cidades
 {
     background: url(img/premiomerito-logo-secretaria-das-cidades.png) no-repeat center;
-    width: 158px;
-    height: 32px;
+    width: 119px;
+    height: 24px;
 }
 
 footer .rodape #realizacao ul #economia
@@ -1661,22 +1680,22 @@ footer .rodape #realizacao ul #economia
 footer .rodape #realizacao ul #turismo
 {
     background: url(img/premiomerito-logo-secretaria-de-estado-de-turismo.png) no-repeat center;
-    width: 134px;
-    height: 32px;
+    width: 136px;
+    height: 28px;
 }
 
 footer .rodape #realizacao ul #governo
 {
     background: url(img/premiomerito-logo-governo-de-brasilia.png) no-repeat center;
-    width: 114px;
-    height: 32px;
+    width: 86px;
+    height: 24px;
 }
 
 footer .rodape #realizacao ul #merito-comunicacao
 {
     background: url(img/premiomerito-logo-merito-comunicacao.png) no-repeat center;
-    width: 94px;
-    height: 32px;
+    width: 71px;
+    height: 24px;
 }
 
 
@@ -1689,12 +1708,13 @@ footer .rodape #realizacao ul #merito-comunicacao
 
 .page-palestrantes ul li
 {
-    background: #343434;
     padding: 0;
     margin-bottom: 50px;
     position: relative;
     border-top: 15px solid white;
     border-bottom: 15px solid white;
+    background: url(img/premiomerito-bg-palestrante.jpg) repeat-y;
+    background-position: 97.1% 0%;
 }
 
 .page-palestrantes ul li h4,
@@ -1722,7 +1742,6 @@ footer .rodape #realizacao ul #merito-comunicacao
 
 .page-palestrantes ul li img
 {
-    border-right: 20px solid white;
     width: 100%;
     margin: 0 auto;
     display: block;
@@ -1730,7 +1749,7 @@ footer .rodape #realizacao ul #merito-comunicacao
 
 .page-palestrantes ul li .img
 {
-    padding: 0;
+    padding-left: 0;
 }
 
 /*.page-palestrantes ul li .img:after
@@ -1785,22 +1804,29 @@ footer .rodape #realizacao ul #merito-comunicacao
 
 .page-palestrantes ul li .txt
 {
-    position: absolute;
-    left: 41.66666667%;
-    padding-right: 0;
-    padding-left: 0;
-    margin-left: -30px;
     bottom: 15%;
+    background: #343434;
+    padding-top: 70px;
+    padding-bottom: 80px;
 }
 
 .page-palestrantes ul li .txt .wrap
 {
-    width: 60%;
-    border-left: 20px solid #ff4c34;
+    width: 75%;
     padding-left: 35px;
     padding-top: 10px;
     padding-bottom: 5px;
+    margin-left: -16px;
+}
 
+.page-palestrantes ul li .txt .wrap .wrap-tit
+{
+    border-left: 16px solid #ff4c34;
+    padding-left: 40px;
+    margin-left: -57px;
+    padding-top: 20px;
+    padding-bottom: 5px;
+    margin-bottom: -5px;
 }
 
 /*-------------------PALESTRANTES-------------------*/

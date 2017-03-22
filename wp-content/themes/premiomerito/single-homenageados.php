@@ -222,6 +222,10 @@
 								<div id="<?php echo $post->post_name; ?>" class="wrap">
 									<li class="col-xs-12">
 
+										<?php if ($categoria == 'personalidade'): ?>
+											<img src="<?php echo $foto['sizes']['mini-foto-homenageado'] ?>" nopin="nopin">
+										<?php endif ?>
+
 										<a class="ani-04" href="<?php bloginfo('url'); echo "/homenageados/{$ano}/{$post->post_name}"; ?>">
 											<h2><?php the_title() ?></h2>
 
