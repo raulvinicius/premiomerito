@@ -2493,16 +2493,6 @@ footer .rodape #realizacao ul #merito-comunicacao
 
 .page-fotos .foto-full #close
 {
-/* 
-    width: 33px;
-    height: 33px;
-    top: 30px;
-    right: 30px;
-    position: absolute;
-    background: url(img/premiomerito-button-close.png);
- */
-
-    /*TESTANDO*/
     position: absolute;
     background: url(img/premiomerito-button-close.png) no-repeat 98% 30px;
     top: 0;
@@ -2516,19 +2506,27 @@ footer .rodape #realizacao ul #merito-comunicacao
 .page-fotos .foto-full #left,
 .page-fotos .foto-full #right
 {
+    position: absolute;
+    left: -15px;
+    top: 20%;
     height: 60%;
-    width: 90px;
+    width: 50%;
+    margin: 0;
     display: block;
-    top: 45%;
-    padding: 20px;
-    vertical-align: middle;
     background-image: url(img/premiomerito-button-left.png);
-    background-position: center center;
+    background-position: 10% center;
     background-repeat: no-repeat;
     background-color: transparent;
     display: inline;
-    position: relative;
-    z-index: 20;
+    z-index: 1;
+}
+
+.page-fotos .foto-full #right
+{
+    left: auto;
+    right: -15px;
+    background-image: url(img/premiomerito-button-right.png);
+    background-position: 90% center;
 }
 
 .page-fotos .foto-full #left:hover,
@@ -2537,12 +2535,14 @@ footer .rodape #realizacao ul #merito-comunicacao
     background-color: rgba(0,0,0,0.7);
 }
 
-
-.page-fotos .foto-full #right
+.page-fotos .foto-full #left:hover
 {
-    left: auto;
-    background-image: url(img/premiomerito-button-right.png);
-    margin-left: 15px;
+    background-position: 8% center;
+}
+
+.page-fotos .foto-full #right:hover
+{
+    background-position: 92% center;
 }
 
 .page-fotos .foto-full #helper
@@ -2560,6 +2560,8 @@ footer .rodape #realizacao ul #merito-comunicacao
 
 .page-fotos .foto-full .wrap-img img
 {
+    position: relative;
+    z-index: 2;
 }
 
 .page-fotos .foto-full img
